@@ -1,0 +1,20 @@
+#projects {
+  position: relative;
+  margin-bottom: 4%;
+  left: 18%;
+  right: 30%;
+  line-height: 25px;
+
+  font-weight: 700;
+  color: #e1efe6;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.projects-header {
+  color: #e1c780;
+  font-size: 23px;
+  margin-bottom: 20px;
+  font-style: italic;
+  font-weight: 700;
+  /* animation: slide-up 1s 1s ease-out; */
+}
