@@ -1,23 +1,12 @@
-/* @keyframes slideInLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-} */
-
 #head {
-  /* position: absolute;
-  top: 18vh;
-  left: 17.5vw;
-  right: 17.5vw; */
   display: flex;
   flex-direction: column;
-  padding-left: 17.5%;
-  padding-top: 17.5%;
 
-  font-family: "Courier New", Courier, monospace;
+  padding-top: 17.5%;
+  padding-bottom: 5.4%;
+
+  height: 45.5vh;
+  font-family: Courier, monospace;
 }
 
 .head-title {
@@ -29,15 +18,13 @@
   letter-spacing: 0%;
 }
 
-.head-p1,
-.head-p2,
-.head-p3 {
+.head-part,
+.head-title-name {
   animation: slide-left 2s ease-out;
 }
 
 .head-title-name {
   color: #1b71a9;
-  animation: slide-left 3s ease-out;
 }
 
 .head-desc {
@@ -46,10 +33,32 @@
   color: #a0a0a0;
 }
 
+.head-icons {
+  text-align: center;
+  margin-top: 12vh;
+  /* margin-bottom: 7vh; */
+}
+
+.head-icons a {
+  margin: 30px;
+}
+
+.github:hover {
+  fill: #1b71a9;
+}
+
+.email:hover {
+  fill: #1b71a9;
+}
+
+.linkedin:hover {
+  fill: #1b71a9;
+}
+
 @keyframes slide-left {
   from {
     margin-left: 5%;
-    opacity: 20%;
+    opacity: 40%;
   }
 
   to {
@@ -60,6 +69,6 @@
 
 @media only screen and (max-width: 720px) {
   .head-title {
-    font-size: 2em;
+    font-size: 45px;
   }
 }

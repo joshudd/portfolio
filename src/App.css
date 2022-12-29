@@ -7,4 +7,7 @@
 #content {
   overflow-x: hidden;
   overflow-y: hidden;
+
+  padding-left: 17.2%;
+  padding-right: 17.2%;
 }

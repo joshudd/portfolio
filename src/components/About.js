@@ -20,15 +20,16 @@ class About extends Component {
           {" degree in "}
           <span className="about-content-secondary">Computer Science</span>
           {
-            ", and I am eager to take on opportunities where I can learn, grow, and make a meaningful contribution. Some of my work has been with the following technologies:"
+            ". My interests include human-computer interaction, recommender systems, and computer vision, and I am eager to take on opportunities where I can learn, grow, and make a meaningful contribution."
           }
+          <br></br>
+          <br></br>
+          {"Some of my experience is with,"}
           <p className="about-content-list">
-            React.js, GraphQL, JUCE, Java, Python, Django, HTML + CSS
+            React.js GraphQL JUCE P5.js Java Python Django JavaScript
           </p>
-          {
-            "My interests include human-computer interaction, artificial intelligence, and computer vision.\n"
-          }
-          {" Outside of code, I love to both listen to and create music. "}
+          {"I also love listening to and creating music."}
+          <br></br>
           {"Especially jazz."}
         </div>
       </div>
