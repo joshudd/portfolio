@@ -11,20 +11,21 @@ const app = new Elysia()
     html(
       <BaseHtml>
         <body
-          class="bg-gray-300"
-          hx-get="/todos"
-          hx-swap="innerHTML"
-          hx-trigger="load"
-        />
-        <Header />
-        <About />
+          class="bg-black"
+          // hx-get="/todos"
+          // hx-swap="innerHTML"
+          // hx-trigger="load"
+        >
+          <Header />
+        </body>
       </BaseHtml>
     )
   )
+  .get("/styles.css", () => Bun.file("./tailwind-gen/styles.css"))
   .listen(3000);
 
 console.log(
-`🦊 Elysia is running at ${app.server.hostname}:${app.server.port}`
+`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
 )
 
 const BaseHtml = ({ children }: elements.Children) => `
@@ -36,8 +37,8 @@ const BaseHtml = ({ children }: elements.Children) => `
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Joshua Dickinson</title>
     <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="src/styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/hyperscript.org@0.9.9"></script>
+    <link href="/styles.css" rel="stylesheet">
   </head>
       
   ${children}

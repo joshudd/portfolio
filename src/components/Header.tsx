@@ -1,14 +1,17 @@
-import { html } from "@elysiajs/html";
 import * as elements from "typed-html";
 
 function Header() {
     return (
-      <div>
-        <h1 class="text-5xl">
-            <span class="text-black">Hello, I'm</span>
-            <span class="text-blue-500">Josh</span>
-        </h1>
-        <p class="pt-5 text-2xl text-gray-500">based in the Twin Cities</p>
+      <div class="text-2xl bg-lighterblack text-white">
+        <div class="">
+          <text class="m-14 mt-14 align-middle">
+          🦆 Home
+          </text>
+          {/* <ul class="mb-2">
+            <li>About</li>
+            <li>Projects</li>
+          </ul> */}
+        </div>
       </div>
     );
   }
