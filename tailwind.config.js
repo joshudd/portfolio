@@ -12,9 +12,10 @@ module.exports = {
       colors: {
         black: "#0B0B0B",
         lighterblack: "#101010",
-        grey: "#D0D0D0",
+        grey: "#A3A3A3",
         white: "#DDDDDD",
-        primary: "#648CB1",
+        // primary: "#648CB1",
+        primary: "#49A8FF",
       },
     },
   },

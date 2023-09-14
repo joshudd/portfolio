@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import { html } from "@elysiajs/html";
+import { staticPlugin } from '@elysiajs/static'
 import * as elements from "typed-html";
 import Header from "./components/Header";
 import About from "./pages/About";
@@ -7,16 +8,17 @@ import Home from "./pages/Home";
 
 const app = new Elysia()
   .use(html())
+  .use(
+    staticPlugin()
+  )
   .get("/", ({ html }) => 
     html(
       <BaseHtml>
         <body
           class="bg-black"
-          // hx-get="/todos"
-          // hx-swap="innerHTML"
-          // hx-trigger="load"
         >
           <Header />
+          <Home />
         </body>
       </BaseHtml>
     )
