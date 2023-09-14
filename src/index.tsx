@@ -19,6 +19,7 @@ const app = new Elysia()
         >
           <Header />
           <Home />
+          <About />
         </body>
       </BaseHtml>
     )
