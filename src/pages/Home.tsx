@@ -1,10 +1,10 @@
 import * as elements from "typed-html";
-import { Socials } from "../config";
+import { SOCIALS } from "../config";
 
 const Home = () => {
     return (
         <div class="">
-            <div class="flex justify-center mt-64 flex font-bold">
+            <div class="flex justify-center mt-64 font-bold">
                 <h1 class="text-6xl">
                     <span class="text-white">Hello, I'm</span>
                     <span class="text-primary">Josh</span>
@@ -14,7 +14,7 @@ const Home = () => {
 
             <ul class="mt-16 flex justify-center text-white">
                 {
-                    Socials.map((social) => (
+                    SOCIALS.map((social) => (
                         <li class="mr-4 ">
                         <a class="h-10 w-10" target="_blank" href={social.link} title={social.name}>
                             <img
