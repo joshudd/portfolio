@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"SFPro"', "sans-serif"],
+        // sans: ['"SFPro"', "sans-serif"],
+        sans: ['"AndaleMono"', "sans-serif"],
       },
       colors: {
         black: "#0B0B0B",
@@ -15,7 +16,8 @@ module.exports = {
         grey: "#A3A3A3",
         white: "#DDDDDD",
         // primary: "#8D5A97",
-        primary: "#49A8FF",
+        primary: "#A273AB",
+        // primary: "#49A8FF",
       },
     },
   },

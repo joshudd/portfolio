@@ -58,12 +58,6 @@ export const SKILLS = [
 }[];
 export const PROJECTS = [
   {
-    name: "Gibberisher",
-    link: "https://github.com/joshudd/gibberisher",
-    tech: "Java",
-    desc: "A trie-based model that generates pronounceable gibberish.",
-  },
-  {
     name: "Hall Plotter",
     link: "https://github.com/doggu/gophergrades",
     tech: "JavaScript",
@@ -74,6 +68,12 @@ export const PROJECTS = [
     link: "https://github.com/joshudd/date-engine",
     tech: "React.js, GraphQL",
     desc: "A Monday.com app that adds functionality to date columns.",
+  },
+  {
+    name: "Gibberisher",
+    link: "https://github.com/joshudd/gibberisher",
+    tech: "Java",
+    desc: "A trie-based model that generates pronounceable gibberish.",
   },
   {
     name: "SodiumTrack",

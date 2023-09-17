@@ -4,8 +4,9 @@ import { SKILLS } from "../config";
 
 const About = () => {
     return (
-        <div class="mt-64 mb-16 text-3xl bg-lighterblack text-grey">
-            <h2 class="mx-28 mt-16 flex">
+        <div id="about" class="mt-64 text-3xl bg-lighterblack text-grey">
+            <a name="about" class="invisible block relative -top-64">about anchor</a>
+            <h2 class="mx-28 flex">
                 <span class="my-16 text-4xl font-normal text-white">{'>'} about</span>
             </h2>
 
@@ -14,7 +15,7 @@ const About = () => {
                     <span class="">I'm an undergraduate student at the </span>
                     <span class="font-bold text-primary">University of Minnesota</span>
                     <span class="">pursuing a Bachelor of Science degree in</span>
-                    <span class="font-bold text-primary">Computer Science</span><span>.</span>
+                    <span class="font-bold text-primary">Computer Science.</span>
                 </p>
                 <br />
                 <p class="">
