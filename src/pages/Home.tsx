@@ -3,7 +3,7 @@ import { SOCIALS } from "../config";
 
 const Home = () => {
     return (
-        <div id="" class="">
+        <div>
             <a name="home" class="invisible block relative -top-64">home anchor</a>
             <div class="flex justify-center mt-80 font-bold">
                 <h1 class="text-6xl">
