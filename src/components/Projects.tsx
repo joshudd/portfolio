@@ -34,14 +34,14 @@ const projectsData = [
 
 const Projects = () => {
     return (
-        <div className="mt-20 mb-16 text-grey">
+        <div className="pb-16 text-grey">
             <a id="projects" className="invisible block relative -top-32">projects anchor</a>
-            <h2 className="text-3xl mx-28 flex">
-                <span className="text-4xl font-normal text-white">{'>'} projects</span>
+            <h2 className="pt-8 md:pt-16 px-10 md:px-28 flex text-xl md:text-4xl">
+                <span className="text-white">{'>'} projects</span>
             </h2>
 
-            <div className="mx-36 flex justify-between">
-                <ul className="mt-8 mb-12 flex flex-wrap content-start">
+            <div className="py-4 px-8 md:px-36 flex justify-between">
+                <ul className="flex flex-wrap">
                     {
                         projectsData.map((project) => (
                             <ProjectCard key={project.name} {...project} />

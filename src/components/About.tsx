@@ -58,13 +58,13 @@ const skillsData = [
 
 const About = () => {
     return (
-        <div className="mt-64 text-3xl bg-lighterblack text-grey">
+        <div className="text-md md:text-2xl bg-lighterblack text-grey">
             <a id="about" className="invisible block relative -top-16">about anchor</a>
-            <h2 className="mx-28 flex">
-                <span className="my-16 text-4xl font-normal text-white">{'>'} about</span>
+            <h2 className="py-8 md:py-16 px-10 md:px-28 flex text-xl md:text-4xl">
+                <span className="text-white">{'>'} about</span>
             </h2>
 
-            <div className="mx-36 text-2xl bg-lighterblack text-grey">
+            <div className="px-16 md:px-36 text-grey">
                 <p className="">
                     <span className="">I&apos;m an undergraduate student at the </span>
                     <span className="font-bold text-primary">University of Minnesota </span>
@@ -76,7 +76,7 @@ const About = () => {
                     Some of my interests:
                 </p>
                 <br />
-                <ul className="mx-10 list-disc text-white">
+                <ul className="px-10 list-disc text-white">
                     <li>recommender systems</li>
                     <li>human-computer interaction and user experience</li>
                     <li>full-stack development</li>
@@ -86,16 +86,16 @@ const About = () => {
                     I am eager to take on opportunities where I can learn, grow, and make a meaningful contribution. 
                 </p>
                 <br /><br />
-                <p className="ml-12">
+                <p className="pl-4 md:pl-12">
                     Technologies I’ve worked with include
                 </p>
                 <br />
             </div>
-            <div className="mx-28 flex justify-center">
-                <ul className="mt-8 mb-12 text-3xl font-bold text-primary flex flex-wrap justify-center">
+            <div className="pt-4 md:pt-8 pb-12 px-4 md:px-28 flex justify-center">
+                <ul className="text-lg md:text-3xl font-bold text-primary flex flex-wrap justify-center">
                     {
                         skillsData.map((skill) => (
-                            <li key={skill.id} className="hover:text-white m-6">
+                            <li key={skill.id} className="hover:text-white p-4 md:p-6">
                                 {skill.name}
                             </li>
                         ))
