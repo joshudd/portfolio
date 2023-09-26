@@ -2,6 +2,12 @@ import ProjectCard from "./ProjectCard";
 
 const projectsData = [
     {
+    name: "TransitPal - HACKUIOWA '23",
+    link: "https://github.com/joshudd/transitpal",
+    tech: "Next.js, TypeScript, Firebase, Recharts, TailwindCSS",
+    desc: "Motivating use of public transportation by displaying a user's personal enivrionmental impact and cost savings.",
+    },
+    {
     name: "Hall Plotter",
     link: "https://github.com/doggu/gophergrades",
     tech: "JavaScript",
