@@ -3,7 +3,7 @@ type project = { name : string, link : string, tech : string, desc : string };
 
 function ProjectCard({ name, link, tech, desc  }: project) {
     return (
-      <div className="m-10 flex flex-1 md:min-w-min max-w-lg rounded-xl hover:outline-dashed align-middle bg-lighterblack text-grey text-sm md:text-xl">
+      <div className="m-8 flex flex-1 md:min-w-min max-w-lg rounded-xl hover:outline-dashed align-middle bg-lighterblack text-grey text-sm md:text-xl">
         <a target="_blank" href={link}>
         <div className="p-10">
             <div className="mb-8 flex justify-between">

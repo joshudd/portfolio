@@ -40,7 +40,7 @@ const Projects = () => {
                 <span className="text-white">{'>'} projects</span>
             </h2>
 
-            <div className="py-4 px-8 md:px-36 flex justify-between">
+            <div className="py-4 sm:px-8 md:px-36 flex justify-between">
                 <ul className="flex flex-wrap">
                     {
                         projectsData.map((project) => (
