@@ -8,20 +8,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        // sans: ['"SFPro"', "sans-serif"],
-        sans: ['"AndaleMono"', "sans-serif"],
+      backgroundColor: {
+        'background-color': 'var(--background-color)',
+        'background-transparent-color': 'var(--background-transparent-color)',
       },
-      colors: {
-        black: "#0B0B0B",
-        lighterblack: "#101010",
-        grey: "#A3A3A3",
-        darkgrey: "#5C5C5C",
-        white: "#DDDDDD",
-        // primary: "#8D5A97",
-        primary: "#A273AB",
-        // primary: "#49A8FF",
+      textColor: {
+        'text-color': 'var(--text-color)',
+        'text-hover-color': 'var(--text-hover-color)',
       },
+      height: {
+        '200': '200vh',
+      }
     },
   },
   plugins: [],

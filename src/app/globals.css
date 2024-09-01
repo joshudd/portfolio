@@ -1,13 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Color Reference Table */
 :root {
   --background-color: #FCF1E3;
+  --background-transparent-color: #FCF1E36C;
   --text-color: #C67979;
-  --text-hover-color: #D4BEAA;
+  --text-hover-color: #aabed4;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 body {
   background-color: var(--background-color);
   font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
   color: var(--text-color);
 }
