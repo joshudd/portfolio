@@ -101,7 +101,7 @@ const HomeView = () => {
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
             {/* header */}
-            <div className="mb-6 absolute top-[15vh] left-[10vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm">
+            <div className="mb-6 absolute top-[15vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-normal">
                     projects
                 </h1>
@@ -118,7 +118,7 @@ const HomeView = () => {
             {/* back button */}
             <div className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <button className="flex items-center hover:text-text-projects-hover-color" onClick={() => setCurrentView("HOME")}>
-                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal underline">
+                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal underline">
                         back
                     </h2>
                 </button>

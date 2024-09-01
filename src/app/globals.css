@@ -19,3 +19,18 @@ body {
 .ear-cursor {
   cursor: url('../../public/ear.png'), auto;
 }
+
+@keyframes pulse {
+  0%, 70%, 100% {
+      opacity: calc(var(--base-opacity, 1) * 0.3);
+  }
+  85% {
+      opacity: var(--base-opacity, 0.5);
+      color: var(--text-hover-color);
+  }
+}
+
+.pulsing-icon {
+  --base-opacity: 1;
+  animation-timing-function: ease-in-out;
+}

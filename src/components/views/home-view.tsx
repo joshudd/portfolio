@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useView } from "@/contexts/view-context";
 
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
 import waveformsSVG from '/public/waveforms.svg';
 import Image from "next/image";
+import AnimatedBackground from "@/components/speaker-animation";
 
 const HomeView = () => {
     const { setCurrentView } = useView();
+    const speakerRef = useRef<HTMLDivElement>(null);
+    const [parentPosition, setParentPosition] = useState({ x: 0, y: 0 });
+  
+    useEffect(() => {
+      if (speakerRef.current) {
+        const rect = speakerRef.current.getBoundingClientRect();
+        setParentPosition({ x: rect.left, y: rect.top });
+      }
+    }, []);
 
     const links = [
         {
@@ -70,7 +80,7 @@ const HomeView = () => {
 
             {/* links */}
             <div className="mt-6 mr-[500px] md:mr-0 absolute top-[22vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <div className="flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8 text-[12px] sm:text-[14px] md:text-[16px]">
+                <div className="flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px]">
                     {links.map((link) => (
                         <a 
                             href={link.url} 
@@ -88,7 +98,7 @@ const HomeView = () => {
             {/* design */}
             <div className={`absolute top-[55vh] left-[16vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("DESIGN")}>
-                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal">
+                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         design
                     </h2>
                     {cropIcon()}
@@ -96,12 +106,17 @@ const HomeView = () => {
             </div>
 
             {/* projects */}
-            <div className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+            <div 
+                className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
+            >
                 <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("PROJECTS")}>
-                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal">
+                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         projects
                     </h2>
-                    <div className="relative"> 
+                    <div 
+                        ref={speakerRef}
+                        className="relative"
+                    > 
                         {speakerIcon()}
                     </div>
                 </button>
@@ -110,7 +125,7 @@ const HomeView = () => {
             {/* experience */}
             <div className={`absolute top-[65vh] left-[60vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("EXPERIENCE")}>
-                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal">
+                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         experience
                     </h2>
                     {documentIcon()}
@@ -120,7 +135,7 @@ const HomeView = () => {
             {/* about */}
             <div className={`absolute top-[43vh] left-[70vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("ABOUT")}>
-                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal">
+                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         about
                     </h2>
                     {chatIcon()}
@@ -135,7 +150,8 @@ const HomeView = () => {
             </div>
 
             {/* waveforms */}
-            {waveformsImage()}
+            {/* {waveformsImage()} */}
+            <AnimatedBackground parentPosition={parentPosition} />
         </div>
     );
 }
