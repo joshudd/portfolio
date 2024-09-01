@@ -54,7 +54,7 @@ const HomeView = () => {
             {/* header */}
             <div className="mb-6 absolute top-[15vh] left-[10vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-normal">
-                    hey there, i'm josh!
+                    hey there, i&apos;m josh!
                 </h1>
             </div>
 
