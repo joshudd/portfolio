@@ -2,8 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import { useView } from "@/contexts/view-context";
 
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
-import waveformsSVG from '/public/waveforms.svg';
-import Image from "next/image";
 import AnimatedBackground from "@/components/speaker-animation";
 
 const HomeView = () => {
@@ -36,38 +34,6 @@ const HomeView = () => {
             url: "mailto:josh25dickinson@gmail.com",
         },
     ];
-
-    const waveformsImage = () => {
-        return (
-            <div 
-                className={`
-                    absolute top-0 right-0
-                    bottom-[22vh] left-[12vw] 
-                    sm:bottom-[22vh] sm:left-[19vw] 
-                    md:bottom-[22vh] md:left-[23vw] 
-                    lg:bottom-[22vh] lg:left-[24vw] 
-                    overflow-hidden z-[100]
-
-                    opacity-30
-                    sm:opacity-70
-                    md:opacity-100
-
-                    transition-opacity duration-300
-                `}
-            >
-            <Image 
-                src={waveformsSVG} 
-                alt="Waveforms" 
-                fill
-                style={{
-                    objectFit: 'none',
-                    objectPosition: 'bottom left',
-                }}
-                className="z-[100] ear-cursor"
-            />
-            </div>
-        );
-    }
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-color">
