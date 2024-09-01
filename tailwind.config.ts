@@ -17,6 +17,8 @@ const config: Config = {
         'text-hover-color': 'var(--text-hover-color)',
         'text-projects-color': 'var(--text-projects-color)',
         'text-projects-hover-color': 'var(--text-projects-hover-color)',
+        'text-about-color': 'var(--text-about-color)',
+        'text-about-hover-color': 'var(--text-about-hover-color)',
       },
       height: {
         '200': '200vh',

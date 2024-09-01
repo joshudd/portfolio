@@ -3,7 +3,7 @@ import { useView } from "@/contexts/view-context";
 
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
 import AnimatedBackground from "@/components/speaker-animation";
-
+import RandomLightning from "@/components/lightning-animation";
 const HomeView = () => {
     const { setCurrentView } = useView();
     const speakerRef = useRef<HTMLDivElement>(null);
@@ -99,7 +99,7 @@ const HomeView = () => {
             </div>
 
             {/* about */}
-            <div className={`absolute top-[43vh] left-[70vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+            <div className={`absolute top-[38vh] left-[70vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("ABOUT")}>
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         about
@@ -118,6 +118,15 @@ const HomeView = () => {
             {/* waveforms */}
             {/* {waveformsImage()} */}
             <AnimatedBackground parentPosition={parentPosition} />
+            {/* <RandomLightning
+                sourceX={parentPosition.x}
+                sourceY={parentPosition.y}  
+                width={window.innerWidth}
+                height={window.innerHeight}
+                duration={3000}
+                segments={5}
+                bolts={3}
+            /> */}
         </div>
     );
 }

@@ -2,11 +2,13 @@
 
 import HomeView from '@/components/views/home-view'
 import ProjectsView from '@/components/views/projects-view'
+import AboutView from '@/components/views/about-view'
 import { useView } from '@/contexts/view-context'
 
 const views = {
 	"HOME": HomeView,
 	"PROJECTS": ProjectsView,
+  "ABOUT": AboutView,
 };
   
 export default function Home() {

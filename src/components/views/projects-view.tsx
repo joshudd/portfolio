@@ -40,8 +40,8 @@ const ProjectItem = ({ project, linkarrowIcon }: { project: Project, linkarrowIc
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             initial={{ y: 0 }}
-            animate={{ y: isHovered ? (animateUp ? -3 : 3) : 0 }}
-            transition={{ duration: 2 }}
+            animate={{ y: isHovered ? (animateUp ? -2 : 2) : 0 }}
+            transition={{ duration: 0.2 }}
         >
             <div className="flex sm:min-w-[140px] md:min-w-[170px]">
                 <span className="whitespace-nowrap overflow-hidden text-ellipsis">{project.name}</span>
@@ -56,7 +56,7 @@ const ProjectItem = ({ project, linkarrowIcon }: { project: Project, linkarrowIc
     );
 };
 
-const HomeView = () => {
+const ProjectsView = () => {
     const { setCurrentView } = useView();
 
     const projects = [
@@ -134,4 +134,4 @@ const HomeView = () => {
     );
 }
 
-export default HomeView;
+export default ProjectsView;

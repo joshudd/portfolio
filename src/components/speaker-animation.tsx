@@ -9,7 +9,7 @@ interface AnimatedBackgroundProps {
 const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ parentPosition }) => {
     const [isClient, setIsClient] = useState(false);
     const [resetKey, setResetKey] = useState(0);
-    const iconCount = 50;
+    const iconCount = 80;
 
     const debouncedPosition = useDebounce(parentPosition, 100);
 
@@ -23,7 +23,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ parentPosition 
     }, [debouncedPosition]);
 
     const getRandomIcon = () => {
-        const icons = [lightningIcon, wave1Icon];
+        const icons = [lightningIcon, wave1Icon, wave2Icon];
         const randomIndex = Math.floor(Math.random() * icons.length);
         return icons[randomIndex];
     };
@@ -42,19 +42,19 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ parentPosition 
         const getCustomDistance = () => {
             const r = Math.random();
 
-            if (r < 0.6) {
-                return (0.05 + Math.random() * 0.1) * maxDistance;
+            if (r < 0.3) {
+                return (0.00 + Math.random() * 0.1) * maxDistance;
             } else if (r < 0.8) {
-                return (0.5 + Math.random() * 0.000001) * maxDistance;
+                return (0.2 + Math.random() * 0.000001) * maxDistance;
             } else {
                 return (0.7 + Math.random() * 0.3) * maxDistance;
             }
         };
 
         // 30% chance to cluster near an existing icon
-        if (existingPositions.length > 0 && Math.random() < 0.3) {
+        if (existingPositions.length > 0 && Math.random() < 0.5) {
             const basePosition = existingPositions[Math.floor(Math.random() * existingPositions.length)];
-            const clusterRadius = maxDistance * 0.1; // 10% of maxDistance
+            const clusterRadius = maxDistance * 0.3; // 10% of maxDistance
             const angle = Math.random() * 2 * Math.PI;
             const distance = Math.random() * clusterRadius;
             
@@ -64,10 +64,10 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ parentPosition 
             };
         }
 
-        const distance = ((Math.pow(Math.random(), 1.2) * maxDistance)*0.2 + getCustomDistance()*0.8) + 20;   
+        const distance = getCustomDistance() *3
 
-        const x = Math.cos(angle) * distance + distance * Math.random() - 20;
-        const y = Math.sin(angle) * distance + distance * Math.random() - 20;
+        const x = Math.cos(angle) * distance + distance * Math.random() + 30;
+        const y = Math.sin(angle) * distance + distance * Math.random() + 30;
         
         // Adjust y to create a triangular pattern
         const triangleHeight = 3000;
