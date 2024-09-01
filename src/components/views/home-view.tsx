@@ -1,9 +1,13 @@
 import React from "react";
-import Image from 'next/image';
+import { useView } from "@/contexts/view-context";
+
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
-import waveforms from '/public/waveforms.svg';
+import waveformsSVG from '/public/waveforms.svg';
+import Image from "next/image";
 
 const HomeView = () => {
+    const { setCurrentView } = useView();
+
     const links = [
         {
             name: "linkedin",
@@ -28,39 +32,45 @@ const HomeView = () => {
             <div 
                 className={`
                     absolute top-0 right-0
-                    bottom-[24vh] left-[22vw] 
-                    sm:bottom-[24vh] sm:left-[25vw] 
-                    md:bottom-[23vh] md:left-[29vw] 
-                    lg:bottom-[22vh] lg:left-[29vw] 
-                    overflow-hidden z-[-10]
+                    bottom-[22vh] left-[12vw] 
+                    sm:bottom-[22vh] sm:left-[19vw] 
+                    md:bottom-[22vh] md:left-[23vw] 
+                    lg:bottom-[22vh] lg:left-[24vw] 
+                    overflow-hidden z-[100]
+
+                    opacity-30
+                    sm:opacity-70
+                    md:opacity-100
+
+                    transition-opacity duration-300
                 `}
-                style={{ opacity: 1 }}
             >
-                <Image 
-                    src={waveforms} 
-                    alt="Waveforms" 
-                    fill
-                    style={{
-                        objectFit: 'none',
-                        objectPosition: 'bottom left',
-                    }}
-                />
+            <Image 
+                src={waveformsSVG} 
+                alt="Waveforms" 
+                fill
+                style={{
+                    objectFit: 'none',
+                    objectPosition: 'bottom left',
+                }}
+                className="z-[100] ear-cursor"
+            />
             </div>
         );
     }
 
     return (
-        <div className="w-full h-screen flex flex-col justify-center items-center">
+        <div className="w-full h-screen flex flex-col justify-center items-center text-text-color">
             {/* header */}
-            <div className="mb-6 absolute top-[15vh] left-[10vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-normal">
+            <div className="mb-6 absolute top-[15vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-normal">
                     hey there, i&apos;m josh!
                 </h1>
             </div>
 
             {/* links */}
-            <div className="mt-6 mr-[500px] md:mr-0 absolute top-[22vh] left-[10vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm">
-                <div className="flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8 text-sm sm:text-base md:text-lg lg:text-xl">
+            <div className="mt-6 mr-[500px] md:mr-0 absolute top-[22vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
+                <div className="flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8 text-[12px] sm:text-[14px] md:text-[16px]">
                     {links.map((link) => (
                         <a 
                             href={link.url} 
@@ -76,48 +86,50 @@ const HomeView = () => {
             </div>
 
             {/* design */}
-            <div className={`absolute top-[55vh] left-[16vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm`}>
-                <a href="#design" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-normal">
+            <div className={`absolute top-[55vh] left-[16vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("DESIGN")}>
+                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal">
                         design
                     </h2>
                     {cropIcon()}
-                </a>
+                </button>
             </div>
 
             {/* projects */}
-            <div className={`absolute top-[76vh] left-[28vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm`}>
-                <a href="#projects" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-normal">
+            <div className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("PROJECTS")}>
+                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal">
                         projects
                     </h2>
-                    {speakerIcon()}
-                </a>
+                    <div className="relative"> 
+                        {speakerIcon()}
+                    </div>
+                </button>
             </div>
 
             {/* experience */}
-            <div className={`absolute top-[65vh] left-[60vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm`}>
-                <a href="#experience" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-normal">
+            <div className={`absolute top-[65vh] left-[60vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("EXPERIENCE")}>
+                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal">
                         experience
                     </h2>
                     {documentIcon()}
-                </a>
+                </button>
             </div>
 
             {/* about */}
-            <div className={`absolute top-[43vh] left-[70vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm`}>
-                <a href="#about" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-normal">
+            <div className={`absolute top-[43vh] left-[70vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("ABOUT")}>
+                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] font-normal">
                         about
                     </h2>
                     {chatIcon()}
-                </a>
+                </button>
             </div>
 
             {/* note */}
-            <div className="absolute bottom-[0vh] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm">
-                <h2 className="text-[12px]">
+            <div className="absolute bottom-[0vh] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
+                <h2 className="text-[10px]">
                     designed and built by me
                 </h2>
             </div>

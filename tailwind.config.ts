@@ -15,13 +15,12 @@ const config: Config = {
       textColor: {
         'text-color': 'var(--text-color)',
         'text-hover-color': 'var(--text-hover-color)',
+        'text-projects-color': 'var(--text-projects-color)',
+        'text-projects-hover-color': 'var(--text-projects-hover-color)',
       },
       height: {
         '200': '200vh',
       },
-      // fontFamily: {
-      //   mono: ['var(--font-robotomono)'],
-      // },
     },
   },
   plugins: [],

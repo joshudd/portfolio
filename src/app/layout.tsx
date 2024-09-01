@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Noto_Sans_JP } from 'next/font/google'
+import { Noto_Sans_JP, Playfair_Display } from 'next/font/google'
+import { ViewProvider } from '@/contexts/view-context'
 
 const noto_sans_jp = Noto_Sans_JP({
   subsets: ['latin'],
@@ -8,9 +9,15 @@ const noto_sans_jp = Noto_Sans_JP({
   display: 'swap',
 })
 
+const playfair_display = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'Joshua Dickinson',
-  description: 'Portfolio of Joshua Dickinson',
+  description: 'Portfolio',
 }
 
 export default function RootLayout({
@@ -19,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={noto_sans_jp.className}>
+    <html lang="en" className={`${playfair_display.className}`}>
       <body>
-        {children}
+        <ViewProvider>{children}</ViewProvider>
       </body>
     </html>
   )

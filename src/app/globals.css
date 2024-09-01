@@ -4,13 +4,18 @@
 
 /* Color Reference Table */
 :root {
-  --background-color: #FCF1E3;
-  --background-transparent-color: #FCF1E36C;
+  --background-color: #EDEAE7;
+  --background-transparent-color: #EDEAE76C;
   --text-color: #C67979;
-  --text-hover-color: #aabed4;
+  --text-hover-color: #CC4E4E;
+  --text-projects-color: #5172A2;
+  --text-projects-hover-color: #7393BF;
 }
 
 body {
   background-color: var(--background-color);
-  color: var(--text-color);
+}
+
+.ear-cursor {
+  cursor: url('../../public/ear.png'), auto;
 }
