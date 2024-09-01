@@ -18,7 +18,10 @@ const config: Config = {
       },
       height: {
         '200': '200vh',
-      }
+      },
+      // fontFamily: {
+      //   mono: ['var(--font-robotomono)'],
+      // },
     },
   },
   plugins: [],

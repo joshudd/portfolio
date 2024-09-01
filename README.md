@@ -5,4 +5,6 @@
 \
 written with Next.js
 
-do &nbsp; &nbsp; `npm run dev`
+do &nbsp; &nbsp; `npm install`
+
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; `npm run dev`
