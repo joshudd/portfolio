@@ -59,6 +59,12 @@ const ProjectItem = ({ project, linkarrowIcon }: { project: Project, linkarrowIc
 const ProjectsView = () => {
     const { setCurrentView } = useView();
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const pagination = (pageNumber: number) => {
+        setCurrentPage(pageNumber);
+    };
+    const projectsPerPage = 5;
+
     const projects = [
         {
             name: "honey",
@@ -98,6 +104,11 @@ const ProjectsView = () => {
         },
     ];
 
+    const indexOfLastProject = currentPage * projectsPerPage;
+    const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+    const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
+    const totalPages = Math.ceil(projects.length / projectsPerPage);
+
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
             {/* header */}
@@ -109,8 +120,19 @@ const ProjectsView = () => {
 
             <div className="mt-6 mr-[500px] md:mr-0 absolute top-[22vh] left-[20vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
                 <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px]">
-                    {projects.map((project) => ( 
+                    {currentProjects.map((project) => ( 
                         <ProjectItem key={project.name} project={project} linkarrowIcon={linkarrowIcon} /> 
+                    ))}
+                </div>
+                <div className="flex justify-center mt-4">
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button 
+                            key={index} 
+                            onClick={() => pagination(index + 1)} 
+                            className={`mx-1 px-2 py-1 rounded ${currentPage === index + 1 ? 'bg-text-projects-color text-background-transparent-color' : 'bg-background-transparent-color text-text-projects-color'}`}
+                        >
+                            {index + 1}
+                        </button>
                     ))}
                 </div>
             </div>

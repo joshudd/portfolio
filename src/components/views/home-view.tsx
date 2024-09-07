@@ -2,8 +2,10 @@ import React, { useRef, useState, useEffect } from "react";
 import { useView } from "@/contexts/view-context";
 
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
-import AnimatedBackground from "@/components/speaker-animation";
-import RandomLightning from "@/components/lightning-animation";
+import AnimatedBackground from "@/components/animation/speaker-animation";
+// import RandomLightning from "@/components/animationlightning-animation";
+import Ripples from "@/components/animation/ripples-animation";
+
 const HomeView = () => {
     const { setCurrentView } = useView();
     const speakerRef = useRef<HTMLDivElement>(null);
@@ -117,7 +119,8 @@ const HomeView = () => {
 
             {/* waveforms */}
             {/* {waveformsImage()} */}
-            <AnimatedBackground parentPosition={parentPosition} />
+            {/* <AnimatedBackground parentPosition={parentPosition} /> */}
+            <Ripples />
             {/* <RandomLightning
                 sourceX={parentPosition.x}
                 sourceY={parentPosition.y}  
