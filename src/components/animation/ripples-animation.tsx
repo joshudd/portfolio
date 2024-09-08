@@ -35,6 +35,8 @@ const sketch: Sketch = (p) => {
     p.rez = 0.002;
     p.radi = 4 / p.rez;
     p.dim = 5;
+
+    p.try = 0;
   }
 
   p.draw = () => {
@@ -81,8 +83,6 @@ const sketch: Sketch = (p) => {
 
     // increment time
     p.t += p.tInt;
-
-    console.log(p.t)
   }
 
   p.windowResized = () => {

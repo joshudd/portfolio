@@ -1,5 +1,6 @@
+"use client"
+
 import React, { useState, useRef } from "react";
-import { useView } from "@/contexts/view-context";
 
 import { linkarrowIcon } from "@/components/icons";
 
@@ -57,8 +58,6 @@ const ProjectItem = ({ project, linkarrowIcon }: { project: Project, linkarrowIc
 };
 
 const ProjectsView = () => {
-    const { setCurrentView } = useView();
-
     const [currentPage, setCurrentPage] = useState(1);
     const pagination = (pageNumber: number) => {
         setCurrentPage(pageNumber);
@@ -118,6 +117,7 @@ const ProjectsView = () => {
                 </h1>
             </div>
 
+            {/* project list */}
             <div className="mt-6 mr-[500px] md:mr-0 absolute top-[22vh] left-[20vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
                 <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px]">
                     {currentProjects.map((project) => ( 
@@ -139,11 +139,11 @@ const ProjectsView = () => {
 
             {/* back button */}
             <div className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <button className="flex items-center hover:text-text-projects-hover-color" onClick={() => setCurrentView("HOME")}>
+                <a href="/" className="flex items-center hover:text-text-projects-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal underline">
                         back
                     </h2>
-                </button>
+                </a>
             </div>
 
             {/* note */}

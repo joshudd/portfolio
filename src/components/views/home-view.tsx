@@ -1,9 +1,10 @@
+"use client"
+
 import React, { useRef, useState, useEffect } from "react";
 import { useView } from "@/contexts/view-context";
 
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
-import AnimatedBackground from "@/components/animation/speaker-animation";
-// import RandomLightning from "@/components/animationlightning-animation";
+// import AnimatedBackground from "@/components/animation/speaker-animation";
 import Ripples from "@/components/animation/ripples-animation";
 
 const HomeView = () => {
@@ -64,20 +65,20 @@ const HomeView = () => {
             </div>
 
             {/* design */}
-            <div className={`absolute top-[55vh] left-[16vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("DESIGN")}>
+            <div className={`absolute top-[55vh] left-[12vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <a href="/design" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         design
                     </h2>
                     {cropIcon()}
-                </button>
+                </a>
             </div>
 
             {/* projects */}
             <div 
                 className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
             >
-                <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("PROJECTS")}>
+                <a href="/projects" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         projects
                     </h2>
@@ -87,27 +88,27 @@ const HomeView = () => {
                     > 
                         {speakerIcon()}
                     </div>
-                </button>
+                </a>
             </div>
 
             {/* experience */}
-            <div className={`absolute top-[65vh] left-[60vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("EXPERIENCE")}>
+            <div className={`absolute top-[60vh] left-[80vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <a href="/experience" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         experience
                     </h2>
                     {documentIcon()}
-                </button>
+                </a>
             </div>
 
             {/* about */}
-            <div className={`absolute top-[38vh] left-[70vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <button className="flex items-center hover:text-text-hover-color" onClick={() => setCurrentView("ABOUT")}>
+            <div className={`absolute top-[28vh] left-[68vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <a href="/about" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         about
                     </h2>
                     {chatIcon()}
-                </button>
+                </a>
             </div>
 
             {/* note */}
@@ -117,19 +118,8 @@ const HomeView = () => {
                 </h2>
             </div>
 
-            {/* waveforms */}
-            {/* {waveformsImage()} */}
             {/* <AnimatedBackground parentPosition={parentPosition} /> */}
             <Ripples />
-            {/* <RandomLightning
-                sourceX={parentPosition.x}
-                sourceY={parentPosition.y}  
-                width={window.innerWidth}
-                height={window.innerHeight}
-                duration={3000}
-                segments={5}
-                bolts={3}
-            /> */}
         </div>
     );
 }
