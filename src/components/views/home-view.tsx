@@ -1,14 +1,11 @@
 "use client"
 
 import React, { useRef, useState, useEffect } from "react";
-import { useView } from "@/contexts/view-context";
 
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
-// import AnimatedBackground from "@/components/animation/speaker-animation";
 import Ripples from "@/components/animation/ripples-animation";
 
 const HomeView = () => {
-    const { setCurrentView } = useView();
     const speakerRef = useRef<HTMLDivElement>(null);
     const [parentPosition, setParentPosition] = useState({ x: 0, y: 0 });
   
@@ -119,7 +116,9 @@ const HomeView = () => {
             </div>
 
             {/* <AnimatedBackground parentPosition={parentPosition} /> */}
-            <Ripples />
+            <div className="blur-sm">
+                <Ripples view="home" />
+            </div>
         </div>
     );
 }

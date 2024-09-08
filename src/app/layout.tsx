@@ -1,7 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Noto_Sans_JP, Playfair_Display } from 'next/font/google'
-import { ViewProvider } from '@/contexts/view-context'
 
 const noto_sans_jp = Noto_Sans_JP({
   subsets: ['latin'],
@@ -28,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair_display.className}`}>
       <body>
-        <ViewProvider>{children}</ViewProvider>
+      {children}
       </body>
     </html>
   )
