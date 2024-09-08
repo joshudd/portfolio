@@ -45,10 +45,10 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                     <div className="text-[8px] sm:text-[10px] md:text-[12px] leading-[1.8]">
                         {project.external_link && 
                             <>
-                                <br />
-                                <a href={project.external_link} target="_blank" className="ml-2 flex flex-nowrap hover:text-text-projects-hover-color">
+                                <a href={project.external_link} target="_blank" className="ml-0 flex flex-nowrap hover:text-text-projects-hover-color">
                                     {project.display_link} {linkarrowIcon()}
                                 </a>
+                                <br />
                             </>
                         }
                     </div>

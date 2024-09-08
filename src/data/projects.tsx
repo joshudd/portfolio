@@ -20,7 +20,7 @@ export const projects: Project[] = [
         summary: "audio VST3 plug-in",
         tools: ["C++", "JUCE", "React.js"],
         image: "honey.png",
-        external_link: null,
+        external_link: "hey",
         display_link: "github.com/joshudd/honey",
     },
     {
@@ -42,8 +42,8 @@ export const projects: Project[] = [
         description: "web tool for tracking public transit usage",
         tools: ["next.js", "firebase", "recharts", "tailwind"],
         image: null,
-        external_link: null,
-        display_link: null,
+        external_link: "https://devpost.com/software/locomotive-vgufn5",
+        display_link: "devpost.com/transitpal",
     },
     {
         link: "dateengine",
