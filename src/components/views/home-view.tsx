@@ -33,8 +33,8 @@ const HomeView = () => {
             </div>
 
             {/* links */}
-            <div className="mt-6 mr-[500px] md:mr-0 absolute top-[22vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <div className="flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px]">
+            <div className="mt-6 mr-[500px] md:mr-0 absolute top-[18vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
+                <div className="flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8 text-[12px] sm:text-[14px] md:text-[16px]">
                     {links.map((link) => (
                         <a 
                             href={link.url} 
@@ -76,7 +76,7 @@ const HomeView = () => {
             </div>
 
             {/* experience */}
-            <div className={`absolute top-[60vh] left-[80vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+            <div className={`absolute top-[60vh] left-[75vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <a href="/experience" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         experience
