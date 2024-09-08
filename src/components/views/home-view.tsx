@@ -1,21 +1,9 @@
-"use client"
-
-import React, { useRef, useState, useEffect } from "react";
-
+import React from "react";
+import Link from "next/link";
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
 import Ripples from "@/components/animation/ripples-animation";
 
 const HomeView = () => {
-    const speakerRef = useRef<HTMLDivElement>(null);
-    const [parentPosition, setParentPosition] = useState({ x: 0, y: 0 });
-  
-    useEffect(() => {
-      if (speakerRef.current) {
-        const rect = speakerRef.current.getBoundingClientRect();
-        setParentPosition({ x: rect.left, y: rect.top });
-      }
-    }, []);
-
     const links = [
         {
             name: "linkedin",
@@ -75,17 +63,16 @@ const HomeView = () => {
             <div 
                 className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
             >
-                <a href="/projects" className="flex items-center hover:text-text-hover-color">
+                <Link href="/projects" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         projects
                     </h2>
                     <div 
-                        ref={speakerRef}
                         className="relative"
                     > 
                         {speakerIcon()}
                     </div>
-                </a>
+                </Link>
             </div>
 
             {/* experience */}
@@ -114,9 +101,9 @@ const HomeView = () => {
                     designed and built by me
                 </h2>
             </div>
-
-            {/* <AnimatedBackground parentPosition={parentPosition} /> */}
-            <div className="blur-sm">
+    
+            {/* ripples */}
+            <div className="blur-sm fade-in-slow">
                 <Ripples view="home" />
             </div>
         </div>

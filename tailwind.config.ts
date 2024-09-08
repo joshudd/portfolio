@@ -11,6 +11,7 @@ const config: Config = {
       backgroundColor: {
         'background-color': 'var(--background-color)',
         'background-transparent-color': 'var(--background-transparent-color)',
+        'background-item-color': 'var(--background-item-color)',
       },
       textColor: {
         'text-color': 'var(--text-color)',

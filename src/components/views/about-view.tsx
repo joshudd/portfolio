@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react";
 import Ripples from "../animation/ripples-animation";
 
@@ -37,23 +35,13 @@ const AboutView = () => {
                     &nbsp;{'{'} extended through the end of 2024 {'}'}
                     </span>.
                 </p>
-                <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
-
-                </p>
                 <br/>
                 <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
                     <span className="inline-flex items-center">
-                        I&apos;m passionate about building tools that are both beautiful + functional;
+                        I&apos;m passionate about building products that are both beautiful + functional;
                         one of its greatest rewards is constant learning.
                     </span>
                 </p>
-
-                {/* <a href="/projects" className="flex items-center align-middle">
-                    &nbsp; &nbsp; &nbsp; &nbsp;
-                    <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8] italic underline hover:text-text-about-hover-color">
-                        projects
-                    </p>
-                </a> */}
                 <br/>
                 <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
                     Feel free to reach out if you&apos;d like to chat!
@@ -63,14 +51,6 @@ const AboutView = () => {
                     <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8] italic">
                      - Josh
                     </p>
-                    {/* <div className="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" className="flex-shrink-0 mr-1">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
-                                Twin Cities, MN
-                            </p>
-                    </div> */}
                 </div>
             </div>
 
@@ -90,7 +70,7 @@ const AboutView = () => {
                 </h2>
             </div>
 
-            <div className="blur-sm">
+            <div className="blur-sm fade-in-slow">
                 <Ripples view="about" />
             </div>
         </div>

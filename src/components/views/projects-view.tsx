@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef } from "react";
-
+import Link from "next/link";
 import { linkarrowIcon } from "@/components/icons";
 
 import { motion } from 'framer-motion';
@@ -33,10 +33,9 @@ const ProjectItem = ({ project, linkarrowIcon }: { project: Project, linkarrowIc
 
     return (
         <motion.a 
-            href={project.link} 
+            href={"/projects/" + project.link} 
             key={project.name} 
             className="pt-4 pb-4 gap-x-6 md:gap-x-12 lg:gap-x-18 flex items-center justify-between w-[50vw] hover:text-text-projects-hover-color" 
-            target="_blank"
             ref={itemRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -50,8 +49,11 @@ const ProjectItem = ({ project, linkarrowIcon }: { project: Project, linkarrowIc
             <div className="flex-grow overflow-hidden">
                 <span className="block truncate">{project.description}</span>
             </div>
-            <div className="ml-auto hidden sm:block">
-                {linkarrowIcon()}
+            <div className="ml-auto hidden sm:block font-extrabold">
+                {/* {linkarrowIcon()} */}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
             </div>
         </motion.a>
     );
@@ -67,39 +69,45 @@ const ProjectsView = () => {
     const projects = [
         {
             name: "honey",
+            summary: "audio VST3 plug-in",
             description: "audio VST3 plug-in",
             tools: "c++, JUCE, react.js",
-            link: "https://github.com/joshudd/honey",
+            link: "/honey",
         },
         {
             name: "TransitPal",
+            summary: "web tool for tracking public transit usage",
             description: "web tool for tracking public transit usage",
             tools: "next.js, firebase, recharts, tailwind",
-            link: "https://github.com/joshudd/project2",
+            link: "/transitpal",
         },
         {
             name: "Sketch with Friends",
+            summary: "online collaborative drawing game",
             description: "online collaborative drawing game",
             tools: "c++, vst3, wwise",
-            link: "https://github.com/joshudd/project3",
+            link: "/sketchwithfriends",
         },
         {
             name: "Date Engine",
+            summary: "Monday.com app",
             description: "Monday.com app",
             tools: "react.js, graph ql, Monday.com API",
-            link: "https://github.com/joshudd/project4",
+            link: "/dateengine",
         },
         {
             name: "SodiumTrack",
+            summary: "nutrition tracking tool",
             description: "nutrition tracking tool",
             tools: "python, sqlite",
-            link: "https://github.com/joshudd/project5",
+            link: "/sodiumtrack",
         },
         {
             name: "Gibberisher",
+            summary: "gibberish text generator",
             description: "gibberish text generator",
             tools: "java",
-            link: "https://github.com/joshudd/gibberisher",
+            link: "/gibberisher",
         },
     ];
 
@@ -139,11 +147,11 @@ const ProjectsView = () => {
 
             {/* back button */}
             <div className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <a href="/" className="flex items-center hover:text-text-projects-hover-color">
+                <Link href="/" className="flex items-center hover:text-text-projects-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal underline">
                         back
                     </h2>
-                </a>
+                </Link>
             </div>
 
             {/* note */}

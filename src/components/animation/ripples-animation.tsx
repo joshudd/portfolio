@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+'use client'
+import React from "react";
 import { type Sketch } from "@p5-wrapper/react";
 import { NextReactP5Wrapper } from "@p5-wrapper/next";
 
@@ -34,7 +35,7 @@ const home_sketch: Sketch = (p) => {
     // noise letiables
     p.rez = 0.002;
     p.radi = 4 / p.rez;
-    p.dim = 4;
+    p.dim = 5;
 
     p.try = 0;
   }
@@ -130,7 +131,7 @@ const about_sketch: Sketch = (p) => {
     // noise letiables
     p.rez = 0.002;
     p.radi = 4 / p.rez;
-    p.dim = 4;
+    p.dim = 5;
 
     p.try = 0;
   }

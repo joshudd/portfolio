@@ -27,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair_display.className}`}>
       <body>
-      {children}
+        <div className="fade-in">
+          {children}
+        </div>
       </body>
     </html>
   )
