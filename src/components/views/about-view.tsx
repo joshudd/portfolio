@@ -25,12 +25,12 @@ const AboutView = () => {
                 </div>
                 <br/>
                 <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
-                    I'm from the North metro area of MN and currently studying Computer Science + User Experience Design at the
+                    I&apos;m from the North metro area of MN and currently studying Computer Science + User Experience Design at the
                     <span className=""> University of Minnesota</span>.
                 </p>
                 <br/>
                 <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]"> 
-                    At the moment, I'm developing internal tools at
+                    At the moment, I&apos;m developing internal tools at
                     <a href="https://www.spscommerce.com/" target="_blank" className="text-text-about-color hover:text-text-about-hover-color"> SPS Commerce </a> 
                     as a software engineer intern
                     <span className="text-[8px] sm:text-[10px] md:text-[12px] align-super">
@@ -43,7 +43,7 @@ const AboutView = () => {
                 <br/>
                 <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
                     <span className="inline-flex items-center">
-                        I'm passionate about building tools that are both beautiful + functional;
+                        I&apos;m passionate about building tools that are both beautiful + functional;
                         one of its greatest rewards is constant learning.
                     </span>
                 </p>
@@ -56,7 +56,7 @@ const AboutView = () => {
                 </a> */}
                 <br/>
                 <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
-                    Feel free to reach out if you'd like to chat!
+                    Feel free to reach out if you&apos;d like to chat!
                 </p>
                 <br/>
                 <div className="flex items-end align-left">
