@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair_display.className}`}>
       <body>
-        <div className="fade-in">
+        <div className="fade-in flex min-h-[400px] min-w-[240px] flex-col justify-center items-center">
           {children}
         </div>
       </body>

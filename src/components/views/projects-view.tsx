@@ -2,23 +2,15 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
-import { linkarrowIcon } from "@/components/icons";
-
 import { motion } from 'framer-motion';
+import { projects, Project } from "@/data/projects";
 
-interface Project {
-    name: string;
-    description: string;
-    tools: string;
-    link: string;
-  }
-
-const ProjectItem = ({ project, linkarrowIcon }: { project: Project, linkarrowIcon: () => React.ReactNode }) => {
+const ProjectItem = ({ project }: { project: Project }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [animateUp, setAnimateUp] = useState(false);
-    const itemRef = useRef<HTMLAnchorElement | null>(null);
+    const itemRef = useRef<HTMLDivElement | null>(null);
 
-    const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
         if (itemRef.current) {
             const rect = itemRef.current.getBoundingClientRect();
             const mouseY = e.clientY;
@@ -32,30 +24,30 @@ const ProjectItem = ({ project, linkarrowIcon }: { project: Project, linkarrowIc
     };
 
     return (
-        <motion.a 
-            href={"/projects/" + project.link} 
-            key={project.name} 
-            className="pt-4 pb-4 gap-x-6 md:gap-x-12 lg:gap-x-18 flex items-center justify-between w-[50vw] hover:text-text-projects-hover-color" 
-            ref={itemRef}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            initial={{ y: 0 }}
-            animate={{ y: isHovered ? (animateUp ? -2 : 2) : 0 }}
-            transition={{ duration: 0.2 }}
-        >
-            <div className="flex sm:min-w-[140px] md:min-w-[170px]">
-                <span className="whitespace-nowrap overflow-hidden text-ellipsis">{project.name}</span>
-            </div>
-            <div className="flex-grow overflow-hidden">
-                <span className="block truncate">{project.description}</span>
-            </div>
-            <div className="ml-auto hidden sm:block font-extrabold">
-                {/* {linkarrowIcon()} */}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                </svg>
-            </div>
-        </motion.a>
+        <a href={`/projects/${project.link}`}>
+            <motion.div
+                key={project.name} 
+                className="pt-4 pb-4 gap-x-6 md:gap-x-12 lg:gap-x-18 flex items-center justify-between w-[50vw] hover:text-text-projects-hover-color" 
+                ref={itemRef}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                initial={{ y: 0 }}
+                animate={{ y: isHovered ? (animateUp ? -2 : 2) : 0 }}
+                transition={{ duration: 0.2 }}
+            >
+                <div className="flex sm:min-w-[140px] md:min-w-[170px]">
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis">{project.name}</span>
+                </div>
+                <div className="flex-grow overflow-hidden">
+                    <span className="block truncate">{project.summary}</span>
+                </div>
+                <div className="ml-auto hidden sm:block font-extrabold">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </div>
+            </motion.div>
+        </a>
     );
 };
 
@@ -65,51 +57,6 @@ const ProjectsView = () => {
         setCurrentPage(pageNumber);
     };
     const projectsPerPage = 5;
-
-    const projects = [
-        {
-            name: "honey",
-            summary: "audio VST3 plug-in",
-            description: "audio VST3 plug-in",
-            tools: "c++, JUCE, react.js",
-            link: "/honey",
-        },
-        {
-            name: "TransitPal",
-            summary: "web tool for tracking public transit usage",
-            description: "web tool for tracking public transit usage",
-            tools: "next.js, firebase, recharts, tailwind",
-            link: "/transitpal",
-        },
-        {
-            name: "Sketch with Friends",
-            summary: "online collaborative drawing game",
-            description: "online collaborative drawing game",
-            tools: "c++, vst3, wwise",
-            link: "/sketchwithfriends",
-        },
-        {
-            name: "Date Engine",
-            summary: "Monday.com app",
-            description: "Monday.com app",
-            tools: "react.js, graph ql, Monday.com API",
-            link: "/dateengine",
-        },
-        {
-            name: "SodiumTrack",
-            summary: "nutrition tracking tool",
-            description: "nutrition tracking tool",
-            tools: "python, sqlite",
-            link: "/sodiumtrack",
-        },
-        {
-            name: "Gibberisher",
-            summary: "gibberish text generator",
-            description: "gibberish text generator",
-            tools: "java",
-            link: "/gibberisher",
-        },
-    ];
 
     const indexOfLastProject = currentPage * projectsPerPage;
     const indexOfFirstProject = indexOfLastProject - projectsPerPage;
@@ -128,8 +75,8 @@ const ProjectsView = () => {
             {/* project list */}
             <div className="mt-6 mr-[500px] md:mr-0 absolute top-[22vh] left-[20vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
                 <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px]">
-                    {currentProjects.map((project) => ( 
-                        <ProjectItem key={project.name} project={project} linkarrowIcon={linkarrowIcon} /> 
+                    {currentProjects.map((project: Project) => (
+                        <ProjectItem key={project.name} project={project} /> 
                     ))}
                 </div>
                 <div className="flex justify-center mt-4">

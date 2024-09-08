@@ -63,7 +63,7 @@ const HomeView = () => {
             <div 
                 className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
             >
-                <Link href="/projects" className="flex items-center hover:text-text-hover-color">
+                <a href="/projects" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         projects
                     </h2>
@@ -72,7 +72,7 @@ const HomeView = () => {
                     > 
                         {speakerIcon()}
                     </div>
-                </Link>
+                </a>
             </div>
 
             {/* experience */}
