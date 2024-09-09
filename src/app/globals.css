@@ -13,6 +13,9 @@
   --text-projects-hover-color: #9baec8;
   --text-about-color: #125124;
   --text-about-hover-color: #38AD66;
+  --text-design-color: #4e3d18;
+  --text-design-hover-color: #a88c5e;
+  --background-design-color: #dcd7d1;
 }
 
 body {

@@ -15,8 +15,8 @@ export const projects: Project[] = [
         link: "honey",
         name: "honey",
         description: 
-            "I've been producing music on my laptop since middle school and the idea for this project has been sitting with me for a while: a plug-in that I could use to make music with. " + 
-            "Creating something simple, but also powerful has been very rewarding. Through this project, I've learned so much about audio programming, digital signal processing, and the JUCE framework.",
+            "A plug-in that I use to make music. " + 
+            "Creating something simple, but also powerful has been very rewarding. Through this project, I've learned so much about audio programming, digital signal processing (specifically Reverb and Bitcrusher algorithms), and the JUCE framework. The UI is built with React.js.",
         summary: "audio VST3 plug-in",
         tools: ["C++", "JUCE", "React.js"],
         image: "honey.png",

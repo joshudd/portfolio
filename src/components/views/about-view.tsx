@@ -4,15 +4,24 @@ import Ripples from "../animation/ripples-animation";
 const AboutView = () => {
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-about-color">
-            {/* header */}
-            <div className="mb-6 absolute top-[15vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-normal">
+            {/* back button */}
+            <div className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <a href="/" className="flex items-center hover:text-text-projects-hover-color">
+                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
+                        back
+                    </h2>
+                </a>
+            </div>
+
+            {/* title */}
+            <div className={`absolute top-[5vh] left-[84vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <h1 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]">
                     about
                 </h1>
             </div>
 
             {/* body */}
-            <div className="mt-6 w-[38%] sm:w-[43%] md:w-[48%] lg:w-[43%] xl:w-[38%] absolute top-[22vh] left-[20vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
+            <div className="mt-6 w-[80%] max-w-[700px] absolute top-[12vh] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
                 <div className="flex items-center">
                     <h1 className="text-lg sm:text-xl md:text-2xl font-normal">
                         nice to meet you! &nbsp;
@@ -32,7 +41,7 @@ const AboutView = () => {
                     <a href="https://www.spscommerce.com/" target="_blank" className="text-text-about-color hover:text-text-about-hover-color"> SPS Commerce </a> 
                     as a software engineer intern
                     <span className="text-[8px] sm:text-[10px] md:text-[12px] align-super">
-                    &nbsp;{'{'} extended through the end of 2024 {'}'}
+                        &nbsp;{'['}extended&nbsp;through&nbsp;the&nbsp;end&nbsp;of&nbsp;2024{']'}
                     </span>.
                 </p>
                 <br/>
@@ -52,15 +61,6 @@ const AboutView = () => {
                      - Josh
                     </p>
                 </div>
-            </div>
-
-            {/* back button */}
-            <div className={`absolute top-[28vh] left-[68vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <a href="/" className="flex items-center hover:text-text-about-hover-color">
-                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal underline">
-                        back
-                    </h2>
-                </a>
             </div>
 
             {/* note */}

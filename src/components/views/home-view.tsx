@@ -50,7 +50,7 @@ const HomeView = () => {
             </div>
 
             {/* design */}
-            <div className={`absolute top-[55vh] left-[12vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+            <div className={`absolute top-[65vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <a href="/design" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         design
@@ -76,7 +76,7 @@ const HomeView = () => {
             </div>
 
             {/* experience */}
-            <div className={`absolute top-[60vh] left-[75vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+            <div className={`hidden absolute top-[60vh] left-[75vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <a href="/experience" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         experience
@@ -86,7 +86,7 @@ const HomeView = () => {
             </div>
 
             {/* about */}
-            <div className={`absolute top-[28vh] left-[68vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+            <div className={`absolute top-[50vh] left-[68vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <a href="/about" className="flex items-center hover:text-text-hover-color">
                     <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
                         about

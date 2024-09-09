@@ -22,7 +22,7 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                 </div>
 
                 {/* body */}
-                <div className="mt-6 top-[12vh] w-[60%] max-w-[700px] absolute p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
+                <div className="mt-6 top-[12vh] w-[80%] max-w-[700px] absolute p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
                     <div className="flex items-center justify-between">
                         <h1 className="text-lg sm:text-xl md:text-2xl font-normal">
                             {project.name}
@@ -45,7 +45,7 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                     <div className="text-[8px] sm:text-[10px] md:text-[12px] leading-[1.8]">
                         {project.external_link && 
                             <>
-                                <a href={project.external_link} target="_blank" className="ml-0 flex flex-nowrap hover:text-text-projects-hover-color">
+                                <a href={project.external_link} target="_blank" className="ml-0 flex flex-nowrap hover:text-text-projects-hover-color items-center">
                                     {project.display_link} {linkarrowIcon()}
                                 </a>
                                 <br />

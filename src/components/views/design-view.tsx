@@ -1,0 +1,95 @@
+"use client"
+
+import React from "react";
+import Ripples from "../animation/ripples-animation";
+import { Project, projects } from "@/data/projects";
+import { ProjectItem } from "@/components/project-item";
+
+const DesignView = () => {
+    const designProjectNames = ["runstencil", "honey", "sisterscamelot"];
+    const designProjects: Project[] = projects.filter(project => designProjectNames.includes(project.name));
+    const colorset = {
+        text: "text-text-design-color",
+        textHover: "text-text-design-hover-color",
+        background: "bg-background-transparent-color",
+        backgroundHover: "bg-background-transparent-color-hover",
+    };
+
+    return (
+        <div className="w-full h-screen flex flex-col justify-center items-center text-text-design-color">
+            {/* back button */}
+            <div className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <a href="/" className="flex items-center hover:text-text-design-hover-color">
+                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
+                        back
+                    </h2>
+                </a>
+            </div>
+
+            {/* title */}
+            <div className={`absolute top-[5vh] left-[85vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <h1 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]">
+                    design
+                </h1>
+            </div>
+
+            {/* body */}
+            <div className="mt-6 w-[80%] max-w-[700px] absolute top-[12vh] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
+                <div className="flex items-center mb-3">
+                    <h1 className="text-lg sm:text-xl md:text-2xl font-normal">
+                        visual &nbsp;
+                    </h1>
+                </div>
+                <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                    Before building out my own projects, I like to have a strong vision for its look + feel.
+                    A lot of my early process is spent in <a href="https://www.figma.com/" target="_blank" className="text-text-design-color hover:text-text-design-hover-color italic">Figma</a>, iterating on layouts.
+                    I also have experience with user research + testing, and have a strong understanding of accessibility guidelines. 
+                </p>
+                <br/>
+                <p className="content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                    Some examples of my visual design work can be found here + more on the <a href="/projects" className="text-text-design-color hover:text-text-design-hover-color underline">projects</a> page.
+                </p>
+
+                <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] p-5">
+                    {designProjects.map((project: Project) => (
+                        <ProjectItem key={project.name} project={project} colorset={colorset} />
+                    ))}
+                </div>
+
+                <br/><br/>
+                <div className="flex items-center mb-3">
+                    <h1 className="text-lg sm:text-xl md:text-2xl font-normal">
+                        sound &nbsp;
+                    </h1>
+                </div>
+                <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                    Aside from visual design, I love to experiment with sound design.
+                </p>
+                <div className="mt-4">
+                    <div className="inline-flex items-center mb-3 gap-x-4 pl-4 pr-4 py-3 rounded-md bg-background-design-color max-w-full">
+                        <h3 className="text-[10px] sm:text-[12px] md:text-[14px] font-normal whitespace-nowrap">
+                            backhome.mp3
+                        </h3>
+                        <audio controls className="max-w-[300px]">
+                            <source src="/audio/sample.mp3" type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                        </audio>    
+                    </div>
+                </div>
+            </div>
+
+            {/* note */}
+            <div className="hidden md:block absolute bottom-[0vh] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
+                <h2 className="text-[10px]">
+                    designed and built by me
+                </h2>
+            </div>
+
+            {/* <div className="blur-sm fade-in-slow">
+                <Ripples view="design" />
+            </div> */}
+        </div>
+    );
+}
+
+export default DesignView;

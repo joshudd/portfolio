@@ -1,57 +1,18 @@
 "use client"
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { motion } from 'framer-motion';
+import { ProjectItem } from "@/components/project-item";
 import { projects, Project } from "@/data/projects";
 
-const ProjectItem = ({ project }: { project: Project }) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const [animateUp, setAnimateUp] = useState(false);
-    const itemRef = useRef<HTMLDivElement | null>(null);
-
-    const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (itemRef.current) {
-            const rect = itemRef.current.getBoundingClientRect();
-            const mouseY = e.clientY;
-            setAnimateUp(mouseY > rect.top + rect.height / 2);
-        }
-        setIsHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
-
-    return (
-        <a href={`/projects/${project.link}`}>
-            <motion.div
-                key={project.name} 
-                className="pt-4 pb-4 gap-x-6 md:gap-x-12 lg:gap-x-18 flex items-center justify-between w-[50vw] hover:text-text-projects-hover-color" 
-                ref={itemRef}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                initial={{ y: 0 }}
-                animate={{ y: isHovered ? (animateUp ? -2 : 2) : 0 }}
-                transition={{ duration: 0.2 }}
-            >
-                <div className="flex sm:min-w-[140px] md:min-w-[170px]">
-                    <span className="whitespace-nowrap overflow-hidden text-ellipsis">{project.name}</span>
-                </div>
-                <div className="flex-grow overflow-hidden">
-                    <span className="block truncate">{project.summary}</span>
-                </div>
-                <div className="ml-auto hidden sm:block font-extrabold">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                    </svg>
-                </div>
-            </motion.div>
-        </a>
-    );
-};
-
 const ProjectsView = () => {
+    const colorset = {
+        text: "text-text-projects-color",
+        textHover: "text-text-projects-hover-color",
+        background: "bg-background-transparent-color",
+        backgroundHover: "bg-background-transparent-color-hover",
+    };
+
     const [currentPage, setCurrentPage] = useState(1);
     const pagination = (pageNumber: number) => {
         setCurrentPage(pageNumber);
@@ -65,18 +26,27 @@ const ProjectsView = () => {
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
-            {/* header */}
-            <div className="mb-6 absolute top-[15vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-normal">
+            {/* back button */}
+            <div className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <a href="/" className="flex items-center hover:text-text-projects-hover-color">
+                    <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
+                        back
+                    </h2>
+                </a>
+            </div>
+
+            {/* title */}
+            <div className={`absolute top-[5vh] left-[84vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+                <h1 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]">
                     projects
                 </h1>
             </div>
 
             {/* project list */}
-            <div className="mt-6 mr-[500px] md:mr-0 absolute top-[22vh] left-[20vw] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
-                <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px]">
+            <div className="mt-6 w-[80%] max-w-[700px] absolute top-[12vh] bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
+                <div className="flex flex-col flex-wrap gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px]">
                     {currentProjects.map((project: Project) => (
-                        <ProjectItem key={project.name} project={project} /> 
+                        <ProjectItem key={project.name} project={project} colorset={colorset} /> 
                     ))}
                 </div>
                 <div className="flex justify-center mt-4">
@@ -90,15 +60,6 @@ const ProjectsView = () => {
                         </button>
                     ))}
                 </div>
-            </div>
-
-            {/* back button */}
-            <div className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <Link href="/" className="flex items-center hover:text-text-projects-hover-color">
-                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal underline">
-                        back
-                    </h2>
-                </Link>
             </div>
 
             {/* note */}
