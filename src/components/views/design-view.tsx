@@ -83,13 +83,13 @@ const DesignView = () => {
                 <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
                     Aside from visual design, I love to experiment with sound design.
                 </p>
-                <div className="mt-4">
+                <div className="mt-4 flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8">
                     {audioFiles.map((audioFile, index) => (
-                    <div key={index} className="inline-flex items-center mb-3 gap-x-4 pl-4 pr-4 py-3 rounded-md bg-background-design-color max-w-full">
+                    <div key={index} className="inline-flex items-center justify-between mb-3 gap-x-4 pl-4 pr-4 py-3 rounded-md bg-background-design-color max-w-full">
                         <h3 className="text-[10px] sm:text-[12px] md:text-[14px] font-normal whitespace-nowrap">
                             {audioFile.name}
                         </h3>
-                        <audio controls className="max-w-[300px]">
+                        <audio controls className="max-w-[44px]">
                             <source src={audioFile.src} type="audio/mpeg" />
                             Your browser does not support the audio element.
                             </audio>    
