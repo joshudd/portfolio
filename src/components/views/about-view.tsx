@@ -6,7 +6,7 @@ const AboutView = () => {
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-about-color">
             {/* back button */}
             <div className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <a href="/" className="flex items-center hover:text-text-projects-hover-color">
+                <a href="/" className="flex items-center hover:text-text-about-hover-color">
                     <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
                         back
                     </h2>

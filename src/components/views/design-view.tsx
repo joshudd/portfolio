@@ -15,6 +15,25 @@ const DesignView = () => {
         backgroundHover: "bg-background-transparent-color-hover",
     };
 
+    const audioFiles = [
+        {
+            name: "see.mp3",
+            src: "/audio/see.mp3",
+        },
+        {
+            name: "back home.mp3",
+            src: "/audio/back home.mp3",
+        },
+        {
+            name: "especial for wax kit.mp3",
+            src: "/audio/especial for wax kit.mp3",
+        },
+        {
+            name: "care for you.mp3",
+            src: "/audio/care for you.mp3",
+        },
+    ];
+
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-design-color">
             {/* back button */}
@@ -43,20 +62,19 @@ const DesignView = () => {
                 <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
                     Before building out my own projects, I like to have a strong vision for its look + feel.
                     A lot of my early process is spent in <a href="https://www.figma.com/" target="_blank" className="text-text-design-color hover:text-text-design-hover-color italic">Figma</a>, iterating on layouts.
-                    I also have experience with user research + testing, and have a strong understanding of accessibility guidelines. 
+                    I also have experience with user research + testing, and have a strong understanding of design principles. 
                 </p>
                 <br/>
                 <p className="content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
                     Some examples of my visual design work can be found here + more on the <a href="/projects" className="text-text-design-color hover:text-text-design-hover-color underline">projects</a> page.
                 </p>
 
-                <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] p-5">
+                <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] p-5 mb-24">
                     {designProjects.map((project: Project) => (
                         <ProjectItem key={project.name} project={project} colorset={colorset} />
                     ))}
                 </div>
 
-                <br/><br/>
                 <div className="flex items-center mb-3">
                     <h1 className="text-lg sm:text-xl md:text-2xl font-normal">
                         sound &nbsp;
@@ -66,20 +84,22 @@ const DesignView = () => {
                     Aside from visual design, I love to experiment with sound design.
                 </p>
                 <div className="mt-4">
-                    <div className="inline-flex items-center mb-3 gap-x-4 pl-4 pr-4 py-3 rounded-md bg-background-design-color max-w-full">
+                    {audioFiles.map((audioFile, index) => (
+                    <div key={index} className="inline-flex items-center mb-3 gap-x-4 pl-4 pr-4 py-3 rounded-md bg-background-design-color max-w-full">
                         <h3 className="text-[10px] sm:text-[12px] md:text-[14px] font-normal whitespace-nowrap">
-                            backhome.mp3
+                            {audioFile.name}
                         </h3>
                         <audio controls className="max-w-[300px]">
-                            <source src="/audio/sample.mp3" type="audio/mpeg" />
+                            <source src={audioFile.src} type="audio/mpeg" />
                             Your browser does not support the audio element.
-                        </audio>    
-                    </div>
+                            </audio>    
+                        </div>
+                    ))}
                 </div>
             </div>
 
             {/* note */}
-            <div className="hidden md:block absolute bottom-[0vh] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
+            <div className="hidden lg:block absolute bottom-[0vh] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
                 <h2 className="text-[10px]">
                     designed and built by me
                 </h2>
