@@ -1,7 +1,11 @@
-import React from "react";
+'use client';
+
+import React, { useState } from "react";
 import Link from "next/link";
 import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
 import Ripples from "@/components/animation/ripples-animation";
+import saly from "../../../public/images/Saly-18.png";
+import Image from 'next/image';
 
 const HomeView = () => {
     const links = [
@@ -23,6 +27,10 @@ const HomeView = () => {
         },
     ];
 
+    const [isAboutHovered, setIsAboutHovered] = useState(false);
+    const [isDesignHovered, setIsDesignHovered] = useState(false);
+    const [isProjectsHovered, setIsProjectsHovered] = useState(false);
+
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-color">
             {/* header */}
@@ -33,14 +41,15 @@ const HomeView = () => {
             </div>
 
             {/* links */}
-            <div className="mt-6 mr-[500px] md:mr-0 absolute top-[18vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <div className="flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8 text-[12px] sm:text-[14px] md:text-[16px]">
+            <div className="fixed top-0 right-0 p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-bl-sm md:rounded-bl-lg backdrop-blur-sm z-[200]">
+                <div className="flex flex-row content-start justify-end gap-x-2 md:gap-x-4 text-[10px] sm:text-[12px] md:text-[14px]">
                     {links.map((link) => (
                         <a 
                             href={link.url} 
                             key={link.name} 
-                            className="pt-2 pb-2 flex items-center hover:text-text-hover-color" 
+                            className="py-1 flex items-center hover:text-text-hover-color" 
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             <span className="underline">{link.name}</span>
                             {linkarrowIcon()}
@@ -49,51 +58,68 @@ const HomeView = () => {
                 </div>
             </div>
 
-            {/* design */}
-            <div className={`absolute top-[65vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <a href="/design" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
-                        design
-                    </h2>
-                    {cropIcon()}
-                </a>
-            </div>
+            {/* page links */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                {/* about */}
+                <div className="absolute top-[40%] left-[calc(50%-12rem)] sm:left-[calc(50%-14rem)] md:left-[calc(50%-16rem)] lg:left-[calc(50%-18rem)] xl:left-[calc(50%-20rem)] z-[200] pointer-events-auto">
+                    <a 
+                        href="/about" 
+                        className="flex flex-col items-center justify-center hover:text-text-hover-color"
+                        onMouseEnter={() => setIsAboutHovered(true)}
+                        onMouseLeave={() => setIsAboutHovered(false)}
+                    >
+                        <div className="blur-sm fade-in-slow w-24 h-24">
+                            {isAboutHovered && (<div className="fade-in-slow"><Ripples view="home"/></div>)}
+                        </div>
+                        <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
+                            about
+                        </h2>
+                    </a>
+                </div>
 
-            {/* projects */}
-            <div 
-                className={`absolute top-[76vh] left-[28vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
-            >
-                <a href="/projects" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
-                        projects
-                    </h2>
-                    <div 
-                        className="relative"
-                    > 
-                        {speakerIcon()}
-                    </div>
-                </a>
+                {/* design */}
+                <div className="absolute top-[40%] left-[calc(50%-4rem)] z-[200] pointer-events-auto">
+                    <a 
+                        href="/design" 
+                        className="flex flex-col items-center justify-center hover:text-text-hover-color"
+                        onMouseEnter={() => setIsDesignHovered(true)}
+                        onMouseLeave={() => setIsDesignHovered(false)}
+                    >
+                        <div className="blur-sm fade-in-slow w-24 h-24">
+                            {isDesignHovered && (<div className="fade-in-slow"><Ripples view="home"/></div>)}
+                        </div>
+                        <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
+                            design
+                        </h2>
+                    </a>
+                </div>
+
+                {/* projects */}
+                <div className="absolute top-[40%] left-[calc(50%+4rem)] sm:left-[calc(50%+6rem)] md:left-[calc(50%+8rem)] lg:left-[calc(50%+10rem)] xl:left-[calc(50%+12rem)] z-[200] pointer-events-auto">
+                    <a 
+                        href="/projects" 
+                        className="flex flex-col items-center justify-center hover:text-text-hover-color"
+                        onMouseEnter={() => setIsProjectsHovered(true)}
+                        onMouseLeave={() => setIsProjectsHovered(false)}
+                    >
+                        <div className="blur-sm fade-in-slow w-24 h-24">
+                            {isProjectsHovered && (<div className="fade-in-slow"><Ripples view="home"/></div>)}
+                        </div>
+                        <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
+                            projects
+                        </h2>
+                    </a>
+                </div>
             </div>
 
             {/* experience */}
-            <div className={`hidden absolute top-[60vh] left-[75vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
+            {/* <div className={`hidden absolute top-[50%] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
                 <a href="/experience" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
+                    <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-normal">
                         experience
                     </h2>
-                    {documentIcon()}
                 </a>
-            </div>
-
-            {/* about */}
-            <div className={`absolute top-[50vh] left-[68vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <a href="/about" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-normal">
-                        about
-                    </h2>
-                    {chatIcon()}
-                </a>
-            </div>
+            </div> */}
 
             {/* note */}
             <div className="hidden md:block absolute bottom-[0vh] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
@@ -101,11 +127,8 @@ const HomeView = () => {
                     designed and built by me
                 </h2>
             </div>
-    
-            {/* ripples */}
-            <div className="blur-sm fade-in-slow">
-                <Ripples view="home" />
-            </div>
+
+
         </div>
     );
 }

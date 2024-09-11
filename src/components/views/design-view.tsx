@@ -69,7 +69,7 @@ const DesignView = () => {
                     Some examples of my visual design work can be found here + more on the <a href="/projects" className="text-text-design-color hover:text-text-design-hover-color underline">projects</a> page.
                 </p>
 
-                <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] p-5 mb-24">
+                <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] p-5 mb-16">
                     {designProjects.map((project: Project) => (
                         <ProjectItem key={project.name} project={project} colorset={colorset} />
                     ))}
@@ -80,21 +80,23 @@ const DesignView = () => {
                         sound &nbsp;
                     </h1>
                 </div>
-                <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                <p className="flex flex-col flex-wrap content-start text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
                     Aside from visual design, I love to experiment with sound design.
                 </p>
-                <div className="mt-4 flex flex-row flex-wrap content-start gap-x-4 md:gap-x-8">
-                    {audioFiles.map((audioFile, index) => (
-                    <div key={index} className="inline-flex items-center justify-between mb-3 gap-x-4 pl-4 pr-4 py-3 rounded-md bg-background-design-color max-w-full">
-                        <h3 className="text-[10px] sm:text-[12px] md:text-[14px] font-normal whitespace-nowrap">
-                            {audioFile.name}
-                        </h3>
-                        <audio controls className="max-w-[44px]">
-                            <source src={audioFile.src} type="audio/mpeg" />
-                            Your browser does not support the audio element.
+                <div className="mt-3 w-full overflow-x-auto scrollbar-hide transparent-scrollbar">
+                    <div className="flex flex-row flex-nowrap justify-center gap-x-3 min-w-max">
+                        {audioFiles.map((audioFile, index) => (
+                        <div key={index} className="inline-flex items-center justify-between mb-3 gap-x-4 pl-4 pr-4 py-2 rounded-md bg-background-design-color">
+                            <h3 className="text-[10px] sm:text-[12px] md:text-[14px] font-normal whitespace-nowrap">
+                                {audioFile.name}
+                            </h3>
+                            <audio controls className="max-w-[44px]">
+                                <source src={audioFile.src} type="audio/mpeg" />
+                                Your browser does not support the audio element.
                             </audio>    
                         </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
 

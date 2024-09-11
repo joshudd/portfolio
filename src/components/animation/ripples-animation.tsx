@@ -19,7 +19,7 @@ const home_sketch: Sketch = (p) => {
     updateDimensions();
     updateColors();
 
-    canvas = p.createCanvas(width, height).position(p.windowWidth/2 - width/2, p.windowHeight/2 - height/2);
+    canvas = p.createCanvas(width, height).position(0, 0);
     // p.createCanvas(p.width, p.height, p.WEBGL).parent(parent);
 
     p.noStroke();
@@ -29,13 +29,13 @@ const home_sketch: Sketch = (p) => {
     p.y_position = 0;
 
     // time letiables
-    p.t = 0.0;
+    p.t = Math.random()*10;
     p.tInt = 0.002;
 
     // noise letiables
     p.rez = 0.002;
     p.radi = 4 / p.rez;
-    p.dim = 5;
+    p.dim = 3;
 
     p.try = 0;
   }
@@ -89,7 +89,7 @@ const home_sketch: Sketch = (p) => {
   p.windowResized = () => {
     updateDimensions();
     p.resizeCanvas(width, height)
-    canvas.position(p.windowWidth/2 - width/2, p.windowHeight/2 - height/2);
+    canvas.position(0, 0);
   }
 
   function updateColors() {
@@ -101,8 +101,8 @@ const home_sketch: Sketch = (p) => {
   }
 
   function updateDimensions() {
-    width = p.windowWidth/4;
-    height = p.windowHeight/4;
+    width = 96;
+    height = 96;
   }
 }
 
