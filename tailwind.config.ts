@@ -11,6 +11,7 @@ const config: Config = {
       backgroundColor: {
         'background-color': 'var(--background-color)',
         'background-transparent-color': 'var(--background-transparent-color)',
+        'background-projects-hover-color': 'var(--text-projects-hover-color)',
         'background-item-color': 'var(--background-item-color)',
         'background-design-color': 'var(--background-design-color)',
       },

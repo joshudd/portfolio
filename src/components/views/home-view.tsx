@@ -61,15 +61,15 @@ const HomeView = () => {
             {/* page links */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 {/* about */}
-                <div className="absolute top-[40%] left-[calc(50%-12rem)] sm:left-[calc(50%-14rem)] md:left-[calc(50%-16rem)] lg:left-[calc(50%-18rem)] xl:left-[calc(50%-20rem)] z-[200] pointer-events-auto">
+                <div className="absolute top-[40%] -translate-x-1/2 left-[calc(50%-7rem)] sm:left-[calc(50%-12rem)] md:left-[calc(50%-14rem)] lg:left-[calc(50%-16rem)] xl:left-[calc(50%-18rem)] z-[200] pointer-events-auto">
                     <a 
                         href="/about" 
                         className="flex flex-col items-center justify-center hover:text-text-hover-color"
                         onMouseEnter={() => setIsAboutHovered(true)}
                         onMouseLeave={() => setIsAboutHovered(false)}
                     >
-                        <div className="blur-sm fade-in-slow w-24 h-24">
-                            {isAboutHovered && (<div className="fade-in-slow"><Ripples view="home"/></div>)}
+                        <div className="blur-sm w-24 h-24">
+                            {isAboutHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
                         </div>
                         <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
                             about
@@ -78,15 +78,15 @@ const HomeView = () => {
                 </div>
 
                 {/* design */}
-                <div className="absolute top-[40%] left-[calc(50%-4rem)] z-[200] pointer-events-auto">
+                <div className="absolute top-[40%] -translate-x-1/2 left-[50%] z-[200] pointer-events-auto">
                     <a 
                         href="/design" 
                         className="flex flex-col items-center justify-center hover:text-text-hover-color"
                         onMouseEnter={() => setIsDesignHovered(true)}
                         onMouseLeave={() => setIsDesignHovered(false)}
                     >
-                        <div className="blur-sm fade-in-slow w-24 h-24">
-                            {isDesignHovered && (<div className="fade-in-slow"><Ripples view="home"/></div>)}
+                        <div className="blur-sm w-24 h-24">
+                            {isDesignHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
                         </div>
                         <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
                             design
@@ -95,15 +95,15 @@ const HomeView = () => {
                 </div>
 
                 {/* projects */}
-                <div className="absolute top-[40%] left-[calc(50%+4rem)] sm:left-[calc(50%+6rem)] md:left-[calc(50%+8rem)] lg:left-[calc(50%+10rem)] xl:left-[calc(50%+12rem)] z-[200] pointer-events-auto">
+                <div className="absolute top-[40%] -translate-x-1/2 left-[calc(50%+7rem)] sm:left-[calc(50%+12rem)] md:left-[calc(50%+14rem)] lg:left-[calc(50%+16rem)] xl:left-[calc(50%+18rem)] z-[200] pointer-events-auto">
                     <a 
                         href="/projects" 
                         className="flex flex-col items-center justify-center hover:text-text-hover-color"
                         onMouseEnter={() => setIsProjectsHovered(true)}
                         onMouseLeave={() => setIsProjectsHovered(false)}
                     >
-                        <div className="blur-sm fade-in-slow w-24 h-24">
-                            {isProjectsHovered && (<div className="fade-in-slow"><Ripples view="home"/></div>)}
+                        <div className="blur-sm w-24 h-24">
+                            {isProjectsHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
                         </div>
                         <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
                             projects

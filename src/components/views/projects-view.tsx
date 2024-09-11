@@ -43,18 +43,18 @@ const ProjectsView = () => {
             </div>
 
             {/* project list */}
-            <div className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
+            <div className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200] flex flex-col justify-between" style={{ minHeight: '60vh' }}>
                 <div className="flex flex-col flex-wrap gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px]">
                     {currentProjects.map((project: Project) => (
                         <ProjectItem key={project.name} project={project} colorset={colorset} /> 
                     ))}
                 </div>
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mt-4 pb-4">
                     {Array.from({ length: totalPages }, (_, index) => (
                         <button 
                             key={index} 
                             onClick={() => pagination(index + 1)} 
-                            className={`mx-1 px-2 py-1 rounded ${currentPage === index + 1 ? 'bg-text-projects-color text-background-transparent-color' : 'bg-background-transparent-color text-text-projects-color'}`}
+                            className={`mx-1 px-2 py-1 rounded-lg hover:text-text-projects-hover-color ${currentPage === index + 1 ? 'bg-background-projects-hover-color opacity-10' : ''}`}
                         >
                             {index + 1}
                         </button>
