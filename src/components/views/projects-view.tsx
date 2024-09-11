@@ -61,13 +61,6 @@ const ProjectsView = () => {
                     ))}
                 </div>
             </div>
-
-            {/* note */}
-            <div className="hidden md:block absolute bottom-[0vh] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <h2 className="text-[10px]">
-                    designed and built by me
-                </h2>
-            </div>
         </div>
     );
 }
