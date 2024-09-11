@@ -19,7 +19,7 @@ const HomeView = () => {
         },
         {
             name: "resume",
-            url: "/resume.pdf",
+            url: "/Joshua Dickinson Resume - Fall 2024.pdf",
         },
         {
             name: "email",
