@@ -53,7 +53,7 @@ const ProjectsView = () => {
                         <button 
                             key={index} 
                             onClick={() => pagination(index + 1)} 
-                            className={`mx-1 px-2 py-1 rounded-lg hover:text-text-projects-hover-color ${currentPage === index + 1 ? 'bg-background-projects-hover-color opacity-10' : ''}`}
+                            className={`mx-1 px-2 py-1 rounded-lg hover:text-text-projects-hover-color ${currentPage === index + 1 ? 'bg-background-projects-light-color opacity-70' : ''}`}
                         >
                             {index + 1}
                         </button>
