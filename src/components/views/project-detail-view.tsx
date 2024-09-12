@@ -11,7 +11,7 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
         console.log(project)
         return <div>Project not found</div>;
     }
-    
+
     return (
         <div>
             <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
@@ -28,7 +28,7 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                 {/* body */}
                 <div className="mt-6 top-[8vh] w-[80%] max-w-[700px] absolute p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
                     <div className="flex items-center justify-between">
-                        <h1 className="text-lg sm:text-xl md:text-2xl font-normal">
+                        <h1 className="text-[22px] sm:text-[24px] md:text-[26px] font-normal">
                             {project.name}
                         </h1>
                     </div>
@@ -43,7 +43,7 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                             </div>
                         ))}
                     </div>
-                    <div className="text-[8px] sm:text-[10px] md:text-[12px] leading-[1.8]">
+                    <div className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
                         {project.external_link && 
                             <>
                                 <a href={project.external_link} target="_blank" className="ml-0 flex flex-nowrap hover:text-text-projects-hover-color items-center">
@@ -53,11 +53,11 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                             </>
                         }
                     </div>
-                    <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                    <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
                         {project.description}
                     </p>
                     <br />
-                    <div className="flex flex-row content-start justify-end gap-x-2 md:gap-x-4 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                    <div className="flex flex-row content-start justify-end gap-x-2 md:gap-x-4 text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
                         {project.tools && project.tools.map((tool, index) => 
                             <div key={index} className="bg-background-item-color pl-2 pr-2 rounded-lg">
                                 <p className="">
