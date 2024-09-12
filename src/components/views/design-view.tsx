@@ -6,7 +6,7 @@ import { ProjectItem } from "@/components/project-item";
 
 const DesignView = () => {
     const designProjectNames = ["runstencil", "honey", "sisterscamelot"];
-    const designProjects: Project[] = projects.filter(project => designProjectNames.includes(project.name));
+    const designProjects: Project[] = projects.filter(project => designProjectNames.includes(project.link));
     const colorset = {
         text: "text-text-design-color",
         textHover: "text-text-design-hover-color",
