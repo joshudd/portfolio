@@ -66,7 +66,7 @@ const HomeView = () => {
                         onMouseLeave={() => setIsAboutHovered(false)}
                     >
                         <div className="blur-sm w-24 h-24">
-                            {isAboutHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
+                            {/* {isAboutHovered && (<div className="fade-in"><Ripples view="home"/></div>)} */}
                         </div>
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             about
@@ -83,7 +83,7 @@ const HomeView = () => {
                         onMouseLeave={() => setIsDesignHovered(false)}
                     >
                         <div className="blur-sm w-24 h-24">
-                            {isDesignHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
+                            {/* {isDesignHovered && (<div className="fade-in"><Ripples view="home"/></div>)} */}
                         </div>
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             design
@@ -100,7 +100,7 @@ const HomeView = () => {
                         onMouseLeave={() => setIsProjectsHovered(false)}
                     >
                         <div className="blur-sm w-24 h-24">
-                            {isProjectsHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
+                            {/* {isProjectsHovered && (<div className="fade-in"><Ripples view="home"/></div>)} */}
                         </div>
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             projects
