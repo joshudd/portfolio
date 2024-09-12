@@ -72,3 +72,22 @@ body {
   border-radius: 20px;
   border: transparent;
 }
+
+.animate-pop {
+  animation: pop 0.3s ease-out forwards;
+}
+
+@keyframes pop {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-7px); }
+  100% { transform: translateY(0); }
+}
+
+.hidden-icon {
+  opacity: 0;
+  transition: opacity 0s ease-out;
+}
+
+.hover-trigger:hover .hidden-icon {
+  opacity: 1;
+}

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { linkarrowIcon } from "@/components/icons";
+import { linkarrowIcon, heartCardIcon, folderIcon, compassIcon } from "@/components/icons";
 import Ripples from "@/components/animation/ripples-animation";
 
 const HomeView = () => {
@@ -61,12 +61,12 @@ const HomeView = () => {
                 <div className="absolute top-[40%] -translate-x-1/2 left-[calc(50%-7rem)] sm:left-[calc(50%-12rem)] md:left-[calc(50%-14rem)] lg:left-[calc(50%-16rem)] xl:left-[calc(50%-18rem)] z-[200] pointer-events-auto">
                     <a 
                         href="/about" 
-                        className="flex flex-col items-center justify-center hover:text-text-hover-color"
+                        className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
                         onMouseEnter={() => setIsAboutHovered(true)}
                         onMouseLeave={() => setIsAboutHovered(false)}
                     >
-                        <div className="blur-sm w-24 h-24">
-                            {/* {isAboutHovered && (<div className="fade-in"><Ripples view="home"/></div>)} */}
+                        <div className={`transition-all duration-100 ${isAboutHovered ? 'animate-pop' : 'hidden-icon'}`}>
+                            {heartCardIcon()}
                         </div>
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             about
@@ -78,12 +78,12 @@ const HomeView = () => {
                 <div className="absolute top-[40%] -translate-x-1/2 left-[50%] z-[200] pointer-events-auto">
                     <a 
                         href="/design" 
-                        className="flex flex-col items-center justify-center hover:text-text-hover-color"
+                        className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
                         onMouseEnter={() => setIsDesignHovered(true)}
                         onMouseLeave={() => setIsDesignHovered(false)}
                     >
-                        <div className="blur-sm w-24 h-24">
-                            {/* {isDesignHovered && (<div className="fade-in"><Ripples view="home"/></div>)} */}
+                        <div className={`transition-all duration-300 ${isDesignHovered ? 'animate-pop' : 'hidden-icon'}`}>
+                            {compassIcon()}
                         </div>
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             design
@@ -95,12 +95,12 @@ const HomeView = () => {
                 <div className="absolute top-[40%] -translate-x-1/2 left-[calc(50%+7rem)] sm:left-[calc(50%+12rem)] md:left-[calc(50%+14rem)] lg:left-[calc(50%+16rem)] xl:left-[calc(50%+18rem)] z-[200] pointer-events-auto">
                     <a 
                         href="/projects" 
-                        className="flex flex-col items-center justify-center hover:text-text-hover-color"
+                        className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
                         onMouseEnter={() => setIsProjectsHovered(true)}
                         onMouseLeave={() => setIsProjectsHovered(false)}
                     >
-                        <div className="blur-sm w-24 h-24">
-                            {/* {isProjectsHovered && (<div className="fade-in"><Ripples view="home"/></div>)} */}
+                        <div className={`transition-all duration-300 ${isProjectsHovered ? 'animate-pop' : 'hidden-icon'}`}>
+                            {folderIcon()}
                         </div>
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             projects
@@ -108,16 +108,6 @@ const HomeView = () => {
                     </a>
                 </div>
             </div>
-
-            {/* experience */}
-            {/* <div className={`hidden absolute top-[50%] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <a href="/experience" className="flex items-center hover:text-text-hover-color">
-                    <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-normal">
-                        experience
-                    </h2>
-                </a>
-            </div> */}
-
 
             {/* note */}
             <div className="hidden lg:block fixed bottom-0 left-0 right-0 p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
