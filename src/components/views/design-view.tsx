@@ -1,9 +1,10 @@
 "use client"
 
 import React from "react";
+import useSound from 'use-sound';
 import { Project, projects } from "@/data/projects";
 import { ProjectItem } from "@/components/project-item";
-
+import { playIcon, stopIcon } from "@/components/icons";
 const DesignView = () => {
     const designProjectNames = ["runstencil", "honey", "sisterscamelot"];
     const designProjects: Project[] = projects.filter(project => designProjectNames.includes(project.link));
@@ -32,6 +33,33 @@ const DesignView = () => {
             src: "/audio/care for you.mp3",
         },
     ];
+
+    const [playSee, { stop: stopSee }] = useSound(audioFiles[0].src, { volume: 0.25 });
+    const [playBackHome, { stop: stopBackHome }] = useSound(audioFiles[1].src, { volume: 0.25 });
+    const [playEspecialForWaxKit, { stop: stopEspecialForWaxKit }] = useSound(audioFiles[2].src, { volume: 0.25 });
+    const [playCareForYou, { stop: stopCareForYou }] = useSound(audioFiles[3].src, { volume: 0.25 });
+
+    const [currentlyPlaying, setCurrentlyPlaying] = React.useState<number | null>(null);
+
+    const playAudio = (index: number) => {
+        stopAllSounds();
+        setCurrentlyPlaying(index);
+        switch (index) {
+            case 0: playSee(); break;
+            case 1: playBackHome(); break;
+            case 2: playEspecialForWaxKit(); break;
+            case 3: playCareForYou(); break;
+        }
+    };
+
+    const stopAudio = () => {
+        stopAllSounds();
+        setCurrentlyPlaying(null);
+    };
+
+    const stopAllSounds = () => {
+        stopSee(); stopBackHome(); stopEspecialForWaxKit(); stopCareForYou();
+    }
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-design-color">
@@ -89,10 +117,9 @@ const DesignView = () => {
                             <h3 className="text-[14px] sm:text-[16px] md:text-[18px] font-normal whitespace-nowrap">
                                 {audioFile.name}
                             </h3>
-                            <audio controls className="max-w-[44px]">
-                                <source src={audioFile.src} type="audio/mpeg" />
-                                Your browser does not support the audio element.
-                            </audio>    
+                            <button onClick={() => currentlyPlaying === index ? stopAudio() : playAudio(index)}>
+                                {currentlyPlaying === index ? stopIcon() : playIcon()}
+                            </button>
                         </div>
                         ))}
                     </div>
