@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { ProjectItem } from "@/components/project-item";
 import { projects, Project } from "@/data/projects";
 
@@ -44,7 +43,7 @@ const ProjectsView = () => {
 
             {/* project list */}
             <div className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200] flex flex-col justify-between" style={{ minHeight: '40vh' }}>
-                <div className="flex flex-col flex-wrap gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px]">
+                <div className="flex flex-col flex-wrap gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px]">
                     {currentProjects.map((project: Project) => (
                         <ProjectItem key={project.name} project={project} colorset={colorset} /> 
                     ))}

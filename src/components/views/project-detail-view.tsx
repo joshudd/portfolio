@@ -11,6 +11,7 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
         console.log(project)
         return <div>Project not found</div>;
     }
+    
     return (
         <div>
             <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
@@ -67,14 +68,14 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                     </div>
                 </div>
 
-                {/* Image Modal */}
+                {/* image modal */}
                 {selectedImage && (
                     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[300]" onClick={() => setSelectedImage(null)}>
-                        <div className="max-w-[90%] max-h-[90%]">
+                        <div className="w-[90vw] h-[90vh] flex items-center justify-center">
                             <img
                                 src={`/images/${selectedImage}`}
                                 alt="Expanded project image"
-                                className="max-w-full max-h-full object-contain"
+                                className="max-w-full max-h-full w-auto h-auto object-contain"
                             />
                         </div>
                     </div>

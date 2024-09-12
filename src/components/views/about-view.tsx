@@ -23,7 +23,7 @@ const AboutView = () => {
             {/* body */}
             <div className="mt-6 w-[80%] max-w-[700px] absolute top-[12vh] p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
                 <div className="flex items-center">
-                    <h1 className="text-lg sm:text-xl md:text-2xl font-normal">
+                    <h1 className="text-[22px] sm:text-[24px] md:text-[26px] font-normal">
                         nice to meet you! &nbsp;
                     </h1>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" className="inline-block flex-shrink-0 ml-1 mr-1">
@@ -31,33 +31,33 @@ const AboutView = () => {
                     </svg>
                 </div>
                 <br/>
-                <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
                     I&apos;m from the North metro area of MN and currently studying Computer Science + User Experience Design at the
                     <span className=""> University of Minnesota</span>.
                 </p>
                 <br/>
-                <p className="text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]"> 
+                <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]"> 
                     At the moment, I&apos;m developing internal tools at
                     <a href="https://www.spscommerce.com/" target="_blank" className="text-text-about-color hover:text-text-about-hover-color"> SPS Commerce </a> 
                     as a software engineer intern
-                    <span className="text-[8px] sm:text-[10px] md:text-[12px] align-super">
+                    <span className="text-[10px] sm:text-[12px] md:text-[14px] align-super">
                         &nbsp;{'['}extended&nbsp;through&nbsp;the&nbsp;end&nbsp;of&nbsp;2024{']'}
                     </span>.
                 </p>
                 <br/>
-                <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
                     <span className="inline-flex items-center">
                         I&apos;m passionate about building products that are both beautiful + functional;
                         one of its greatest rewards is constant learning.
                     </span>
                 </p>
                 <br/>
-                <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8]">
+                <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
                     Feel free to reach out if you&apos;d like to chat!
                 </p>
                 <br/>
                 <div className="flex items-end align-left">
-                    <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[10px] sm:text-[12px] md:text-[14px] leading-[1.8] italic">
+                    <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8] italic">
                      - Josh
                     </p>
                 </div>

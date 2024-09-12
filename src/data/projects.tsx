@@ -20,8 +20,8 @@ export const projects: Project[] = [
         summary: "audio VST3 plug-in",
         tools: ["C++", "JUCE", "React.js"],
         images: ["honey.png"],
-        external_link: "hey",
-        display_link: "github.com/joshudd/honey",
+        external_link: "",
+        display_link: "",
     },
     {
         link: "sketchwithfriends",

@@ -1,11 +1,8 @@
 'use client';
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { linkarrowIcon, speakerIcon, cropIcon, chatIcon, documentIcon } from "@/components/icons";
+import { linkarrowIcon } from "@/components/icons";
 import Ripples from "@/components/animation/ripples-animation";
-import saly from "../../../public/images/Saly-18.png";
-import Image from 'next/image';
 
 const HomeView = () => {
     const links = [
@@ -71,7 +68,7 @@ const HomeView = () => {
                         <div className="blur-sm w-24 h-24">
                             {isAboutHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
                         </div>
-                        <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
+                        <h2 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-normal mt-5">
                             about
                         </h2>
                     </a>
@@ -88,7 +85,7 @@ const HomeView = () => {
                         <div className="blur-sm w-24 h-24">
                             {isDesignHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
                         </div>
-                        <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
+                        <h2 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-normal mt-5">
                             design
                         </h2>
                     </a>
@@ -105,7 +102,7 @@ const HomeView = () => {
                         <div className="blur-sm w-24 h-24">
                             {isProjectsHovered && (<div className="fade-in"><Ripples view="home"/></div>)}
                         </div>
-                        <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22xl] font-normal mt-5">
+                        <h2 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-normal mt-5">
                             projects
                         </h2>
                     </a>
@@ -121,9 +118,10 @@ const HomeView = () => {
                 </a>
             </div> */}
 
+
             {/* note */}
-            <div className="hidden md:block absolute bottom-[0vh] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <h2 className="text-[10px]">
+            <div className="hidden lg:block fixed bottom-0 left-0 right-0 p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
+                <h2 className="text-[10px] text-center">
                     designed and built by me
                 </h2>
             </div>

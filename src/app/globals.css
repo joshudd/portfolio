@@ -7,8 +7,8 @@
   --background-color: #EDEAE7;
   --background-transparent-color: #EDEAE76C;
   --background-item-color: #dfe0ef;
-  --text-color: #C67979;
-  --text-hover-color: #CC4E4E;
+  --text-color: #8a5454;
+  --text-hover-color: #cb7e7e;
   --text-projects-color: #5172A2;
   --text-projects-hover-color: #9baec8;
   --text-about-color: #125124;
@@ -22,9 +22,6 @@ body {
   background-color: var(--background-color);
 }
 
-.ear-cursor {
-  cursor: url('../../public/ear.png'), auto;
-}
 
 @keyframes pulse {
   0%, 70%, 100% {
