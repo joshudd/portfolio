@@ -33,11 +33,11 @@ const ProjectsView = () => {
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
             {/* back button */}
             <div className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <Link href="/" className="flex items-center hover:text-text-projects-hover-color">
+                <a href="/" className="flex items-center hover:text-text-projects-hover-color">
                     <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
                         back
                     </h2>
-                </Link>
+                </a>
             </div>
 
             {/* title */}
@@ -48,7 +48,7 @@ const ProjectsView = () => {
             </div>
 
             {/* project list */}
-            <div className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200] flex flex-col justify-between" style={{ minHeight: '40vh' }}>
+            <div className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200] flex flex-col justify-between" style={{ minHeight: '50vh' }}>
                 <div className="flex flex-col flex-wrap gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px]">
                     {currentProjects.map((project: Project) => (
                         <ProjectItem key={project.name} project={project} colorset={colorset} /> 
