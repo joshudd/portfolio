@@ -38,7 +38,7 @@ const AboutView = () => {
                 <br/>
                 <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]"> 
                     At the moment, I&apos;m developing internal tools at
-                    <a href="https://www.spscommerce.com/" target="_blank" className="text-text-about-color hover:text-text-about-hover-color"> SPS Commerce </a> 
+                    <a href="https://www.spscommerce.com/" target="_blank" className="text-text-about-color hover:text-text-about-hover-color italic"> SPS Commerce </a> 
                     as a software engineer intern
                     <span className="text-[10px] sm:text-[12px] md:text-[14px] align-super">
                         &nbsp;{'['}extended&nbsp;through&nbsp;the&nbsp;end&nbsp;of&nbsp;2024{']'}
@@ -52,8 +52,8 @@ const AboutView = () => {
                     </span>
                 </p>
                 <br/>
-                <p className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
-                    Feel free to reach out if you&apos;d like to chat!
+                <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
+                    Feel free to <a href="mailto:josh25dickinson@gmail.com" className="text-text-about-color hover:text-text-about-hover-color italic">reach out</a> if you&apos;d like to chat!
                 </p>
                 <br/>
                 <div className="flex items-end align-left">
