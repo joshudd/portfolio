@@ -69,7 +69,7 @@ export const projects: Project[] = [
         link: "sisterscamelot",
         name: "Sisters' Camelot",
         summary: "website redesign for a local nonprofit",
-        description: "Me and a partner redesigned the website for a local nonprofit. We did a a couple rounds of user research and testing to make sure we were meeting the needs of the users. In the end, we created a few high fidelity mockups that were a step up in user experience.",
+        description: "Me and a partner redesigned the website for a local nonprofit. We did a couple rounds of user research and testing to make sure we were meeting the needs of the users. In the end, we created a few high fidelity mockups that were a step up in user experience.",
         tools: ["Figma", "User Research"],
         images: ["sisterscamelot_1.png", "sisterscamelot_2.png"],
         external_link: null,
