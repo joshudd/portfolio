@@ -2,47 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* width */
-::-webkit-scrollbar {
-  width: 0px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #101010;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #5c5c5c;
-  border-radius: 5px;
-}
-
-/* Handle on hover */
-/* ::-webkit-scrollbar-thumb:hover {
-  background: white;
-} */
-
+/* Color Reference Table */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --background-color: #EDEAE7;
+  --background-transparent-color: #EDEAE76C;
+  --background-item-color: #dfe0ef;
+  --text-color: #2c6861;
+  --text-hover-color: #75b1aa;
+  --text-projects-color: #5172A2;
+  --text-projects-hover-color: #9baec8;
+  --text-about-color: #125124;
+  --text-about-hover-color: #38AD66;
+  --text-design-color: #4e3d18;
+  --text-design-hover-color: #a88c5e;
+  --background-design-color: #dcd7d1;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--background-color);
+}
+
+
+@keyframes pulse {
+  0%, 70%, 100% {
+      opacity: calc(var(--base-opacity, 1) * 0.3);
+  }
+  85% {
+      opacity: var(--base-opacity, 0.5);
+      color: var(--text-hover-color);
+  }
+}
+
+.pulsing-icon {
+  --base-opacity: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.fade-in-slow {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out 0.1s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.transparent-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+.transparent-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
 }

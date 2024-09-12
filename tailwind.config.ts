@@ -8,19 +8,25 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        // sans: ['"SFPro"', "sans-serif"],
-        sans: ['"AndaleMono"', "sans-serif"],
+      backgroundColor: {
+        'background-color': 'var(--background-color)',
+        'background-transparent-color': 'var(--background-transparent-color)',
+        'background-projects-hover-color': 'var(--text-projects-hover-color)',
+        'background-item-color': 'var(--background-item-color)',
+        'background-design-color': 'var(--background-design-color)',
       },
-      colors: {
-        black: "#0B0B0B",
-        lighterblack: "#101010",
-        grey: "#A3A3A3",
-        darkgrey: "#5C5C5C",
-        white: "#DDDDDD",
-        // primary: "#8D5A97",
-        primary: "#A273AB",
-        // primary: "#49A8FF",
+      textColor: {
+        'text-color': 'var(--text-color)',
+        'text-hover-color': 'var(--text-hover-color)',
+        'text-projects-color': 'var(--text-projects-color)',
+        'text-projects-hover-color': 'var(--text-projects-hover-color)',
+        'text-about-color': 'var(--text-about-color)',
+        'text-about-hover-color': 'var(--text-about-hover-color)',
+        'text-design-color': 'var(--text-design-color)',
+        'text-design-hover-color': 'var(--text-design-hover-color)',
+      },
+      height: {
+        '200': '200vh',
       },
     },
   },
