@@ -1,9 +1,12 @@
-import React from "react";
-import Image from "next/image";
+"use client"
+
+import React, { useState } from "react";
 import { linkarrowIcon } from "../icons";
 import { Project } from "@/data/projects";
 
 const ProjectDetailView = ({ project }: { project: Project }) => {
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
     if (!project) {
         console.log(project)
         return <div>Project not found</div>;
@@ -28,19 +31,16 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                             {project.name}
                         </h1>
                     </div>
-                    <div className="mt-6 mb-4 flex justify-start">
-                        {project.image && 
-                            <>
-                                <br />
-                                <Image
-                                    src={`/images/${project.image}`}
+                    <div className="mt-4 mb-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {project.images && project.images.map((image, index) => (
+                            <div key={index} className="aspect-w-4 aspect-h-3 cursor-pointer" onClick={() => setSelectedImage(image)}>
+                                <img
+                                    src={`/images/${image}`}
                                     alt={`${project.name} project image`}
-                                    width={500}
-                                    height={250} 
-                                    className="w-full h-auto rounded-lg shadow-md max-w-[400px]" 
+                                    className="w-full h-full object-cover rounded-lg shadow-md"
                                 />
-                            </>
-                        }
+                            </div>
+                        ))}
                     </div>
                     <div className="text-[8px] sm:text-[10px] md:text-[12px] leading-[1.8]">
                         {project.external_link && 
@@ -66,6 +66,19 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                         )}
                     </div>
                 </div>
+
+                {/* Image Modal */}
+                {selectedImage && (
+                    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[300]" onClick={() => setSelectedImage(null)}>
+                        <div className="max-w-[90%] max-h-[90%]">
+                            <img
+                                src={`/images/${selectedImage}`}
+                                alt="Expanded project image"
+                                className="max-w-full max-h-full object-contain"
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
