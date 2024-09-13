@@ -113,7 +113,7 @@ const DesignView = () => {
                 <div className="mt-3 w-full overflow-x-auto scrollbar-hide transparent-scrollbar">
                     <div className="flex flex-row flex-nowrap justify-center gap-x-3 min-w-max">
                         {audioFiles.map((audioFile, index) => (
-                        <div key={index} className="inline-flex items-center justify-between mb-3 gap-x-4 pl-4 pr-4 py-2 rounded-md bg-background-design-color">
+                        <div key={index} className="inline-flex items-start justify-between mb-3 gap-x-4 pl-4 pr-4 py-2 rounded-md bg-background-design-color">
                             <h3 className="text-[12px] sm:text-[14px] md:text-[16px] font-normal whitespace-nowrap">
                                 {audioFile.name}
                             </h3>
