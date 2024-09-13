@@ -62,7 +62,7 @@ export const projects: Project[] = [
         description: "The website you're looking at! Built with Next.js, Tailwind, and P5.js.",
         tools: ["Nextjs", "TailwindCSS", "p5.js"],
         images: null,
-        external_link: null,
+        external_link: "https://github.com/joshudd/portfolio",
         display_link: "github.com/joshudd/portfolio",
     },
     {
