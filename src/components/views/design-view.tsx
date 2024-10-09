@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import TransitionLink from "@/components/transition-link";
 import useSound from 'use-sound';
 import { Project, projects } from "@/data/projects";
 import { ProjectItem } from "@/components/project-item";
@@ -67,11 +66,11 @@ const DesignView = () => {
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-design-color">
             {/* back button */}
             <div className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <TransitionLink href="/" className="flex items-center hover:text-text-design-hover-color">
+                <Link href="/" className="flex items-center hover:text-text-design-hover-color">
                     <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
                         back
                     </h2>
-                </TransitionLink>
+                </Link>
             </div>
 
             {/* title */}
@@ -95,7 +94,7 @@ const DesignView = () => {
                 </p>
                 <br/>
                 <p className="content-start gap-x-4 md:gap-x-8 text-[12px] sm:text-[14px] md:text-[16px] leading-[1.8]">
-                    Some examples of my visual design work can be found here + more on the <TransitionLink href="/projects" className="text-text-design-color hover:text-text-design-hover-color underline">projects</TransitionLink> page.
+                    Some examples of my visual design work can be found here + more on the <Link href="/projects" className="text-text-design-color hover:text-text-design-hover-color underline">projects</Link> page.
                 </p>
 
                 <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[12px] sm:text-[14px] md:text-[16px] p-5 mb-8">

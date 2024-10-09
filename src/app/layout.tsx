@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inconsolata } from 'next/font/google'
-// import TransitionProvider from '@/components/transition-provider'
+import TransitionContainer from '@/components/transition/transition-container'
 
 const inconsolata = Inconsolata({
   subsets: ['latin'],
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className={`${inconsolata.className}`}>
       <body>  
         <div className="min-h-[400px] min-w-[240px] flex flex-col justify-center items-center">
-          {children}
+          <TransitionContainer>{children}</TransitionContainer>
         </div>
       </body>
     </html>

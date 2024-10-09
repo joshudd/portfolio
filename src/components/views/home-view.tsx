@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { linkarrowIcon, heartCardIcon, folderIcon, compassIcon } from "@/components/icons";
 import Link from 'next/link';
-import TransitionLink from '@/components/transition-link';
 
 const HomeView = () => {
     const links = [
@@ -60,7 +59,7 @@ const HomeView = () => {
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 {/* about */}
                 <div className="absolute top-[45%] -translate-x-1/2 left-[calc(50%-7rem)] sm:left-[calc(50%-12rem)] md:left-[calc(50%-14rem)] lg:left-[calc(50%-16rem)] xl:left-[calc(50%-18rem)] z-[200] pointer-events-auto">
-                    <TransitionLink 
+                    <Link 
                         href="/about" 
                         key="about"
                         className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
@@ -73,12 +72,12 @@ const HomeView = () => {
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             about
                         </h2>
-                    </TransitionLink>
+                    </Link>
                 </div>
 
                 {/* design */}
                 <div className="absolute top-[45%] -translate-x-1/2 left-[50%] z-[200] pointer-events-auto">
-                    <TransitionLink 
+                    <Link 
                         href="/design" 
                         key="design"
                         className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
@@ -91,12 +90,12 @@ const HomeView = () => {
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             design
                         </h2>
-                    </TransitionLink>
+                    </Link>
                 </div>
 
                 {/* projects */}
                 <div className="absolute top-[45%] -translate-x-1/2 left-[calc(50%+7rem)] sm:left-[calc(50%+12rem)] md:left-[calc(50%+14rem)] lg:left-[calc(50%+16rem)] xl:left-[calc(50%+18rem)] z-[200] pointer-events-auto">
-                    <TransitionLink 
+                    <Link 
                         href="/projects" 
                         key="projects"
                         className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
@@ -109,7 +108,7 @@ const HomeView = () => {
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             projects
                         </h2>
-                    </TransitionLink>
+                    </Link>
                 </div>
             </div>
 

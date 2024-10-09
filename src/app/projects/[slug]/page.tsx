@@ -1,4 +1,5 @@
 import ProjectDetailView from '@/components/views/project-detail-view'
+import TransitionChild from "@/components/transition/transition-child";
 import { notFound } from 'next/navigation'
 import { projects } from '@/data/projects'
 
@@ -14,5 +15,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     if (!project) {
       notFound()
     }
-    return <ProjectDetailView project={project} />
+    return (
+      <main>
+        <TransitionChild id="projects">
+          <ProjectDetailView project={project} />
+        </TransitionChild>
+      </main>
+    )
 }

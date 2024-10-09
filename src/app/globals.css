@@ -21,11 +21,6 @@
 
 body {
   background-color: var(--background-color);
-  transition: opacity 0.25s ease-in-out;
-}
-
-.page-transition {
-  opacity: 0;
 }
 
 @keyframes pulse {
