@@ -1,15 +1,15 @@
 "use client"
 
 import React from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import TransitionLink from "@/components/transition-link";
 import { ProjectItem } from "@/components/project-item";
 import { projects, Project } from "@/data/projects";
 
-const ProjectsView = () => {
-    const searchParams = useSearchParams();
-    const router = useRouter();
-    const currentPage = Number(searchParams.get("page") || "1");
+
+const ProjectsView = ({ params, searchParams }: { params: { slug: string }, searchParams?: { [key: string]: string | string[] | undefined } }) => {
+    const currentPage = Number(searchParams?.page ?? "1");
     
     const colorset = {
         text: "text-text-projects-color",
@@ -24,10 +24,6 @@ const ProjectsView = () => {
     const indexOfFirstProject = indexOfLastProject - projectsPerPage;
     const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
     const totalPages = Math.ceil(projects.length / projectsPerPage);
-
-    const pagination = (pageNumber: number) => {
-        router.push(`/projects?page=${pageNumber}`);
-    };
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
@@ -56,13 +52,13 @@ const ProjectsView = () => {
                 </div>
                 <div className="flex justify-center mt-4 pb-4">
                     {Array.from({ length: totalPages }, (_, index) => (
-                        <button 
+                        <Link 
                             key={index} 
-                            onClick={() => pagination(index + 1)} 
+                            href={`/projects?page=${index + 1}`} 
                             className={`mx-1 px-2 py-1 rounded-lg hover:text-text-projects-hover-color ${currentPage === index + 1 ? 'bg-background-projects-light-color opacity-70' : ''}`}
                         >
                             {index + 1}
-                        </button>
+                        </Link>
                     ))}
                 </div>
             </div>

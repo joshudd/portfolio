@@ -59,7 +59,7 @@ const HomeView = () => {
             {/* page links */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 {/* about */}
-                <div className="absolute top-[40%] -translate-x-1/2 left-[calc(50%-7rem)] sm:left-[calc(50%-12rem)] md:left-[calc(50%-14rem)] lg:left-[calc(50%-16rem)] xl:left-[calc(50%-18rem)] z-[200] pointer-events-auto">
+                <div className="absolute top-[45%] -translate-x-1/2 left-[calc(50%-7rem)] sm:left-[calc(50%-12rem)] md:left-[calc(50%-14rem)] lg:left-[calc(50%-16rem)] xl:left-[calc(50%-18rem)] z-[200] pointer-events-auto">
                     <TransitionLink 
                         href="/about" 
                         key="about"
@@ -77,7 +77,7 @@ const HomeView = () => {
                 </div>
 
                 {/* design */}
-                <div className="absolute top-[40%] -translate-x-1/2 left-[50%] z-[200] pointer-events-auto">
+                <div className="absolute top-[45%] -translate-x-1/2 left-[50%] z-[200] pointer-events-auto">
                     <TransitionLink 
                         href="/design" 
                         key="design"
@@ -95,7 +95,7 @@ const HomeView = () => {
                 </div>
 
                 {/* projects */}
-                <div className="absolute top-[40%] -translate-x-1/2 left-[calc(50%+7rem)] sm:left-[calc(50%+12rem)] md:left-[calc(50%+14rem)] lg:left-[calc(50%+16rem)] xl:left-[calc(50%+18rem)] z-[200] pointer-events-auto">
+                <div className="absolute top-[45%] -translate-x-1/2 left-[calc(50%+7rem)] sm:left-[calc(50%+12rem)] md:left-[calc(50%+14rem)] lg:left-[calc(50%+16rem)] xl:left-[calc(50%+18rem)] z-[200] pointer-events-auto">
                     <TransitionLink 
                         href="/projects" 
                         key="projects"

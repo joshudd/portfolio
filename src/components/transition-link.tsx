@@ -22,9 +22,9 @@ export default function TransitionLink({ href, children, ...props }: TransitionL
 
     const body = document.querySelector('body')
     body?.classList.add('page-transition') // exit animation
-    await sleep(200)
+    await sleep(250)
     router.push(href)
-    await sleep(200)
+    await sleep(250)
     body?.classList.remove('page-transition') // enter animation
   }
 
