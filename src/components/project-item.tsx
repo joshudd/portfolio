@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion } from 'framer-motion';
+import TransitionLink from "@/components/transition-link";
 import { Project } from "@/data/projects";
 
 type ColorSet = {
@@ -28,7 +29,7 @@ export const ProjectItem = ({ project, colorset }: { project: Project, colorset:
     };
 
     return (
-        <a href={`/projects/${project.link}`}>
+        <TransitionLink href={`/projects/${project.link}`}>
             <motion.div
                 key={project.name} 
                 className={`pt-4 pb-4 gap-x-6 md:gap-x-12 lg:gap-x-18 flex items-center max-w-full ${colorset.text} ${colorset.background} hover:${colorset.textHover} hover:${colorset.backgroundHover}`} 
@@ -51,6 +52,6 @@ export const ProjectItem = ({ project, colorset }: { project: Project, colorset:
                     </svg>
                 </div>
             </motion.div>
-        </a>
+        </TransitionLink>
     );
 };

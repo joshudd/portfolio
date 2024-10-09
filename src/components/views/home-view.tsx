@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { linkarrowIcon, heartCardIcon, folderIcon, compassIcon } from "@/components/icons";
-import Ripples from "@/components/animation/ripples-animation";
+import Link from 'next/link';
+import TransitionLink from '@/components/transition-link';
 
 const HomeView = () => {
     const links = [
@@ -41,16 +42,16 @@ const HomeView = () => {
             <div className="fixed top-0 right-0 p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-bl-sm md:rounded-bl-lg backdrop-blur-sm z-[200]">
                 <div className="flex flex-row content-start justify-end gap-x-2 md:gap-x-4 text-[10px] sm:text-[12px] md:text-[14px]">
                     {links.map((link) => (
-                        <a 
+                        <Link 
                             href={link.url} 
                             key={link.name} 
                             className="py-1 flex items-center hover:text-text-hover-color" 
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target={link.url.startsWith('http') || link.url.startsWith('mailto:') ? "_blank" : undefined}
+                            rel={link.url.startsWith('http') ? "noopener noreferrer" : undefined}
                         >
                             <span className="underline">{link.name}</span>
                             {linkarrowIcon()}
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -59,8 +60,9 @@ const HomeView = () => {
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 {/* about */}
                 <div className="absolute top-[40%] -translate-x-1/2 left-[calc(50%-7rem)] sm:left-[calc(50%-12rem)] md:left-[calc(50%-14rem)] lg:left-[calc(50%-16rem)] xl:left-[calc(50%-18rem)] z-[200] pointer-events-auto">
-                    <a 
+                    <TransitionLink 
                         href="/about" 
+                        key="about"
                         className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
                         onMouseEnter={() => setIsAboutHovered(true)}
                         onMouseLeave={() => setIsAboutHovered(false)}
@@ -71,13 +73,14 @@ const HomeView = () => {
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             about
                         </h2>
-                    </a>
+                    </TransitionLink>
                 </div>
 
                 {/* design */}
                 <div className="absolute top-[40%] -translate-x-1/2 left-[50%] z-[200] pointer-events-auto">
-                    <a 
+                    <TransitionLink 
                         href="/design" 
+                        key="design"
                         className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
                         onMouseEnter={() => setIsDesignHovered(true)}
                         onMouseLeave={() => setIsDesignHovered(false)}
@@ -88,13 +91,14 @@ const HomeView = () => {
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             design
                         </h2>
-                    </a>
+                    </TransitionLink>
                 </div>
 
                 {/* projects */}
                 <div className="absolute top-[40%] -translate-x-1/2 left-[calc(50%+7rem)] sm:left-[calc(50%+12rem)] md:left-[calc(50%+14rem)] lg:left-[calc(50%+16rem)] xl:left-[calc(50%+18rem)] z-[200] pointer-events-auto">
-                    <a 
+                    <TransitionLink 
                         href="/projects" 
+                        key="projects"
                         className="flex flex-col items-center justify-center hover:text-text-hover-color group hover-trigger"
                         onMouseEnter={() => setIsProjectsHovered(true)}
                         onMouseLeave={() => setIsProjectsHovered(false)}
@@ -105,17 +109,9 @@ const HomeView = () => {
                         <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[32px] font-normal mt-5">
                             projects
                         </h2>
-                    </a>
+                    </TransitionLink>
                 </div>
             </div>
-
-            {/* note */}
-            <div className="hidden lg:block fixed bottom-0 left-0 right-0 p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <h2 className="text-[10px] text-center">
-                    designed and built by me
-                </h2>
-            </div>
-
 
         </div>
     );

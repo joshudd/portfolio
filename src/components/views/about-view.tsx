@@ -1,16 +1,17 @@
 import React from "react";
-import Ripples from "../animation/ripples-animation";
+import Link from "next/link";
+import TransitionLink from "@/components/transition-link";
 
 const AboutView = () => {
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-about-color">
             {/* back button */}
             <div className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <a href="/" className="flex items-center hover:text-text-about-hover-color">
+                <TransitionLink href="/" className="flex items-center hover:text-text-about-hover-color">
                     <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
                         back
                     </h2>
-                </a>
+                </TransitionLink>
             </div>
 
             {/* title */}
@@ -38,7 +39,7 @@ const AboutView = () => {
                 <br/>
                 <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]"> 
                     At the moment, I&apos;m developing internal tools at
-                    <a href="https://www.spscommerce.com/" target="_blank" className="text-text-about-color hover:text-text-about-hover-color italic"> SPS Commerce </a> 
+                    <Link href="https://www.spscommerce.com/" target="_blank" className="text-text-about-color hover:text-text-about-hover-color italic"> SPS Commerce </Link>
                     as a software engineer intern
                     <span className="text-[10px] sm:text-[12px] md:text-[14px] align-super">
                         &nbsp;{'['}extended&nbsp;through&nbsp;the&nbsp;end&nbsp;of&nbsp;2024{']'}
@@ -53,7 +54,7 @@ const AboutView = () => {
                 </p>
                 <br/>
                 <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.8]">
-                    Feel free to <a href="mailto:josh25dickinson@gmail.com" className="text-text-about-color hover:text-text-about-hover-color italic">reach out</a> if you&apos;d like to chat!
+                    Feel free to <Link href="mailto:josh25dickinson@gmail.com" className="text-text-about-color hover:text-text-about-hover-color italic">reach out</Link> if you&apos;d like to chat!
                 </p>
                 <br/>
                 <div className="flex items-end align-left">
@@ -61,10 +62,6 @@ const AboutView = () => {
                      - Josh
                     </p>
                 </div>
-            </div>
-
-            <div className="blur-sm fade-in-slow">
-                <Ripples view="about" />
             </div>
         </div>
     );

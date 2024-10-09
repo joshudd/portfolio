@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inconsolata } from 'next/font/google'
+// import TransitionProvider from '@/components/transition-provider'
 
 const inconsolata = Inconsolata({
   subsets: ['latin'],
@@ -15,13 +16,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en" className={`${inconsolata.className}`}>
-      <body>
-        <div className="fade-in flex min-h-[400px] min-w-[240px] flex-col justify-center items-center">
+      <body>  
+        <div className="min-h-[400px] min-w-[240px] flex flex-col justify-center items-center">
           {children}
         </div>
       </body>

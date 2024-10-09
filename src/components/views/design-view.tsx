@@ -1,6 +1,8 @@
 "use client"
 
 import React from "react";
+import Link from "next/link";
+import TransitionLink from "@/components/transition-link";
 import useSound from 'use-sound';
 import { Project, projects } from "@/data/projects";
 import { ProjectItem } from "@/components/project-item";
@@ -65,11 +67,11 @@ const DesignView = () => {
         <div className="w-full h-screen flex flex-col justify-center items-center text-text-design-color">
             {/* back button */}
             <div className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}>
-                <a href="/" className="flex items-center hover:text-text-design-hover-color">
+                <TransitionLink href="/" className="flex items-center hover:text-text-design-hover-color">
                     <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
                         back
                     </h2>
-                </a>
+                </TransitionLink>
             </div>
 
             {/* title */}
@@ -88,12 +90,12 @@ const DesignView = () => {
                 </div>
                 <p className="text-[12px] sm:text-[14px] md:text-[16px] leading-[1.8]">
                     Before building out my own projects, I like to have a strong vision for its look + feel.
-                    A lot of my early process is spent in <a href="https://www.figma.com/" target="_blank" className="text-text-design-color hover:text-text-design-hover-color italic">Figma</a>, iterating on layouts.
+                    A lot of my early process is spent in <Link href="https://www.figma.com/" target="_blank" className="text-text-design-color hover:text-text-design-hover-color italic">Figma</Link>, iterating on layouts.
                     I also have experience with user research + testing, and have a strong understanding of design principles. 
                 </p>
                 <br/>
                 <p className="content-start gap-x-4 md:gap-x-8 text-[12px] sm:text-[14px] md:text-[16px] leading-[1.8]">
-                    Some examples of my visual design work can be found here + more on the <a href="/projects" className="text-text-design-color hover:text-text-design-hover-color underline">projects</a> page.
+                    Some examples of my visual design work can be found here + more on the <TransitionLink href="/projects" className="text-text-design-color hover:text-text-design-hover-color underline">projects</TransitionLink> page.
                 </p>
 
                 <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[12px] sm:text-[14px] md:text-[16px] p-5 mb-8">
@@ -126,12 +128,6 @@ const DesignView = () => {
                 </div>
             </div>
 
-            {/* note */}
-            <div className="hidden lg:block fixed bottom-0 left-0 right-0 p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
-                <h2 className="text-[10px] text-center">
-                    designed and built by me
-                </h2>
-            </div>
         </div>
     );
 }
