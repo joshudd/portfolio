@@ -18,22 +18,7 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
   return (
     <div>
       <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
-        {/* back button */}
-        {/* <div
-          className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
-        >
-          <Link
-            href={`/projects?page=${pageNumber}`}
-            className="flex items-center hover:text-text-projects-hover-color"
-          >
-            <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
-              back
-            </h2>
-          </Link>
-        </div> */}
-
-        {/* body */}
-        <div className="mt-6 top-[8vh] w-[80%] max-w-[700px] absolute p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200]">
+        <div className="mt-6 top-[8vh] w-[80%] max-w-[700px] absolute p-4 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <h1 className="text-[22px] sm:text-[24px] md:text-[26px] font-normal">
               {project.name}
@@ -88,7 +73,7 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
         {/* image modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[300]"
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center"
             onClick={() => setSelectedImage(null)}
           >
             <div className="w-[90vw] h-[90vh] flex items-center justify-center">

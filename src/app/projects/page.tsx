@@ -33,7 +33,7 @@ function ProjectsContent({
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
       <div
-        className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200] flex flex-col justify-between"
+        className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm flex flex-col justify-between"
         style={{ minHeight: "50vh" }}
       >
         <div className="flex flex-col flex-wrap gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px]">

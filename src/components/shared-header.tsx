@@ -2,9 +2,13 @@
 
 import Link from "next/link";
 import { linkarrowIcon } from "./icons";
+import { useState } from "react";
+import { Share2, X } from "lucide-react";
 
 // shared header component for all pages
 export default function SharedHeader() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const links = [
     {
       name: "linkedin",
@@ -25,27 +29,31 @@ export default function SharedHeader() {
   ];
 
   return (
-    <div className="fixed top-0 right-0 p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-bl-sm md:rounded-bl-lg backdrop-blur-sm z-[200]">
-      <div className="flex flex-row content-start justify-end gap-x-2 md:gap-x-4 text-[10px] sm:text-[12px] md:text-[14px]">
-        {links.map((link) => (
-          <Link
-            href={link.url}
-            key={link.name}
-            className="py-1 flex items-center hover:text-text-hover-color"
-            target={
-              link.url.startsWith("http") || link.url.startsWith("mailto:")
-                ? "_blank"
-                : undefined
-            }
-            rel={
-              link.url.startsWith("http") ? "noopener noreferrer" : undefined
-            }
-          >
-            <span className="underline">{link.name}</span>
-            {linkarrowIcon()}
-          </Link>
-        ))}
+    <>
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="fixed top-4 right-4 z-[201] p-2 bg-background-transparent-color rounded-md md:hidden"
+      >
+        {isMobileMenuOpen ? <X size={20} /> : <Share2 size={20} />}
+      </button>
+      <div className={`fixed top-0 right-0 md:p-3 lg:p-4 bg-background-transparent-color rounded-bl-sm md:rounded-bl-lg backdrop-blur-sm z-[200] 
+        ${isMobileMenuOpen ? 'w-full h-auto py-16' : 'hidden'} md:block md:w-auto md:h-auto md:py-4`}>
+        <div className={`flex ${isMobileMenuOpen ? 'flex-col items-center' : 'flex-row'} md:flex-row content-start justify-end gap-4 text-[12px] md:text-[14px]`}>
+          {links.map((link) => (
+            <Link
+              href={link.url}
+              key={link.name}
+              className="py-2 flex items-center hover:text-text-hover-color"
+              target={link.url.startsWith("http") || link.url.startsWith("mailto:") ? "_blank" : undefined}
+              rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <span className="underline">{link.name}</span>
+              {linkarrowIcon()}
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
