@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inconsolata } from "next/font/google";
-import TransitionContainer from "@/components/transition/transition-container";
+import { DirectoryExplorer } from "@/components/directory-explorer";
 
 const inconsolata = Inconsolata({
   subsets: ["latin"],
@@ -10,20 +10,21 @@ const inconsolata = Inconsolata({
 });
 
 export const metadata: Metadata = {
-  title: "Joshua Dickinson",
-  description: "Portfolio",
+  title: "Josh Dickinson",
+  description: "Josh Dickinson's Portfolio",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={`${inconsolata.className}`}>
+    <html lang="en" className={inconsolata.className}>
       <body>
-        <div className="min-h-[400px] min-w-[240px] flex flex-col justify-center items-center">
-          <TransitionContainer>{children}</TransitionContainer>
+        <div className="relative min-h-screen w-full flex">
+          <DirectoryExplorer />
+          <div className="flex-1 ml-48">{children}</div>
         </div>
       </body>
     </html>

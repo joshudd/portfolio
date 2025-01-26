@@ -36,9 +36,9 @@ function HomeContent() {
   const [isProjectsHovered, setIsProjectsHovered] = useState(false);
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center text-text-color">
+    <div className="w-full h-screen flex flex-col justify-center items-center text-text-color relative">
       {/* header */}
-      <div className="mb-6 absolute top-[15vh] left-[10vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
+      <div className="mb-6 fixed top-[15vh] left-[calc(12rem_+_2.5vw)] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]">
         <h1 className="text-[26px] sm:text-[28px] md:text-[30px] lg:text-[38px] font-normal">
           hey there, i&apos;m josh!
         </h1>

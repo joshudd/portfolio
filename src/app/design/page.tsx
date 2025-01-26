@@ -92,7 +92,7 @@ function DesignContent() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center text-text-design-color">
       {/* back button */}
-      <div
+      {/* <div
         className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
       >
         <Link
@@ -103,7 +103,7 @@ function DesignContent() {
             back
           </h2>
         </Link>
-      </div>
+      </div> */}
 
       {/* title */}
       <div
