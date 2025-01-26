@@ -4,16 +4,16 @@
 
 /* Color Reference Table */
 :root {
-  --background-color: #EDEAE7;
-  --background-transparent-color: #EDEAE76C;
+  --background-color: #edeae7;
+  --background-transparent-color: #edeae76c;
   --background-item-color: #dfe0ef;
   --text-color: #2c6861;
   --text-hover-color: #75b1aa;
-  --text-projects-color: #5172A2;
+  --text-projects-color: #5172a2;
   --text-projects-light-color: rgba(81, 113, 162, 0.102);
   --text-projects-hover-color: #9baec8;
   --text-about-color: #125124;
-  --text-about-hover-color: #38AD66;
+  --text-about-hover-color: #38ad66;
   --text-design-color: #4e3d18;
   --text-design-hover-color: #a88c5e;
   --background-design-color: #dcd7d1;
@@ -24,12 +24,14 @@ body {
 }
 
 @keyframes pulse {
-  0%, 70%, 100% {
-      opacity: calc(var(--base-opacity, 1) * 0.3);
+  0%,
+  70%,
+  100% {
+    opacity: calc(var(--base-opacity, 1) * 0.3);
   }
   85% {
-      opacity: var(--base-opacity, 0.5);
-      color: var(--text-hover-color);
+    opacity: var(--base-opacity, 0.5);
+    color: var(--text-hover-color);
   }
 }
 
@@ -63,9 +65,15 @@ body {
 }
 
 @keyframes pop {
-  0% { transform: translateY(0); }
-  30% { transform: translateY(-7px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .hidden-icon {
