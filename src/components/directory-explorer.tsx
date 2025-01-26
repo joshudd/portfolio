@@ -21,9 +21,9 @@ export function DirectoryExplorer() {
 
   return (
     <aside
-      className={`transition-all duration-200 ${
+      className={`fixed top-0 left-0 transition-all duration-200 ${
         isExpanded ? "w-48" : "w-12"
-      } min-h-screen bg-background-transparent-color/50 backdrop-blur-sm border-r border-text-about-color/10 px-2 py-4 group/sidebar hover:w-48`}
+      } min-h-screen bg-background-transparent-color/50 backdrop-blur-sm border-zinc-300/30 px-2 py-4 group/sidebar hover:w-48 z-10`}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >

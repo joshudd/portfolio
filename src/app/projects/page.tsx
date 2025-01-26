@@ -32,30 +32,6 @@ function ProjectsContent({
 
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
-      {/* back button */}
-      {/* <div
-        className={`absolute top-[5vh] left-[5vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
-      >
-        <Link
-          href="/"
-          className="flex items-center hover:text-text-projects-hover-color"
-        >
-          <h2 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] underline">
-            back
-          </h2>
-        </Link>
-      </div> */}
-
-      {/* title */}
-      <div
-        className={`absolute top-[5vh] left-[84vw] p-2 md:p-3 lg:p-4 bg-background-transparent-color rounded-sm md:rounded-lg backdrop-blur-sm z-[200]`}
-      >
-        <h1 className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]">
-          projects
-        </h1>
-      </div>
-
-      {/* project list */}
       <div
         className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm z-[200] flex flex-col justify-between"
         style={{ minHeight: "50vh" }}

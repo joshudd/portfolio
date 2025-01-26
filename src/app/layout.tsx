@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inconsolata } from "next/font/google";
-import { DirectoryExplorer } from "@/components/directory-explorer";
+import ClientLayout from "./client-layout";
 
 const inconsolata = Inconsolata({
   subsets: ["latin"],
@@ -22,10 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inconsolata.className}>
       <body>
-        <div className="relative min-h-screen w-full flex">
-          <DirectoryExplorer />
-          <div className="flex-1 ml-48">{children}</div>
-        </div>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
