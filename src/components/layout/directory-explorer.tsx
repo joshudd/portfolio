@@ -22,6 +22,12 @@ export function DirectoryExplorer() {
   const [isProjectsOpen, setIsProjectsOpen] = useState(true);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // mark component as mounted
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // auto expand when mobile menu opens
   useEffect(() => {
@@ -41,6 +47,11 @@ export function DirectoryExplorer() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // prevent flash of mobile menu on ssr
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <>

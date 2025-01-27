@@ -9,20 +9,27 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // init theme from localStorage or system preference
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme") as Theme;
-      if (stored) return stored;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    return "light";
-  });
+// get initial theme from localStorage if available
+const getInitialTheme = (): Theme => {
+  // check if we're in the browser
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem("theme") as Theme;
+    if (stored) return stored;
+  }
+  return "light";
+};
 
-  // update theme class on document and save to localStorage
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme());
+  
+  // check system preference after mount if no stored theme
+  useEffect(() => {
+    if (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setTheme("dark");
+    }
+  }, []);
+
+  // update theme class and storage
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
