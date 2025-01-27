@@ -11,9 +11,69 @@ import {
   ChevronRight,
   AlignLeft,
   X,
+  Code2,
+  Gamepad2,
+  Music4,
+  Brush,
+  Database,
+  Globe,
+  LayoutDashboard,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import React from "react";
+import { projects } from "@/data/projects";
+
+// get icon based on project tools and type
+const getProjectIcon = (tools: string[], name: string) => {
+  // web apps and sites
+  if (tools.includes("Nextjs") || tools.includes("React.js")) {
+    return <Globe size={15} />
+  }
+  // design projects
+  if (tools.includes("Figma") || tools.includes("User Research")) {
+    return <Brush size={15} />
+  }
+  // games
+  if (name.toLowerCase().includes("game") || name === "Sketch with Friends") {
+    return <Gamepad2 size={15} />
+  }
+  // audio/music
+  if (name === "honey" || tools.includes("JUCE")) {
+    return <Music4 size={15} />
+  }
+  // data/backend focused
+  if (tools.includes("Python") || tools.includes("SQLite") || tools.includes("Firebase")) {
+    return <Database size={15} />
+  }
+  // default for other projects
+  return <Code2 size={15} />
+};
+
+// project link component for directory
+const ProjectLink = ({ name, link, isExpanded, isActive, tools }: { 
+  name: string;
+  link: string;
+  isExpanded: boolean;
+  isActive: boolean;
+  tools: string[];
+}) => (
+  <Link
+    href={`/projects/${link}`}
+    className={`flex items-center rounded-md px-2 py-1.5 mb-0.5 directory-item opacity-80 hover:opacity-100
+      ${isActive ? "active opacity-100" : ""}`}
+  >
+    <div className="w-5 flex items-center opacity-70">
+      {getProjectIcon(tools, name)}
+    </div>
+    <span
+      className={`ml-3 overflow-hidden transition-all duration-200 text-[12px] truncate ${
+        isExpanded ? "opacity-100 w-[11rem]" : "w-0 opacity-0"
+      } group-hover/sidebar:opacity-100 group-hover/sidebar:w-[11rem]`}
+    >
+      {name.toLowerCase()}
+    </span>
+  </Link>
+);
 
 export function DirectoryExplorer() {
   const { isHome, isAbout, isDesign, isProjects, currentProject } =
@@ -59,26 +119,26 @@ export function DirectoryExplorer() {
         onClick={() => setIsMobileOpen(!isMobileOpen)}
         className={`md:hidden fixed z-20 p-2 directory-sidebar rounded-md
           ${
-            isMobileOpen ? "left-[200px] top-4" : "left-4 top-4"
+            isMobileOpen ? "left-[230px] top-4" : "left-4 top-4"
           } transition-all duration-200`}
       >
         {isMobileOpen ? <X size={20} /> : <AlignLeft size={20} />}
       </button>
       <aside
         className={`fixed top-0 left-0 transition-all duration-200 directory-sidebar
-          ${isExpanded || isMobileOpen ? "w-48" : "w-12"} 
+          ${isExpanded || isMobileOpen ? "w-56" : "w-12"} 
           ${
             isMobileOpen
               ? "translate-x-0"
               : "-translate-x-full md:translate-x-0"
           }
-          min-h-screen px-2 py-4 group/sidebar hover:w-48 z-10`}
+          min-h-screen px-2 py-4 group/sidebar hover:w-56 z-10`}
         onMouseEnter={() => !isMobileOpen && setIsExpanded(true)}
         onMouseLeave={() => !isMobileOpen && setIsExpanded(false)}
       >
         <div className="text-[13px] font-mono">
           <div
-            className={`mb-2 overflow-hidden whitespace-nowrap directory-item ${
+            className={`mb-3 overflow-hidden whitespace-nowrap directory-item ${
               isExpanded ? "" : "opacity-0"
             } group-hover/sidebar:opacity-70`}
           >
@@ -217,38 +277,16 @@ export function DirectoryExplorer() {
                         isExpanded ? "ml-2" : ""
                       } group-hover/sidebar:ml-2`}
                     >
-                      <Link
-                        href="/projects/transitpal"
-                        className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
-                          ${currentProject === "transitpal" ? "active" : ""}`}
-                      >
-                        <div className="w-5 flex items-center">
-                          <FileText size={16} />
-                        </div>
-                        <span
-                          className={`ml-3 overflow-hidden transition-all duration-200 ${
-                            isExpanded ? "opacity-100 w-auto" : "w-0 opacity-0"
-                          } group-hover/sidebar:opacity-100 group-hover/sidebar:w-auto`}
-                        >
-                          transitpal
-                        </span>
-                      </Link>
-                      <Link
-                        href="/projects/hallplotter"
-                        className={`flex items-center rounded-md px-2 py-1 directory-item
-                          ${currentProject === "hallplotter" ? "active" : ""}`}
-                      >
-                        <div className="w-5 flex items-center">
-                          <FileText size={16} />
-                        </div>
-                        <span
-                          className={`ml-3 overflow-hidden transition-all duration-200 ${
-                            isExpanded ? "opacity-100 w-auto" : "w-0 opacity-0"
-                          } group-hover/sidebar:opacity-100 group-hover/sidebar:w-auto`}
-                        >
-                          hallplotter
-                        </span>
-                      </Link>
+                      {projects.map((project) => (
+                        <ProjectLink
+                          key={project.link}
+                          name={project.name}
+                          link={project.link}
+                          tools={project.tools}
+                          isExpanded={isExpanded}
+                          isActive={currentProject === project.link}
+                        />
+                      ))}
                     </div>
                   )}
                 </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { linkarrowIcon } from "../ui/icons";
 import { Project } from "@/data/projects";
 
@@ -30,10 +31,12 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
                 onClick={() => setSelectedImage(image)}
                 aria-label={`View larger image ${index + 1} of ${project.name}`}
               >
-                <img
+                <Image
                   src={`/images/${image}`}
                   alt={project.name}
                   className="w-full h-full object-cover rounded-lg shadow-md"
+                  width={400}
+                  height={300}
                 />
               </button>
             ))}
@@ -74,10 +77,12 @@ const ProjectDetailView = ({ project }: { project: Project }) => {
             onClick={() => setSelectedImage(null)}
           >
             <div className="w-[90vw] h-[90vh] flex items-center justify-center">
-              <img
+              <Image
                 src={`/images/${selectedImage}`}
                 alt={project.name}
                 className="max-w-full max-h-full w-auto h-auto object-contain"
+                width={1200}
+                height={800}
               />
             </div>
           </div>
