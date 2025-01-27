@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { linkarrowIcon } from "./icons";
+import { linkarrowIcon } from "../ui/icons";
 import { useState } from "react";
 import { Share2, X } from "lucide-react";
 
 // shared header component for all pages
-export default function SharedHeader() {
+export function SharedHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const links = [
@@ -36,8 +36,8 @@ export default function SharedHeader() {
       >
         {isMobileMenuOpen ? <X size={20} /> : <Share2 size={20} />}
       </button>
-      <div className={`fixed top-0 right-0 md:p-3 lg:p-4 bg-background-transparent-color rounded-bl-sm md:rounded-bl-lg backdrop-blur-sm z-[200] 
-        ${isMobileMenuOpen ? 'w-full h-auto py-16' : 'hidden'} md:block md:w-auto md:h-auto md:py-4`}>
+      <div className={`fixed top-0 right-0 md:p-3 lg:p-4 md:bg-background-transparent-color md:backdrop-blur-2xl rounded-bl-sm md:rounded-bl-lg z-[200] 
+        ${isMobileMenuOpen ? 'w-screen h-screen bg-[var(--background)] py-16' : 'hidden'} md:block md:w-auto md:h-auto md:py-4`}>
         <div className={`flex ${isMobileMenuOpen ? 'flex-col items-center' : 'flex-row'} md:flex-row content-start justify-end gap-4 text-[12px] md:text-[14px]`}>
           {links.map((link) => (
             <Link

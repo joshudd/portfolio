@@ -1,7 +1,8 @@
-import "./globals.css";
+import "@/app/styles/globals.css";
 import type { Metadata } from "next";
 import { Inconsolata } from "next/font/google";
-import ClientLayout from "./client-layout";
+
+import ClientLayout from "@/components/layout/client-layout";
 
 const inconsolata = Inconsolata({
   subsets: ["latin"],

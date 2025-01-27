@@ -2,8 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
+
 import TransitionChild from "@/components/transition/transition-child";
-import { ProjectItem } from "@/components/project-item";
+import { ProjectItem } from "@/components/projects/project-item";
 import { projects, Project } from "@/data/projects";
 
 function ProjectsContent({
@@ -14,10 +15,10 @@ function ProjectsContent({
   const currentPage = Number(searchParams?.page ?? "1");
 
   const colorset = {
-    text: "text-text-projects-color",
-    textHover: "text-text-projects-hover-color",
-    background: "bg-background-transparent-color",
-    backgroundHover: "bg-background-transparent-color-hover",
+    text: "link",
+    textHover: "",
+    background: "bg-background-transparent",
+    backgroundHover: "bg-background-transparent-hover",
   };
 
   const projectsPerPage = 6;
@@ -31,12 +32,15 @@ function ProjectsContent({
   const totalPages = Math.ceil(projects.length / projectsPerPage);
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center text-text-projects-color">
-      <div
-        className="mt-6 w-[80%] max-w-[700px] absolute top-[20vh] bg-background-transparent-color rounded-lg backdrop-blur-sm flex flex-col justify-between"
-        style={{ minHeight: "50vh" }}
-      >
-        <div className="flex flex-col flex-wrap gap-x-4 md:gap-x-8 text-[14px] sm:text-[16px] md:text-[18px]">
+    <div className="min-h-screen px-4 sm:px-6 md:px-8 relative">
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto pt-24 sm:pt-48">
+        <div className="flex items-center">
+          <h1 className="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
+            projects &nbsp;
+          </h1>
+        </div>
+
+        <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
           {currentProjects.map((project: Project) => (
             <ProjectItem
               key={project.name}
@@ -44,21 +48,21 @@ function ProjectsContent({
               colorset={colorset}
             />
           ))}
-        </div>
-        <div className="flex justify-center mt-4 pb-4">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <Link
-              key={index}
-              href={`/projects?page=${index + 1}`}
-              className={`mx-1 px-2 py-1 rounded-lg hover:text-text-projects-hover-color ${
-                currentPage === index + 1
-                  ? "bg-background-projects-light-color opacity-70"
-                  : ""
-              }`}
-            >
-              {index + 1}
-            </Link>
-          ))}
+          <div className="flex justify-center mt-4">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <Link
+                key={index}
+                href={`/projects?page=${index + 1}`}
+                className={`mx-1 px-2 py-1 rounded-lg link ${
+                  currentPage === index + 1
+                    ? "bg-background-item opacity-70"
+                    : ""
+                }`}
+              >
+                {index + 1}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>

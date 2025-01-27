@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* base theme colors */
+    --background: #ffffff;
+    --foreground: #2c6861;
+    --foreground-muted: #72c1b8;
+    --background-muted: #e0edeb;
+    --background-item: #dfe0ef;
+    --background-transparent: rgba(237, 234, 231, 0.6);
+    
+    /* overlay colors */
+    --overlay-background: rgba(0, 0, 0, 0.75);
+    --hover-background: rgba(63, 63, 70, 0.2);
+  }
+
+  .dark {
+    /* base theme colors */
+    --background: #1a1a1a;
+    --foreground: #bbdeda;
+    --foreground-muted: #4a827b;
+    --background-muted: #262626;
+    --background-item: #2a2a2a;
+    --background-transparent: rgba(26, 26, 26, 0.6);
+    
+    /* overlay colors */
+    --overlay-background: rgba(0, 0, 0, 0.75);
+    --hover-background: rgba(63, 63, 70, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  70%,
+  100% {
+    opacity: calc(var(--base-opacity, 1) * 0.3);
+  }
+  85% {
+    opacity: var(--base-opacity, 0.5);
+    color: var(--foreground-muted);
+  }
+}
+
+.pulsing-icon {
+  --base-opacity: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.transparent-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+.transparent-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.animate-pop {
+  animation: pop 0.3s ease-out forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hidden-icon {
+  opacity: 0;
+  transition: opacity 0s ease-out;
+}
+
+.hover-trigger:hover .hidden-icon {
+  opacity: 1;
+}
+
+.theme-toggle {
+  background-color: var(--background-muted);
+  color: var(--foreground);
+}
+
+.theme-toggle:hover {
+  background-color: var(--background-muted);
+  opacity: 0.8;
+}
+
+.nav-link {
+  color: var(--foreground);
+}
+
+.nav-link:hover {
+  color: var(--foreground-muted);
+}
+
+.nav-shortcut {
+  color: var(--foreground-muted);
+}
+
+.hover-item {
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.hover-item:hover {
+  opacity: 1;
+  background-color: var(--hover-background);
+}
+
+.modal-overlay {
+  background-color: var(--overlay-background);
+}
+
+.link {
+  color: var(--foreground);
+}
+
+.link:hover {
+  color: var(--foreground-muted);
+}
+
+.directory-item {
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.directory-item:hover {
+  opacity: 1;
+  background-color: var(--hover-background);
+}
+
+.directory-item.active {
+  background-color: var(--background-item);
+}
+
+.directory-sidebar {
+  background-color: var(--background-transparent);
+  backdrop-filter: blur(120px);
+}

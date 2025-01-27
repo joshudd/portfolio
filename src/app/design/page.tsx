@@ -3,9 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import useSound from "use-sound";
+
 import { Project, projects } from "@/data/projects";
-import { ProjectItem } from "@/components/project-item";
-import { playIcon, stopIcon } from "@/components/icons";
+import { playIcon, stopIcon } from "@/components/ui/icons";
+import { ProjectItem } from "@/components/projects/project-item";
 import TransitionChild from "@/components/transition/transition-child";
 
 function DesignContent() {
@@ -14,10 +15,10 @@ function DesignContent() {
     designProjectNames.includes(project.link)
   );
   const colorset = {
-    text: "text-text-design-color",
-    textHover: "text-text-design-hover-color",
-    background: "bg-background-transparent-color",
-    backgroundHover: "bg-background-transparent-color-hover",
+    text: "link",
+    textHover: "",
+    background: "bg-background-transparent",
+    backgroundHover: "bg-background-transparent-hover",
   };
 
   const audioFiles = [
@@ -90,39 +91,39 @@ function DesignContent() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center text-text-design-color">
-      <div className="mt-6 w-[95%] sm:w-[90%] md:w-[80%] max-w-[700px] absolute top-[10vh] p-3 sm:p-4 md:p-6 lg:p-8 bg-background-transparent-color rounded-lg backdrop-blur-sm">
-        <div className="flex items-center mb-3">
-          <h1 className="text-[18px] sm:text-[20px] md:text-[24px] font-normal">
+    <div className="min-h-screen px-4 sm:px-6 md:px-8 relative">
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto pt-24 sm:pt-48">
+        <div className="flex items-center">
+          <h1 className="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
             visual &nbsp;
           </h1>
         </div>
-        <p className="text-[11px] sm:text-[12px] md:text-[16px] leading-[1.8]">
-          Before building out my own projects, I like to have a strong vision
-          for its look + feel. A lot of my early process is spent in{" "}
-          <Link
-            href="https://www.figma.com/"
-            target="_blank"
-            className="text-text-design-color hover:text-text-design-hover-color italic"
-          >
-            Figma
-          </Link>
-          , iterating on layouts. I also have experience with user research +
-          testing, and have a strong understanding of design principles.
-        </p>
-        <br />
-        <p className="content-start gap-x-4 md:gap-x-8 text-[11px] sm:text-[12px] md:text-[16px] leading-[1.8]">
-          Some examples of my visual design work can be found here + more on the{" "}
-          <Link
-            href="/projects"
-            className="text-text-design-color hover:text-text-design-hover-color underline"
-          >
-            projects
-          </Link>{" "}
-          page.
-        </p>
+        <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4 text-[14px] sm:text-[16px] leading-[1.8]">
+          <p>
+            Before building out my own projects, I like to have a strong vision
+            for its look + feel. A lot of my early process is spent in{" "}
+            <Link
+              href="https://www.figma.com/"
+              target="_blank"
+              className="link italic"
+            >
+              Figma
+            </Link>
+            , iterating on layouts. I also have experience with user research +
+            testing, and have a strong understanding of design principles.
+          </p>
 
-        <div className="flex flex-col flex-wrap content-start gap-x-4 md:gap-x-8 text-[11px] sm:text-[12px] md:text-[16px] p-3 sm:p-5 mb-8">
+          <p>
+            Some examples of my visual design work can be found here + more on
+            the{" "}
+            <Link href="/projects" className="link underline">
+              projects
+            </Link>{" "}
+            page.
+          </p>
+        </div>
+
+        <div className="flex flex-col p-3 sm:p-5 mb-12">
           {designProjects.map((project: Project) => (
             <ProjectItem
               key={project.name}
@@ -133,32 +134,37 @@ function DesignContent() {
         </div>
 
         <div className="flex items-center mb-3">
-          <h1 className="text-[18px] sm:text-[20px] md:text-[24px] font-normal">
+          <h1 className="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
             sound &nbsp;
           </h1>
         </div>
-        <p className="flex flex-col flex-wrap content-start text-[11px] sm:text-[12px] md:text-[16px] leading-[1.8]">
-          Aside from visual design, I love to experiment with sound design.
-        </p>
-        <div className="mt-3 w-full overflow-x-auto scrollbar-hide transparent-scrollbar">
-          <div className="flex flex-col sm:flex-row flex-nowrap justify-center gap-3 min-w-max">
-            {audioFiles.map((audioFile, index) => (
-              <div
-                key={audioFile.name}
-                className="inline-flex items-start justify-between mb-2 sm:mb-3 gap-x-4 pl-4 pr-4 py-2 rounded-md bg-background-design-color"
-              >
-                <h3 className="text-[11px] sm:text-[12px] md:text-[16px] font-normal whitespace-nowrap">
-                  {audioFile.name}
-                </h3>
-                <button
-                  onClick={() =>
-                    currentlyPlaying === index ? stopAudio() : playAudio(index)
-                  }
+        <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4 text-[14px] sm:text-[16px] leading-[1.8]">
+          <p>
+            Aside from visual design, I love to experiment with sound design.
+          </p>
+          <div className="mt-3 w-full overflow-x-auto scrollbar-hide transparent-scrollbar">
+            <div className="flex flex-col sm:flex-row flex-nowrap justify-center gap-3 min-w-max">
+              {audioFiles.map((audioFile, index) => (
+                <div
+                  key={audioFile.name}
+                  className="inline-flex items-center justify-between mb-2 sm:mb-3 gap-x-4 pl-4 pr-4 py-2 rounded-md bg-background-item"
                 >
-                  {currentlyPlaying === index ? stopIcon() : playIcon()}
-                </button>
-              </div>
-            ))}
+                  <h3 className="font-normal whitespace-nowrap">
+                    {audioFile.name}
+                  </h3>
+                  <button
+                    onClick={() =>
+                      currentlyPlaying === index
+                        ? stopAudio()
+                        : playAudio(index)
+                    }
+                    className="flex items-center justify-center"
+                  >
+                    {currentlyPlaying === index ? stopIcon() : playIcon()}
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

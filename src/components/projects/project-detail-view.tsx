@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+
 import { linkarrowIcon } from "../ui/icons";
 import { Project } from "@/data/projects";
 

@@ -1,6 +1,7 @@
-import ProjectDetailView from "@/components/views/project-detail-view";
-import TransitionChild from "@/components/transition/transition-child";
 import { notFound } from "next/navigation";
+
+import ProjectDetailView from "@/components/projects/project-detail-view";
+import TransitionChild from "@/components/transition/transition-child";
 import { projects } from "@/data/projects";
 
 export async function generateStaticParams() {

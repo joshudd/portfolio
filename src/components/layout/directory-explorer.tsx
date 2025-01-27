@@ -33,36 +33,42 @@ export function DirectoryExplorer() {
   // close mobile menu on window resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) { // md breakpoint
+      if (window.innerWidth >= 768) {
         setIsMobileOpen(false);
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <>
-      <button 
+      <button
         onClick={() => setIsMobileOpen(!isMobileOpen)}
-        className={`md:hidden fixed z-20 p-2 bg-background-transparent-color/70 backdrop-blur-md rounded-md
-          ${isMobileOpen ? "left-[200px] top-4" : "left-4 top-4"} transition-all duration-200`}
+        className={`md:hidden fixed z-20 p-2 directory-sidebar rounded-md
+          ${
+            isMobileOpen ? "left-[200px] top-4" : "left-4 top-4"
+          } transition-all duration-200`}
       >
         {isMobileOpen ? <X size={20} /> : <AlignLeft size={20} />}
       </button>
       <aside
-        className={`fixed top-0 left-0 transition-all duration-200 
+        className={`fixed top-0 left-0 transition-all duration-200 directory-sidebar
           ${isExpanded || isMobileOpen ? "w-48" : "w-12"} 
-          ${isMobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-          min-h-screen bg-background-transparent-color/70 backdrop-blur-md border-zinc-300/30 px-2 py-4 group/sidebar hover:w-48 z-10`}
+          ${
+            isMobileOpen
+              ? "translate-x-0"
+              : "-translate-x-full md:translate-x-0"
+          }
+          min-h-screen px-2 py-4 group/sidebar hover:w-48 z-10`}
         onMouseEnter={() => !isMobileOpen && setIsExpanded(true)}
         onMouseLeave={() => !isMobileOpen && setIsExpanded(false)}
       >
         <div className="text-[13px] font-mono">
           <div
-            className={`mb-2 opacity-70 overflow-hidden whitespace-nowrap ${
-              isExpanded ? "opacity-70" : "opacity-0"
+            className={`mb-2 overflow-hidden whitespace-nowrap directory-item ${
+              isExpanded ? "" : "opacity-0"
             } group-hover/sidebar:opacity-70`}
           >
             EXPLORER
@@ -73,9 +79,8 @@ export function DirectoryExplorer() {
               <div className="relative">
                 <Link
                   href="/"
-                  className={`group flex items-center rounded-md px-2 py-1 mb-1 ${
-                    isHome ? "bg-zinc-800/30" : ""
-                  } opacity-70 hover:opacity-100 hover:bg-zinc-700/20`}
+                  className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                    ${isHome ? "active" : ""}`}
                 >
                   <div className="w-5 relative flex items-center">
                     <Home
@@ -121,9 +126,8 @@ export function DirectoryExplorer() {
                 >
                   <Link
                     href="/about"
-                    className={`flex items-center rounded-md px-2 py-1 mb-1 ${
-                      isAbout ? "bg-zinc-800/30" : ""
-                    } opacity-70 hover:opacity-100 hover:bg-zinc-700/20`}
+                    className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                      ${isAbout ? "active" : ""}`}
                   >
                     <div className="w-5 flex items-center">
                       <User2 size={16} />
@@ -138,9 +142,8 @@ export function DirectoryExplorer() {
                   </Link>
                   <Link
                     href="/design"
-                    className={`flex items-center rounded-md px-2 py-1 mb-1 ${
-                      isDesign ? "bg-zinc-800/30" : ""
-                    } opacity-70 hover:opacity-100 hover:bg-zinc-700/20`}
+                    className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                      ${isDesign ? "active" : ""}`}
                   >
                     <div className="w-5 flex items-center">
                       <Palette size={16} />
@@ -158,9 +161,8 @@ export function DirectoryExplorer() {
                   <div className="relative">
                     <Link
                       href="/projects"
-                      className={`flex items-center rounded-md px-2 py-1 mb-1 ${
-                        isProjects ? "bg-zinc-800/30" : ""
-                      } opacity-70 hover:opacity-100 hover:bg-zinc-700/20`}
+                      className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                        ${isProjects ? "active" : ""}`}
                     >
                       <div className="w-5 relative flex items-center">
                         <FolderKanban
@@ -206,9 +208,8 @@ export function DirectoryExplorer() {
                     >
                       <Link
                         href="/projects/transitpal"
-                        className={`flex items-center rounded-md px-2 py-1 mb-1 ${
-                          currentProject === "transitpal" ? "bg-zinc-800/30" : ""
-                        } opacity-70 hover:opacity-100 hover:bg-zinc-700/20`}
+                        className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                          ${currentProject === "transitpal" ? "active" : ""}`}
                       >
                         <div className="w-5 flex items-center">
                           <FileText size={16} />
@@ -223,9 +224,8 @@ export function DirectoryExplorer() {
                       </Link>
                       <Link
                         href="/projects/hallplotter"
-                        className={`flex items-center rounded-md px-2 py-1 ${
-                          currentProject === "hallplotter" ? "bg-zinc-800/30" : ""
-                        } opacity-70 hover:opacity-100 hover:bg-zinc-700/20`}
+                        className={`flex items-center rounded-md px-2 py-1 directory-item
+                          ${currentProject === "hallplotter" ? "active" : ""}`}
                       >
                         <div className="w-5 flex items-center">
                           <FileText size={16} />
