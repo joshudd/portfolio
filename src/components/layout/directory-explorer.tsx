@@ -27,30 +27,40 @@ import { projects } from "@/data/projects";
 const getProjectIcon = (tools: string[], name: string) => {
   // web apps and sites
   if (tools.includes("Nextjs") || tools.includes("React.js")) {
-    return <Globe size={15} />
+    return <Globe size={15} />;
   }
   // design projects
   if (tools.includes("Figma") || tools.includes("User Research")) {
-    return <Brush size={15} />
+    return <Brush size={15} />;
   }
   // games
   if (name.toLowerCase().includes("game") || name === "Sketch with Friends") {
-    return <Gamepad2 size={15} />
+    return <Gamepad2 size={15} />;
   }
   // audio/music
   if (name === "honey" || tools.includes("JUCE")) {
-    return <Music4 size={15} />
+    return <Music4 size={15} />;
   }
   // data/backend focused
-  if (tools.includes("Python") || tools.includes("SQLite") || tools.includes("Firebase")) {
-    return <Database size={15} />
+  if (
+    tools.includes("Python") ||
+    tools.includes("SQLite") ||
+    tools.includes("Firebase")
+  ) {
+    return <Database size={15} />;
   }
   // default for other projects
-  return <Code2 size={15} />
+  return <Code2 size={15} />;
 };
 
 // project link component for directory
-const ProjectLink = ({ name, link, isExpanded, isActive, tools }: { 
+const ProjectLink = ({
+  name,
+  link,
+  isExpanded,
+  isActive,
+  tools,
+}: {
   name: string;
   link: string;
   isExpanded: boolean;
@@ -89,10 +99,34 @@ export function DirectoryExplorer() {
     setIsMounted(true);
   }, []);
 
+  // handle clicks outside directory
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      // ignore if not mobile or not open
+      if (!isMobileOpen || window.innerWidth >= 768) return;
+
+      // check if click is outside directory and not on toggle button
+      const directory = document.querySelector(".directory-container");
+      const toggleBtn = document.querySelector(".mobile-toggle");
+      if (
+        !directory?.contains(e.target as Node) &&
+        !toggleBtn?.contains(e.target as Node)
+      ) {
+        setIsMobileOpen(false);
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileOpen]);
+
   // auto expand when mobile menu opens
   useEffect(() => {
     if (isMobileOpen) {
       setIsExpanded(true);
+    } else {
+      setIsExpanded(false);
     }
   }, [isMobileOpen]);
 
@@ -101,6 +135,7 @@ export function DirectoryExplorer() {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMobileOpen(false);
+        setIsExpanded(false);
       }
     };
 
@@ -117,15 +152,31 @@ export function DirectoryExplorer() {
     <>
       <button
         onClick={() => setIsMobileOpen(!isMobileOpen)}
-        className={`md:hidden fixed z-20 p-2 directory-sidebar rounded-md
+        className={`md:hidden fixed z-20 p-2 mobile-toggle rounded-md
           ${
             isMobileOpen ? "left-[230px] top-4" : "left-4 top-4"
           } transition-all duration-200`}
       >
         {isMobileOpen ? <X size={20} /> : <AlignLeft size={20} />}
       </button>
+      {/* semi-transparent overlay */}
+      <div
+        className={`fixed inset-0 bg-black transition-opacity duration-200
+          ${
+            isExpanded || isMobileOpen
+              ? "opacity-20"
+              : "opacity-0 pointer-events-none"
+          }`}
+        onClick={() => {
+          if (isMobileOpen) {
+            setIsMobileOpen(false);
+            setIsExpanded(false);
+          }
+        }}
+        style={{ zIndex: 5 }}
+      />
       <aside
-        className={`fixed top-0 left-0 transition-all duration-200 directory-sidebar
+        className={`fixed top-0 left-0 transition-all duration-200 directory-container directory-sidebar
           ${isExpanded || isMobileOpen ? "w-56" : "w-12"} 
           ${
             isMobileOpen
@@ -156,9 +207,7 @@ export function DirectoryExplorer() {
                   <div className="w-5 relative flex items-center">
                     <Home
                       size={16}
-                      className={`${
-                        isExpanded ? "opacity-0" : "opacity-100"
-                      } group-hover/sidebar:opacity-0`}
+                      className="group-hover:opacity-0 transition-opacity"
                     />
                     <button
                       onClick={(e) => {
@@ -166,9 +215,7 @@ export function DirectoryExplorer() {
                         e.stopPropagation();
                         setIsHomeOpen(!isHomeOpen);
                       }}
-                      className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity ${
-                        isExpanded ? "opacity-100" : ""
-                      } group-hover/sidebar:opacity-100 flex items-center justify-center`}
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
                     >
                       <ChevronRight
                         size={16}
@@ -179,7 +226,7 @@ export function DirectoryExplorer() {
                     </button>
                   </div>
                   <span
-                    className={`ml-3 overflow-hidden transition-all duration-200 ${
+                    className={`ml-2 overflow-hidden transition-all duration-200 ${
                       isExpanded ? "opacity-100 w-auto" : "w-0 opacity-0"
                     } group-hover/sidebar:opacity-100 group-hover/sidebar:w-auto`}
                   >
@@ -192,8 +239,10 @@ export function DirectoryExplorer() {
               {isHomeOpen && (
                 <div
                   className={`${
-                    isExpanded ? "ml-2" : ""
-                  } group-hover/sidebar:ml-2`}
+                    isExpanded
+                      ? "ml-2 pl-1 border-l border-[--hover-background]"
+                      : ""
+                  } group-hover/sidebar:ml-2 group-hover/sidebar:pl-1 group-hover/sidebar:border-l group-hover/sidebar:border-[--hover-background]`}
                 >
                   <Link
                     href="/about"
@@ -204,7 +253,7 @@ export function DirectoryExplorer() {
                       <User2 size={16} />
                     </div>
                     <span
-                      className={`ml-3 overflow-hidden transition-all duration-200 ${
+                      className={`ml-2 overflow-hidden transition-all duration-200 ${
                         isExpanded ? "opacity-100 w-auto" : "w-0 opacity-0"
                       } group-hover/sidebar:opacity-100 group-hover/sidebar:w-auto`}
                     >
@@ -220,7 +269,7 @@ export function DirectoryExplorer() {
                       <Palette size={16} />
                     </div>
                     <span
-                      className={`ml-3 overflow-hidden transition-all duration-200 ${
+                      className={`ml-2 overflow-hidden transition-all duration-200 ${
                         isExpanded ? "opacity-100 w-auto" : "w-0 opacity-0"
                       } group-hover/sidebar:opacity-100 group-hover/sidebar:w-auto`}
                     >
@@ -232,15 +281,13 @@ export function DirectoryExplorer() {
                   <div className="relative">
                     <Link
                       href="/projects"
-                      className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                      className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
                         ${isProjects ? "active" : ""}`}
                     >
                       <div className="w-5 relative flex items-center">
                         <FolderKanban
                           size={16}
-                          className={`${
-                            isExpanded ? "opacity-0" : "opacity-100"
-                          } group-hover/sidebar:opacity-0`}
+                          className="group-hover:opacity-0 transition-opacity"
                         />
                         <button
                           onClick={(e) => {
@@ -248,9 +295,7 @@ export function DirectoryExplorer() {
                             e.stopPropagation();
                             setIsProjectsOpen(!isProjectsOpen);
                           }}
-                          className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity ${
-                            isExpanded ? "opacity-100" : ""
-                          } group-hover/sidebar:opacity-100 flex items-center justify-center`}
+                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
                         >
                           <ChevronRight
                             size={16}
@@ -261,7 +306,7 @@ export function DirectoryExplorer() {
                         </button>
                       </div>
                       <span
-                        className={`ml-3 overflow-hidden transition-all duration-200 ${
+                        className={`ml-2 overflow-hidden transition-all duration-200 ${
                           isExpanded ? "opacity-100 w-auto" : "w-0 opacity-0"
                         } group-hover/sidebar:opacity-100 group-hover/sidebar:w-auto`}
                       >
@@ -274,8 +319,10 @@ export function DirectoryExplorer() {
                   {isProjectsOpen && (
                     <div
                       className={`${
-                        isExpanded ? "ml-2" : ""
-                      } group-hover/sidebar:ml-2`}
+                        isExpanded
+                          ? "pl-1 border-l border-[--hover-background] ml-[8px]"
+                          : ""
+                      } group-hover/sidebar:pl-1 group-hover/sidebar:border-l group-hover/sidebar:border-[--hover-background] group-hover/sidebar:ml-[8px]`}
                     >
                       {projects.map((project) => (
                         <ProjectLink
