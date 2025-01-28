@@ -53,9 +53,9 @@ function ProjectsContent({
               <Link
                 key={index}
                 href={`/projects?page=${index + 1}`}
-                className={`mx-1 px-2 py-1 rounded-lg link ${
+                className={`mx-2 px-3 py-1 rounded-lg link hover-item ${
                   currentPage === index + 1
-                    ? "bg-background-item opacity-70"
+                    ? "highlight-item"
                     : ""
                 }`}
               >

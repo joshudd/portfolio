@@ -189,9 +189,9 @@ export function DirectoryExplorer() {
       >
         <div className="text-[13px] font-mono">
           <div
-            className={`mb-3 overflow-hidden whitespace-nowrap directory-item ${
+            className={`mb-3 overflow-hidden whitespace-nowrap ${
               isExpanded ? "" : "opacity-0"
-            } group-hover/sidebar:opacity-70`}
+            }`}
           >
             EXPLORER
           </div>
