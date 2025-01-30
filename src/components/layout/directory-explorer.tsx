@@ -186,11 +186,11 @@ export function DirectoryExplorer() {
               ? "translate-x-0"
               : "-translate-x-full md:translate-x-0"
           }
-          min-h-screen px-2 py-4 group/sidebar hover:w-56 z-10`}
+          h-screen px-2 py-4 group/sidebar hover:w-56 z-10`}
         onMouseEnter={() => !isMobileOpen && setIsExpanded(true)}
         onMouseLeave={() => !isMobileOpen && setIsExpanded(false)}
       >
-        <div className="text-[13px] font-mono">
+        <div className="text-[13px] font-mono h-full overflow-y-auto">
           <div
             className={`mb-3 overflow-hidden whitespace-nowrap ${
               isExpanded ? "" : "opacity-0"
@@ -244,7 +244,6 @@ export function DirectoryExplorer() {
                 </Link>
               </div>
 
-              {/* home content */}
               {isHomeOpen && (
                 <div
                   className={`${
@@ -298,7 +297,6 @@ export function DirectoryExplorer() {
                     </span>
                   </Link>
 
-                  {/* projects section */}
                   <div className="relative">
                     <Link
                       href="/projects"
@@ -342,7 +340,6 @@ export function DirectoryExplorer() {
                     </Link>
                   </div>
 
-                  {/* projects content */}
                   {isProjectsOpen && (
                     <div
                       className={`${
