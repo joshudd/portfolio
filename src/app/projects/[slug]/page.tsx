@@ -62,9 +62,12 @@ const ProjectDetailContent = ({ project }: { project: Project }) => {
             {project.description}
           </p>
           <br />
-          <div className="flex flex-row content-start justify-end gap-x-2 md:gap-x-4 text-[14px] sm:text-[16px] leading-[1.8]">
+          <div className="flex flex-wrap content-start justify-end gap-x-2 md:gap-x-4 gap-y-2 md:gap-y-4 text-[14px] sm:text-[16px] leading-[1.8]">
             {project.tools?.map((tool, index) => (
-              <div key={tool} className="highlight-item pl-2 pr-2 rounded-lg">
+              <div
+                key={tool}
+                className="highlight-item pl-2 pr-2 rounded-lg whitespace-nowrap"
+              >
                 <p>{tool.toLowerCase()}</p>
               </div>
             ))}
