@@ -39,7 +39,7 @@ export const ProjectItem = ({
     <Link href={`/projects/${project.link}`}>
       <motion.div
         key={project.name}
-        className={`pt-4 pb-4 gap-x-6 md:gap-x-12 lg:gap-x-18 flex items-center max-w-full text-[14px] sm:text-[16px] ${colorset.text} ${colorset.background} hover:${colorset.textHover} hover:${colorset.backgroundHover}`}
+        className={`pt-4 pb-4 gap-x-6 md:gap-x-12 lg:gap-x-18 flex items-center w-full text-[14px] sm:text-[16px] ${colorset.text} ${colorset.background} hover:${colorset.textHover} hover:${colorset.backgroundHover}`}
         ref={itemRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -47,15 +47,15 @@ export const ProjectItem = ({
         animate={{ y: isHovered ? (animateUp ? -2 : 2) : 0 }}
         transition={{ duration: 0.2 }}
       >
-        <div className="w-[120px] md:w-[140px] shrink-0">
+        <div className="w-[180px] shrink-0">
           <span className="block whitespace-nowrap overflow-hidden text-ellipsis">
             {project.name}
           </span>
         </div>
-        <div className="flex-1 min-w-0 px-6">
-          <span className="truncate block">{project.summary}</span>
+        <div className="hidden sm:block flex-1 min-w-0 px-2 sm:px-6">
+          <span className="block truncate">{project.summary}</span>
         </div>
-        <div className="shrink-0">
+        <div className="ml-auto shrink-0">
           <ChevronRight size={18} />
         </div>
       </motion.div>

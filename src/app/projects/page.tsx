@@ -48,21 +48,19 @@ function ProjectsContent({
               colorset={colorset}
             />
           ))}
-          <div className="flex justify-center mt-4">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <Link
-                key={index}
-                href={`/projects?page=${index + 1}`}
-                className={`mx-2 px-3 py-1 rounded-lg link hover-item ${
-                  currentPage === index + 1
-                    ? "highlight-item"
-                    : ""
-                }`}
-              >
-                {index + 1}
-              </Link>
-            ))}
-          </div>
+        </div>
+        <div className="flex justify-center mt-6 sm:mt-8">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <Link
+              key={index}
+              href={`/projects?page=${index + 1}`}
+              className={`mx-2 px-3 py-1 rounded-lg link hover-item ${
+                currentPage === index + 1 ? "highlight-item" : ""
+              }`}
+            >
+              {index + 1}
+            </Link>
+          ))}
         </div>
       </div>
     </div>
