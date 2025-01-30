@@ -77,6 +77,7 @@ function HomeContent() {
             </div>
           ))}
         </nav>
+        <div className="w-full h-[1px] bg-[var(--foreground)] opacity-10 my-6 sm:my-8" />
       </div>
     </div>
   );

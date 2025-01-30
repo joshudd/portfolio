@@ -99,7 +99,7 @@ function DesignContent() {
       <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto py-24 sm:py-48">
         <div className="flex items-center">
           <h1 className="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
-            visual &nbsp;
+            visual design &nbsp;
           </h1>
         </div>
         <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4 text-[14px] sm:text-[16px] leading-[1.8]">
@@ -139,12 +139,12 @@ function DesignContent() {
 
         <div className="flex items-center mb-3">
           <h1 className="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
-            sound &nbsp;
+            sound design &nbsp;
           </h1>
         </div>
         <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4 text-[14px] sm:text-[16px] leading-[1.8]">
           <p>
-            Aside from visual design, I love to experiment with sound design.
+            Aside from visual design, I love to experiment with sound design for fun.
           </p>
           <div className="mt-3 w-full overflow-x-auto scrollbar-hide transparent-scrollbar">
             <div className="flex flex-col sm:flex-row flex-nowrap justify-center gap-3 min-w-max py-3 sm:p-5 ">
