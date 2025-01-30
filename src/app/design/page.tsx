@@ -10,7 +10,11 @@ import { ProjectItem } from "@/components/projects/project-item";
 import TransitionChild from "@/components/transition/transition-child";
 
 function DesignContent() {
-  const designProjectNames = ["runstencil", "honey", "sisterscamelot"];
+  const designProjectNames = [
+    "runstencil",
+    "sisterscamelot",
+    "sketchwithfriends",
+  ];
   const designProjects: Project[] = projects.filter((project) =>
     designProjectNames.includes(project.link)
   );
@@ -143,7 +147,7 @@ function DesignContent() {
             Aside from visual design, I love to experiment with sound design.
           </p>
           <div className="mt-3 w-full overflow-x-auto scrollbar-hide transparent-scrollbar">
-            <div className="flex flex-col sm:flex-row flex-nowrap justify-center gap-3 min-w-max">
+            <div className="flex flex-col sm:flex-row flex-nowrap justify-center gap-3 min-w-max py-3 sm:p-5 ">
               {audioFiles.map((audioFile, index) => (
                 <div
                   key={audioFile.name}

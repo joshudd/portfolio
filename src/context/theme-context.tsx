@@ -21,10 +21,13 @@ const getInitialTheme = (): Theme => {
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme());
-  
+
   // check system preference after mount if no stored theme
   useEffect(() => {
-    if (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (
+      !localStorage.getItem("theme") &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
       setTheme("dark");
     }
   }, []);
