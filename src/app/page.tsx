@@ -52,7 +52,7 @@ function HomeContent() {
             >
               about
             </Link>
-            <span className="hidden sm:inline-flex text-xs items-center justify-center border rounded px-1.5 py-0.5 ml-2 opacity-50 nav-shortcut">
+            <span className="hidden sm:inline-flex text-xs font-bold items-center justify-center rounded px-1.5 py-0.5 ml-2 bg-[var(--foreground)] !text-[var(--background)] nav-shortcut">
               s
             </span>
           </div>
@@ -63,7 +63,7 @@ function HomeContent() {
             >
               design
             </Link>
-            <span className="hidden sm:inline-flex text-xs items-center justify-center border rounded px-1.5 py-0.5 ml-2 opacity-50 nav-shortcut">
+            <span className="hidden sm:inline-flex text-xs font-bold items-center justify-center rounded px-1.5 py-0.5 ml-2 bg-[var(--foreground)] !text-[var(--background)] nav-shortcut">
               d
             </span>
           </div>
@@ -74,7 +74,7 @@ function HomeContent() {
             >
               projects
             </Link>
-            <span className="hidden sm:inline-flex text-xs items-center justify-center border rounded px-1.5 py-0.5 ml-2 opacity-50 nav-shortcut">
+            <span className="hidden sm:inline-flex text-xs font-bold items-center justify-center rounded px-1.5 py-0.5 ml-2 bg-[var(--foreground)] !text-[var(--background)] nav-shortcut">
               f
             </span>
           </div>
