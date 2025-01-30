@@ -33,7 +33,7 @@ function ProjectsContent({
 
   return (
     <div className="min-h-screen px-4 sm:px-6 md:px-8 relative">
-      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto pt-24 sm:pt-48">
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto py-24 sm:py-48">
         <div className="flex items-center">
           <h1 className="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
             projects &nbsp;

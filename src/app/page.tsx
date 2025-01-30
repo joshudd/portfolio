@@ -34,50 +34,48 @@ function ThemeToggle() {
   );
 }
 
+const navItems = [
+  {
+    title: "about",
+    href: "/about",
+    shortcut: "s",
+  },
+  {
+    title: "design",
+    href: "/design",
+    shortcut: "d",
+  },
+  {
+    title: "projects",
+    href: "/projects",
+    shortcut: "f",
+  },
+];
+
 function HomeContent() {
   return (
     <div className="min-h-screen px-4 sm:px-6 md:px-8 relative">
-      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto pt-24 sm:pt-48">
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto py-24 sm:py-48">
         <div className="flex items-center justify-between">
           <h1 className="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px]">
             hey there, i&apos;m josh!
           </h1>
           <ThemeToggle />
         </div>
-        <nav className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
-          <div className="flex items-baseline">
-            <Link
-              href="/about"
-              className="text-base sm:text-lg nav-link transition-colors"
-            >
-              about
-            </Link>
-            <span className="hidden sm:inline-flex text-xs font-bold items-center justify-center rounded px-1.5 py-0.5 ml-2 bg-[var(--foreground)] !text-[var(--background)] nav-shortcut">
-              s
-            </span>
-          </div>
-          <div className="flex items-baseline">
-            <Link
-              href="/design"
-              className="text-base sm:text-lg nav-link transition-colors"
-            >
-              design
-            </Link>
-            <span className="hidden sm:inline-flex text-xs font-bold items-center justify-center rounded px-1.5 py-0.5 ml-2 bg-[var(--foreground)] !text-[var(--background)] nav-shortcut">
-              d
-            </span>
-          </div>
-          <div className="flex items-baseline">
-            <Link
-              href="/projects"
-              className="text-base sm:text-lg nav-link transition-colors"
-            >
-              projects
-            </Link>
-            <span className="hidden sm:inline-flex text-xs font-bold items-center justify-center rounded px-1.5 py-0.5 ml-2 bg-[var(--foreground)] !text-[var(--background)] nav-shortcut">
-              f
-            </span>
-          </div>
+        <nav className="mt-6 sm:mt-8 flex gap-6 sm:gap-8">
+          {navItems.map((item) => (
+            <div key={item.title} className="flex items-baseline">
+              <Link
+                href={item.href}
+                className="text-base sm:text-lg nav-link transition-colors"
+              >
+                {item.title}
+              </Link>
+              <span className="hidden sm:inline-flex text-xs font-bold items-center justify-center rounded px-1.5 py-0.5 ml-2 bg-[var(--foreground)] !text-[var(--background)] nav-shortcut">
+                {item.shortcut}
+              </span>
+            </div>
+          ))}
         </nav>
       </div>
     </div>
