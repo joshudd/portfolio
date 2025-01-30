@@ -60,29 +60,20 @@ const ProjectLink = ({
   isExpanded,
   isActive,
   tools,
+  onMobileClick,
 }: {
   name: string;
   link: string;
   isExpanded: boolean;
   isActive: boolean;
   tools: string[];
+  onMobileClick: () => void;
 }) => (
   <Link
     href={`/projects/${link}`}
     className={`flex items-center rounded-md px-2 py-1.5 mb-0.5 directory-item opacity-80 hover:opacity-100
       ${isActive ? "active opacity-100" : ""}`}
-    onClick={(e) => {
-      // ensure link works on mobile
-      const directory = document.querySelector(".directory-container");
-      if (directory?.classList.contains("-translate-x-0")) {
-        const event = new MouseEvent("mousedown", {
-          bubbles: true,
-          cancelable: true,
-          view: window
-        });
-        document.dispatchEvent(event);
-      }
-    }}
+    onClick={onMobileClick}
   >
     <div className="w-5 flex items-center opacity-70">
       {getProjectIcon(tools, name)}
@@ -213,15 +204,14 @@ export function DirectoryExplorer() {
               <div className="relative">
                 <Link
                   href="/"
-                  className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
-                    ${isHome ? "active" : ""}`}
-                  onClick={(e) => {
-                    // ensure link works on mobile
-                    if (isMobileOpen) {
+                  onClick={() => {
+                    if (window.innerWidth < 768) {
                       setIsMobileOpen(false);
                       setIsExpanded(false);
                     }
                   }}
+                  className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                    ${isHome ? "active" : ""}`}
                 >
                   <div className="w-5 relative flex items-center">
                     <Home
@@ -234,12 +224,11 @@ export function DirectoryExplorer() {
                         e.stopPropagation();
                         setIsHomeOpen(!isHomeOpen);
                       }}
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-                      aria-label="Toggle home section"
+                      className="absolute inset-0 hidden md:flex md:opacity-0 md:group-hover:opacity-100 transition-opacity items-center justify-center"
                     >
                       <ChevronRight
                         size={16}
-                        className={`transform transition-transform ${
+                        className={`transform transition-transform mr-1 ${
                           isHomeOpen ? "rotate-90" : ""
                         }`}
                       />
@@ -266,14 +255,14 @@ export function DirectoryExplorer() {
                 >
                   <Link
                     href="/about"
-                    className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
-                      ${isAbout ? "active" : ""}`}
-                    onClick={(e) => {
-                      if (isMobileOpen) {
+                    onClick={() => {
+                      if (window.innerWidth < 768) {
                         setIsMobileOpen(false);
                         setIsExpanded(false);
                       }
                     }}
+                    className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                      ${isAbout ? "active" : ""}`}
                   >
                     <div className="w-5 flex items-center">
                       <User2 size={16} />
@@ -288,14 +277,14 @@ export function DirectoryExplorer() {
                   </Link>
                   <Link
                     href="/design"
-                    className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
-                      ${isDesign ? "active" : ""}`}
-                    onClick={(e) => {
-                      if (isMobileOpen) {
+                    onClick={() => {
+                      if (window.innerWidth < 768) {
                         setIsMobileOpen(false);
                         setIsExpanded(false);
                       }
                     }}
+                    className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                      ${isDesign ? "active" : ""}`}
                   >
                     <div className="w-5 flex items-center">
                       <Palette size={16} />
@@ -313,14 +302,14 @@ export function DirectoryExplorer() {
                   <div className="relative">
                     <Link
                       href="/projects"
-                      className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
-                        ${isProjects ? "active" : ""}`}
-                      onClick={(e) => {
-                        if (isMobileOpen) {
+                      onClick={() => {
+                        if (window.innerWidth < 768) {
                           setIsMobileOpen(false);
                           setIsExpanded(false);
                         }
                       }}
+                      className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
+                        ${isProjects ? "active" : ""}`}
                     >
                       <div className="w-5 relative flex items-center">
                         <FolderKanban
@@ -333,11 +322,11 @@ export function DirectoryExplorer() {
                             e.stopPropagation();
                             setIsProjectsOpen(!isProjectsOpen);
                           }}
-                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                          className="absolute inset-0 hidden md:flex md:opacity-0 md:group-hover:opacity-100 transition-opacity items-center justify-center"
                         >
                           <ChevronRight
                             size={16}
-                            className={`transform transition-transform ${
+                            className={`transform transition-transform mr-1 ${
                               isProjectsOpen ? "rotate-90" : ""
                             }`}
                           />
@@ -370,6 +359,12 @@ export function DirectoryExplorer() {
                           tools={project.tools}
                           isExpanded={isExpanded}
                           isActive={currentProject === project.link}
+                          onMobileClick={() => {
+                            if (window.innerWidth < 768) {
+                              setIsMobileOpen(false);
+                              setIsExpanded(false);
+                            }
+                          }}
                         />
                       ))}
                     </div>
