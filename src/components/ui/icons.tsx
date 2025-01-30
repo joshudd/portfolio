@@ -63,8 +63,4 @@ const stopIcon = () => {
   );
 };
 
-export {
-  linkarrowIcon,
-  playIcon,
-  stopIcon,
-};
+export { linkarrowIcon, playIcon, stopIcon };

@@ -11,6 +11,17 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    link: "sketchwithfriends",
+    name: "Sketch with Friends",
+    description:
+      "Sketch with Friends is a real-time, multiplayer, web-based drawing game. Players take turns drawing and guessing words with their friends or people from around the world!",
+    summary: "real-time multiplayer drawing and guessing game",
+    tools: ["Go", "React.js"],
+    images: ["sketchwithfriends-demo.gif"],
+    external_link: "https://sketchwithfriends.com",
+    display_link: "sketchwithfriends.com",
+  },
+  {
     link: "honey",
     name: "honey",
     description:
@@ -21,18 +32,6 @@ export const projects: Project[] = [
     images: ["honey.png"],
     external_link: "",
     display_link: "",
-  },
-  {
-    link: "sketchwithfriends",
-    name: "Sketch with Friends",
-    description:
-      "Developing a multiplayer drawing game with a friend. " +
-      "Players take turns drawing and guessing each other's drawings. The real-time logic is built with Go, and the frontend is built with React.js.",
-    summary: "online collaborative drawing game",
-    tools: ["Go", "React.js"],
-    images: ["sketchwithfriends.png"],
-    external_link: null,
-    display_link: null,
   },
   {
     link: "transitpal",
@@ -60,12 +59,22 @@ export const projects: Project[] = [
     link: "portfolio",
     name: "Portfolio",
     summary: "this website!",
-    description:
-      "The website you're looking at!",
+    description: "The website you're looking at, designed and built by me :)",
     tools: ["Nextjs", "TailwindCSS"],
     images: null,
     external_link: "https://github.com/joshudd/portfolio",
     display_link: "github.com/joshudd/portfolio",
+  },
+  {
+    link: "runstencil",
+    name: "RunStencil",
+    summary: "running utility app UI design",
+    description:
+      "Designed a tracking app for runners from start to finish with a team of 5. A couple rounds of user research and testing were done to make sure we were meeting the needs of the users.",
+    tools: ["Figma", "User Research"],
+    images: ["runstencil_1.png", "runstencil_2.png"],
+    external_link: null,
+    display_link: null,
   },
   {
     link: "sisterscamelot",
@@ -86,17 +95,6 @@ export const projects: Project[] = [
       'A Monday.com app that I built for a client. It adds functionality to "date" columns in Monday boards that were previously lacking.',
     tools: ["React.js", "GraphQL", "Monday.com API"],
     images: null,
-    external_link: null,
-    display_link: null,
-  },
-  {
-    link: "runstencil",
-    name: "RunStencil",
-    summary: "running utility app UI design",
-    description:
-      "Designed a tracking app for runners from start to finish with a team of 5. A couple rounds of user research and testing were done to make sure we were meeting the needs of the users.",
-    tools: ["Figma", "User Research"],
-    images: ["runstencil_1.png", "runstencil_2.png"],
     external_link: null,
     display_link: null,
   },

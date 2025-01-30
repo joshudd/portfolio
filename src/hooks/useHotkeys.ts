@@ -8,8 +8,8 @@ export const useHotkeys = () => {
     // handle keyboard shortcuts
     const handleKeyPress = (e: KeyboardEvent) => {
       if (document.activeElement?.tagName === 'INPUT') return; // ignore if typing in input
-      
-      switch(e.key.toLowerCase()) {
+
+      switch (e.key.toLowerCase()) {
         case 'a': router.push('/'); break;
         case 's': router.push('/about'); break;
         case 'd': router.push('/design'); break;

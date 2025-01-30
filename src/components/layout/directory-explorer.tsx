@@ -60,17 +60,20 @@ const ProjectLink = ({
   isExpanded,
   isActive,
   tools,
+  onMobileClick,
 }: {
   name: string;
   link: string;
   isExpanded: boolean;
   isActive: boolean;
   tools: string[];
+  onMobileClick: () => void;
 }) => (
   <Link
     href={`/projects/${link}`}
     className={`flex items-center rounded-md px-2 py-1.5 mb-0.5 directory-item opacity-80 hover:opacity-100
       ${isActive ? "active opacity-100" : ""}`}
+    onClick={onMobileClick}
   >
     <div className="w-5 flex items-center opacity-70">
       {getProjectIcon(tools, name)}
@@ -183,11 +186,11 @@ export function DirectoryExplorer() {
               ? "translate-x-0"
               : "-translate-x-full md:translate-x-0"
           }
-          min-h-screen px-2 py-4 group/sidebar hover:w-56 z-10`}
+          h-screen px-2 py-4 group/sidebar hover:w-56 z-10`}
         onMouseEnter={() => !isMobileOpen && setIsExpanded(true)}
         onMouseLeave={() => !isMobileOpen && setIsExpanded(false)}
       >
-        <div className="text-[13px] font-mono">
+        <div className="text-[13px] font-mono h-full overflow-y-auto">
           <div
             className={`mb-3 overflow-hidden whitespace-nowrap ${
               isExpanded ? "" : "opacity-0"
@@ -201,6 +204,12 @@ export function DirectoryExplorer() {
               <div className="relative">
                 <Link
                   href="/"
+                  onClick={() => {
+                    if (window.innerWidth < 768) {
+                      setIsMobileOpen(false);
+                      setIsExpanded(false);
+                    }
+                  }}
                   className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
                     ${isHome ? "active" : ""}`}
                 >
@@ -215,11 +224,11 @@ export function DirectoryExplorer() {
                         e.stopPropagation();
                         setIsHomeOpen(!isHomeOpen);
                       }}
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                      className="absolute inset-0 hidden md:flex md:opacity-0 md:group-hover:opacity-100 transition-opacity items-center justify-center"
                     >
                       <ChevronRight
                         size={16}
-                        className={`transform transition-transform ${
+                        className={`transform transition-transform mr-1 ${
                           isHomeOpen ? "rotate-90" : ""
                         }`}
                       />
@@ -235,7 +244,6 @@ export function DirectoryExplorer() {
                 </Link>
               </div>
 
-              {/* home content */}
               {isHomeOpen && (
                 <div
                   className={`${
@@ -246,6 +254,12 @@ export function DirectoryExplorer() {
                 >
                   <Link
                     href="/about"
+                    onClick={() => {
+                      if (window.innerWidth < 768) {
+                        setIsMobileOpen(false);
+                        setIsExpanded(false);
+                      }
+                    }}
                     className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
                       ${isAbout ? "active" : ""}`}
                   >
@@ -262,6 +276,12 @@ export function DirectoryExplorer() {
                   </Link>
                   <Link
                     href="/design"
+                    onClick={() => {
+                      if (window.innerWidth < 768) {
+                        setIsMobileOpen(false);
+                        setIsExpanded(false);
+                      }
+                    }}
                     className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
                       ${isDesign ? "active" : ""}`}
                   >
@@ -277,10 +297,15 @@ export function DirectoryExplorer() {
                     </span>
                   </Link>
 
-                  {/* projects section */}
                   <div className="relative">
                     <Link
                       href="/projects"
+                      onClick={() => {
+                        if (window.innerWidth < 768) {
+                          setIsMobileOpen(false);
+                          setIsExpanded(false);
+                        }
+                      }}
                       className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
                         ${isProjects ? "active" : ""}`}
                     >
@@ -295,11 +320,11 @@ export function DirectoryExplorer() {
                             e.stopPropagation();
                             setIsProjectsOpen(!isProjectsOpen);
                           }}
-                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                          className="absolute inset-0 hidden md:flex md:opacity-0 md:group-hover:opacity-100 transition-opacity items-center justify-center"
                         >
                           <ChevronRight
                             size={16}
-                            className={`transform transition-transform ${
+                            className={`transform transition-transform mr-1 ${
                               isProjectsOpen ? "rotate-90" : ""
                             }`}
                           />
@@ -315,7 +340,6 @@ export function DirectoryExplorer() {
                     </Link>
                   </div>
 
-                  {/* projects content */}
                   {isProjectsOpen && (
                     <div
                       className={`${
@@ -332,6 +356,12 @@ export function DirectoryExplorer() {
                           tools={project.tools}
                           isExpanded={isExpanded}
                           isActive={currentProject === project.link}
+                          onMobileClick={() => {
+                            if (window.innerWidth < 768) {
+                              setIsMobileOpen(false);
+                              setIsExpanded(false);
+                            }
+                          }}
                         />
                       ))}
                     </div>

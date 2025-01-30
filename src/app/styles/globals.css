@@ -123,7 +123,7 @@
 }
 
 .nav-shortcut {
-  color: var(--foreground-muted);
+  /* removing color definition */
 }
 
 .hover-item {
