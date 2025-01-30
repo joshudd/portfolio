@@ -71,6 +71,18 @@ const ProjectLink = ({
     href={`/projects/${link}`}
     className={`flex items-center rounded-md px-2 py-1.5 mb-0.5 directory-item opacity-80 hover:opacity-100
       ${isActive ? "active opacity-100" : ""}`}
+    onClick={(e) => {
+      // ensure link works on mobile
+      const directory = document.querySelector(".directory-container");
+      if (directory?.classList.contains("-translate-x-0")) {
+        const event = new MouseEvent("mousedown", {
+          bubbles: true,
+          cancelable: true,
+          view: window
+        });
+        document.dispatchEvent(event);
+      }
+    }}
   >
     <div className="w-5 flex items-center opacity-70">
       {getProjectIcon(tools, name)}
@@ -203,6 +215,13 @@ export function DirectoryExplorer() {
                   href="/"
                   className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
                     ${isHome ? "active" : ""}`}
+                  onClick={(e) => {
+                    // ensure link works on mobile
+                    if (isMobileOpen) {
+                      setIsMobileOpen(false);
+                      setIsExpanded(false);
+                    }
+                  }}
                 >
                   <div className="w-5 relative flex items-center">
                     <Home
@@ -216,6 +235,7 @@ export function DirectoryExplorer() {
                         setIsHomeOpen(!isHomeOpen);
                       }}
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                      aria-label="Toggle home section"
                     >
                       <ChevronRight
                         size={16}
@@ -248,6 +268,12 @@ export function DirectoryExplorer() {
                     href="/about"
                     className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
                       ${isAbout ? "active" : ""}`}
+                    onClick={(e) => {
+                      if (isMobileOpen) {
+                        setIsMobileOpen(false);
+                        setIsExpanded(false);
+                      }
+                    }}
                   >
                     <div className="w-5 flex items-center">
                       <User2 size={16} />
@@ -264,6 +290,12 @@ export function DirectoryExplorer() {
                     href="/design"
                     className={`flex items-center rounded-md px-2 py-1 mb-1 directory-item
                       ${isDesign ? "active" : ""}`}
+                    onClick={(e) => {
+                      if (isMobileOpen) {
+                        setIsMobileOpen(false);
+                        setIsExpanded(false);
+                      }
+                    }}
                   >
                     <div className="w-5 flex items-center">
                       <Palette size={16} />
@@ -283,6 +315,12 @@ export function DirectoryExplorer() {
                       href="/projects"
                       className={`group flex items-center rounded-md px-2 py-1 mb-1 directory-item
                         ${isProjects ? "active" : ""}`}
+                      onClick={(e) => {
+                        if (isMobileOpen) {
+                          setIsMobileOpen(false);
+                          setIsExpanded(false);
+                        }
+                      }}
                     >
                       <div className="w-5 relative flex items-center">
                         <FolderKanban
