@@ -22,7 +22,7 @@ function AboutContent() {
           </p>
 
           <p>
-            I recently finished an internship at
+            I&apos;m currently interning at
             <Link
               href="https://www.spscommerce.com/"
               target="_blank"
@@ -31,7 +31,16 @@ function AboutContent() {
               {" "}
               SPS Commerce{" "}
             </Link>
-            as a software engineer intern developing internal tools.
+            as a cloud operations engineer, building org-wide AWS infrastructure automation and tooling.
+            <span className="text-[10px] sm:text-[12px] md:text-[14px] align-super">
+              &nbsp;{"["}
+              January - May 2025
+              {"]"}
+            </span>
+          </p>
+
+          <p>
+            Previously, I worked at SPS Commerce as a software engineer intern developing internal tools.
             <span className="text-[10px] sm:text-[12px] md:text-[14px] align-super">
               &nbsp;{"["}
               June - December 2024
