@@ -14,7 +14,7 @@ export const projects: Project[] = [
     link: "wave",
     name: "Wave",
     description:
-      "1st Place Winner at MinneHack '25! Wave is a social music discovery platform that transforms Spotify listening data into interactive 3D visualizations called 'ripples'. Using custom clustering algorithms, it creates dynamic music communities based on genre patterns, enabling users to discover like-minded listeners and organize concerts.",
+      "1st Place Winner at MinneHack '25! Wave is a social music discovery platform that transforms Spotify listening data into interactive 3D visualizations called 'ripples'. Using custom clustering algorithms, it creates dynamic music communities based on genre patterns, enabling users to discover like-minded listeners and organize concert outings.",
     summary: "social music discovery platform with 3D visualizations",
     tools: ["Next.js", "React", "Three.js", "PostgreSQL", "TypeScript"],
     images: null,
