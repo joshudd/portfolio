@@ -11,6 +11,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    link: "wave",
+    name: "Wave",
+    description:
+      "1st Place Winner at MinneHack '25! Wave is a social music discovery platform that transforms Spotify listening data into interactive 3D visualizations called 'ripples'. Using custom clustering algorithms, it creates dynamic music communities based on genre patterns, enabling users to discover like-minded listeners and organize concert outings.",
+    summary: "social music discovery platform with 3D visualizations",
+    tools: ["Next.js", "React", "Three.js", "PostgreSQL", "TypeScript"],
+    images: null,
+    external_link: null,
+    display_link: null,
+  },
+  {
+    link: "ai-ethics-chat",
+    name: "Self-Hosted AI Ethics Chat",
+    description:
+      "A RAG-enabled AI chat application that analyzes ethical questions through six distinct philosophical frameworks (utilitarian, justice, rights, common good, virtue, and care ethics). Built with Flask, WebSockets for real-time streaming, ChromaDB for vector search, and Ollama for local LLM inference. Features automatic document indexing, conversation persistence, and containerized deployment with Docker Compose.",
+    summary: "RAG-powered ethics analysis chat system",
+    tools: ["Python", "Flask", "Ollama", "ChromaDB", "Docker", "WebSocket"],
+    images: null,
+    external_link: null,
+    display_link: null,
+  },
+  {
     link: "sketchwithfriends",
     name: "Sketch with Friends",
     description:
@@ -22,8 +44,41 @@ export const projects: Project[] = [
     display_link: "sketchwithfriends.com",
   },
   {
-    link: "honey",
-    name: "honey",
+    link: "ape-cli",
+    name: "ape-cli",
+    description:
+      "A Python CLI tool that automatically syncs climbing workout data from Kilterboard to Notion. Features intelligent polling with adaptive backoff, local caching for performance, and journal-style formatting that preserves user notes. Built for climbers who want automated workout tracking.",
+    summary: "automated climbing workout tracker",
+    tools: ["Python", "Notion API", "Kilterboard API"],
+    images: null,
+    external_link: null,
+    display_link: null,
+  },
+  {
+    link: "vaul7",
+    name: "vaul7",
+    description:
+      "A native macOS application for Logic Pro users featuring real-time audio waveform visualization, file tree browsing, and AppleScript integration. Built with SwiftUI and AVFoundation, it streamlines audio sample selection and management for music production workflows.",
+    summary: "macOS audio file manager for Logic Pro",
+    tools: ["Swift", "SwiftUI", "AVFoundation"],
+    images: null,
+    external_link: null,
+    display_link: null,
+  },
+  {
+    link: "midi-controller",
+    name: "BLE MIDI Controller",
+    description:
+      "An embedded MIDI step sequencer built on AVR microcontroller with Bluetooth Low Energy wireless connectivity. Features 8-step sequencing, real-time parameter editing, and an OLED display + other peripherals.",
+    summary: "embedded BLE MIDI step sequencer",
+    tools: ["C", "AVR", "Bluetooth LE", "Embedded Systems"],
+    images: null,
+    external_link: null,
+    display_link: null,
+  },
+  {
+    link: "vst-plugin",
+    name: "VST Plugin",
     description:
       "A plug-in that I built and use to make music. " +
       "Creating something simple, but also powerful has been very rewarding. Through this project, I've learned so much about audio programming, digital signal processing (specifically Reverb and Bitcrusher algorithms), and the JUCE framework. The UI is built with React.js.",
@@ -32,6 +87,17 @@ export const projects: Project[] = [
     images: ["honey.png"],
     external_link: "",
     display_link: "",
+  },
+  {
+    link: "drone-sim",
+    name: "Drone Transit Simulation",
+    description:
+      "A full-stack simulation system featuring autonomous drone package delivery with real-time 3D visualization. Built with C++ backend using WebSocket communication and TypeScript/Three.js frontend, implementing multiple pathfinding algorithms (A*, BFS, DFS, Dijkstra) for route optimization.",
+    summary: "real-time 3D transit simulation",
+    tools: ["C++", "TypeScript", "Three.js", "WebSocket"],
+    images: null,
+    external_link: null,
+    display_link: null,
   },
   {
     link: "transitpal",
