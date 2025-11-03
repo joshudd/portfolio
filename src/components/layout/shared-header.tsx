@@ -19,10 +19,6 @@ export function SharedHeader() {
       url: "https://github.com/joshudd",
     },
     {
-      name: "resume",
-      url: "/Joshua Dickinson Resume - Fall 2024.pdf",
-    },
-    {
       name: "email",
       url: "mailto:josh25dickinson@gmail.com",
     },
