@@ -69,7 +69,7 @@ export const projects: Project[] = [
     link: "midi-controller",
     name: "BLE MIDI Controller",
     description:
-      "An embedded MIDI step sequencer built on AVR microcontroller with Bluetooth Low Energy wireless connectivity. Features 8-step sequencing, real-time parameter editing, OLED display, and custom clustering algorithms for audio analysis.",
+      "An embedded MIDI step sequencer built on AVR microcontroller with Bluetooth Low Energy wireless connectivity. Features 8-step sequencing, real-time parameter editing, and an OLED display + other peripherals.",
     summary: "embedded BLE MIDI step sequencer",
     tools: ["C", "AVR", "Bluetooth LE", "Embedded Systems"],
     images: null,
