@@ -22,7 +22,7 @@ function AboutContent() {
           </p>
 
           <p>
-            Currently, I&apos;m interning at
+            I am also an intern at
             <Link
               href="https://www.spscommerce.com/"
               target="_blank"
